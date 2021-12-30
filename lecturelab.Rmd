@@ -1,0 +1,114 @@
+---
+title: "Lecture & Lab Materials"
+author: "Andrew MacDonald"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Lectures
+
+## Unit 1: Distributions
+
+### Class Welcome
+
+* Recording: 
+
+### Characteristics of Distributions
+
+* Lecture webpage: 
+* Recording: 
+* Quality YouTube content: [Tidyverse music video](https://www.youtube.com/watch?v=p8Py9C8iq2s&ab_channel=TheRaf)
+
+### Comparing distributions and the Normal distribution
+
+* Lecture webpage: 
+* Recording: 
+
+## Unit 2: Relationships Between Variables
+
+### Association and Correlation
+
+* Lecture webpage: 
+* Recording: 
+
+### Simple Linear Regression
+
+* Lecture webpage: 
+* Recording:
+
+### Regression Wisdom
+
+* Lecture webpage:
+* Recording:
+
+### Multiple Regression
+
+* Lecture webpage: 
+* Recording: 
+
+## Unit 3: Measuring Uncertainty
+
+### Confidence Intervals - Proportions
+
+* Lecture webpage: 
+* Recording: 
+
+### Confidence Intervals - Means
+
+* Lecture webpage: 
+* Recording: 
+
+### Hypothesis Testing
+
+* Lecture webpage: 
+* Recording: 
+
+### Hypothesis Testing Wisdom
+
+* Lecture webpage: 
+* Recording: 
+
+## Unit 4: Statistical Inference
+
+### Comparing Groups
+
+* Lecture webpage: 
+* Recording: 
+
+### Returning to Regression
+
+* Lecture webpage: 
+* Recording: 
+
+# Labs
+
+## Week 1: R and RMarkdown
+
+* Lab files: Lab 1 - R Markdown
+  + Make sure to extract (unzip) the lab files before attempting to modify them!
+
+## Week 2: Exploratory Data Analysis
+
+* Lab files: Lab 2 - Exploratory Data Analysis
+
+## Week 3: Association and Correlation
+
+* Lab files: Lab 3 - Association and Correlation
+
+## Week 4: Regression Interpretation
+
+* Lab files Lab 4 - Regression Interpretation
+
+## Week 5: Hypothesis Testing
+
+* Lab files Lab 5 - Hypothesis Testing
+
+## Week 6: Sampling Distribution
+
+* Lab files Lab 6 - Sampling Distribution
+
+## Week 7: Model Building
+
+* Lab files: Lab 7 - Model Building

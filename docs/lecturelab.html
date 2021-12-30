@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+        <meta name="author" content="Andrew MacDonald" />
+    
+    
+    <title>Lecture &amp; Lab Materials</title>
+
+        <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+        <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="site_libs/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="site_libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+        <script src="site_libs/navigation-1.1/tabsets.js"></script>
+        <link href="site_libs/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+        <script src="site_libs/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+        <link href="site_libs/readthedown-0.1/readthedown.css" rel="stylesheet" />
+        <link href="site_libs/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+        <script src="site_libs/readthedown-0.1/readthedown.js"></script>
+        <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+        <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    
+    
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+         <!-- readthedown start -->   
+   <div id="content" data-toggle="wy-nav-shift">
+     <nav id="nav-top" role="navigation" aria-label="top navigation">
+       <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+     </nav>
+         
+   
+      
+      <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">DKU Stats 101 - Spring 2022</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li>
+        <a href="index.html">Course Introduction</a>
+      </li>
+      <li>
+        <a href="coursepolicies.html">Course Policies</a>
+      </li>
+      <li>
+        <a href="lecturelab.html">Lecture &amp; Lab Materials</a>
+      </li>
+      <li>
+        <a href="homework.html">Homework</a>
+      </li>
+      <li>
+        <a href="rmanual.html">R Help Manual</a>
+      </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+        <a href="https://github.com/andrewmacd/dkustats101spring2022">
+          <span class="fa fa-github fa-lg"></span>
+           
+        </a>
+      </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+      </div><!--/.navbar -->
+        
+      <h1 class="title">Lecture &amp; Lab Materials</h1>
+      
+         <!-- readthedown authors -->
+   <div id="sidebar">
+    <h2><a href="#content">Lecture &amp; Lab Materials</a></h2>
+    <div id="toc">
+      <ul>
+      <li><a href="#lectures">Lectures</a>
+      <ul>
+      <li><a href="#unit-1-distributions">Unit 1: Distributions</a></li>
+      <li><a href="#unit-2-relationships-between-variables">Unit 2: Relationships Between Variables</a></li>
+      <li><a href="#unit-3-measuring-uncertainty">Unit 3: Measuring Uncertainty</a></li>
+      <li><a href="#unit-4-statistical-inference">Unit 4: Statistical Inference</a></li>
+      </ul></li>
+      <li><a href="#labs">Labs</a>
+      <ul>
+      <li><a href="#week-1-r-and-rmarkdown">Week 1: R and RMarkdown</a></li>
+      <li><a href="#week-2-exploratory-data-analysis">Week 2: Exploratory Data Analysis</a></li>
+      <li><a href="#week-3-association-and-correlation">Week 3: Association and Correlation</a></li>
+      <li><a href="#week-4-regression-interpretation">Week 4: Regression Interpretation</a></li>
+      <li><a href="#week-5-hypothesis-testing">Week 5: Hypothesis Testing</a></li>
+      <li><a href="#week-6-sampling-distribution">Week 6: Sampling Distribution</a></li>
+      <li><a href="#week-7-model-building">Week 7: Model Building</a></li>
+      </ul></li>
+      </ul>
+    </div>
+    <div id="postamble" data-toggle="wy-nav-shift" class="status">
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> Andrew MacDonald</p>
+                      </div>
+   </div>
+     
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div id="main">
+<div id="lectures" class="section level1">
+<h1>Lectures</h1>
+<div id="unit-1-distributions" class="section level2">
+<h2>Unit 1: Distributions</h2>
+<div id="class-welcome" class="section level3">
+<h3>Class Welcome</h3>
+<ul>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="characteristics-of-distributions" class="section level3">
+<h3>Characteristics of Distributions</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+<li>Quality YouTube content: <a href="https://www.youtube.com/watch?v=p8Py9C8iq2s&amp;ab_channel=TheRaf">Tidyverse music video</a></li>
+</ul>
+</div>
+<div id="comparing-distributions-and-the-normal-distribution" class="section level3">
+<h3>Comparing distributions and the Normal distribution</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+</div>
+<div id="unit-2-relationships-between-variables" class="section level2">
+<h2>Unit 2: Relationships Between Variables</h2>
+<div id="association-and-correlation" class="section level3">
+<h3>Association and Correlation</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="simple-linear-regression" class="section level3">
+<h3>Simple Linear Regression</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="regression-wisdom" class="section level3">
+<h3>Regression Wisdom</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="multiple-regression" class="section level3">
+<h3>Multiple Regression</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+</div>
+<div id="unit-3-measuring-uncertainty" class="section level2">
+<h2>Unit 3: Measuring Uncertainty</h2>
+<div id="confidence-intervals---proportions" class="section level3">
+<h3>Confidence Intervals - Proportions</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="confidence-intervals---means" class="section level3">
+<h3>Confidence Intervals - Means</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="hypothesis-testing" class="section level3">
+<h3>Hypothesis Testing</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="hypothesis-testing-wisdom" class="section level3">
+<h3>Hypothesis Testing Wisdom</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+</div>
+<div id="unit-4-statistical-inference" class="section level2">
+<h2>Unit 4: Statistical Inference</h2>
+<div id="comparing-groups" class="section level3">
+<h3>Comparing Groups</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+<div id="returning-to-regression" class="section level3">
+<h3>Returning to Regression</h3>
+<ul>
+<li>Lecture webpage:</li>
+<li>Recording:</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="labs" class="section level1">
+<h1>Labs</h1>
+<div id="week-1-r-and-rmarkdown" class="section level2">
+<h2>Week 1: R and RMarkdown</h2>
+<ul>
+<li>Lab files: Lab 1 - R Markdown
+<ul>
+<li>Make sure to extract (unzip) the lab files before attempting to modify them!</li>
+</ul></li>
+</ul>
+</div>
+<div id="week-2-exploratory-data-analysis" class="section level2">
+<h2>Week 2: Exploratory Data Analysis</h2>
+<ul>
+<li>Lab files: Lab 2 - Exploratory Data Analysis</li>
+</ul>
+</div>
+<div id="week-3-association-and-correlation" class="section level2">
+<h2>Week 3: Association and Correlation</h2>
+<ul>
+<li>Lab files: Lab 3 - Association and Correlation</li>
+</ul>
+</div>
+<div id="week-4-regression-interpretation" class="section level2">
+<h2>Week 4: Regression Interpretation</h2>
+<ul>
+<li>Lab files Lab 4 - Regression Interpretation</li>
+</ul>
+</div>
+<div id="week-5-hypothesis-testing" class="section level2">
+<h2>Week 5: Hypothesis Testing</h2>
+<ul>
+<li>Lab files Lab 5 - Hypothesis Testing</li>
+</ul>
+</div>
+<div id="week-6-sampling-distribution" class="section level2">
+<h2>Week 6: Sampling Distribution</h2>
+<ul>
+<li>Lab files Lab 6 - Sampling Distribution</li>
+</ul>
+</div>
+<div id="week-7-model-building" class="section level2">
+<h2>Week 7: Model Building</h2>
+<ul>
+<li>Lab files: Lab 7 - Model Building</li>
+</ul>
+</div>
+</div>
+</div>
+
+   
+   
+            
+      
+
+  <script>
+    $(document).ready(function () {
+
+			
+ 		
+	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,22 @@
+name: "dku-stats-101"
+navbar:
+  title: "DKU Stats 101 - Spring 2022"
+  left:
+    - text: "Course Introduction"
+      href: index.html
+    - text: "Course Policies"
+      href: coursepolicies.html
+    - text: "Lecture & Lab Materials"
+      href: lecturelab.html
+    - text: "Homework"
+      href: homework.html
+    - text: "R Help Manual"
+      href: "rmanual.html"
+      
+  right: 
+    - icon: fa-github fa-lg
+      href: https://github.com/andrewmacd/dkustats101spring2022
+      
+output: rmdformats::readthedown
+
+output_dir: "docs"

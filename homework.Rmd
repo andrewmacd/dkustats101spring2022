@@ -1,0 +1,30 @@
+---
+title: "Homework"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Homework 1
+
+* Homework 1 instructions
+* Sample solutions
+
+# Midterm project
+
+* Midterm instructions
+* Midterm scoring guide
+
+# Homework 2
+
+* Homework 2 instructions
+* Sample solutions
+
+# Paper analysis
+
+* Paper analysis instructions
+
+# Final project
+
+* Final project instructions

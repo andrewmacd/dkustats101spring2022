@@ -341,6 +341,8 @@ modes <- function(x) {
   tab <- tabulate(match(x, ux))
   ux[tab == max(tab)]
 }
+
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">

@@ -86,7 +86,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Week 1: R and RMarkdown
 
-* Lab files: Lab 1 - R Markdown
+* Lab files: [Lab 1 - R Markdown](labs/wk1/lab1.zip)
   + Make sure to extract (unzip) the lab files before attempting to modify them!
 
 ## Week 2: Exploratory Data Analysis

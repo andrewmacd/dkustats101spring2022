@@ -140,3 +140,13 @@ Additional R code blocks that rely on the `dplyr` library can be added to your d
 mtcars %>%
   summarize(median(mpg))
 ```
+
+# Working on your own
+
+To complete this lab, please edit three things about this document.
+
+1. Edit some text
+2. Insert a code block and add some code to do a simple operation in R
+3. Reformat part of the document
+
+When you have completed these edits and successfully Knitted your HTML file, please show me. Once I have verified that you have it working, you are free to go.

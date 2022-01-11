@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Characteristics of Distributions
 
-* Lecture webpage: [characteristics of distributions](https://andrewm.shinyapps.io/spr2022distributions) 
+* Lecture webpage: [Characteristics of distributions](https://andrewm.shinyapps.io/spr2022distributions) 
 * Recording: 
 * Quality YouTube content: [Tidyverse music video](https://www.youtube.com/watch?v=p8Py9C8iq2s&ab_channel=TheRaf)
 

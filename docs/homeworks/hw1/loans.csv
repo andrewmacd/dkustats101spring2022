@@ -1,0 +1,1001 @@
+"","loan_amnt","term","int_rate","installment","emp_title","emp_length","home_ownership","annual_inc","verification_status","issue_d","loan_status","purpose","title","earliest_cr_line","open_acc","total_acc","application_type","mort_acc","address"
+"1",10000," 36 months",11.44,329.48,"Marketing","10+ years","RENT",117000,"Not Verified","Jan-2015","Fully Paid","vacation","Vacation","Jun-1990",16,25,"INDIVIDUAL",0,"0174 Michelle Gateway
+Mendozaberg, OK 22690"
+"2",8000," 36 months",11.99,265.68,"Credit analyst ","4 years","MORTGAGE",65000,"Not Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Jul-2004",17,27,"INDIVIDUAL",3,"1076 Carney Fort Apt. 347
+Loganmouth, SD 05113"
+"3",15600," 36 months",10.49,506.97,"Statistician","< 1 year","RENT",43057,"Source Verified","Jan-2015","Fully Paid","credit_card","Credit card refinancing","Aug-2007",13,26,"INDIVIDUAL",0,"87025 Mark Dale Apt. 269
+New Sabrina, WV 05113"
+"4",7200," 36 months",6.49,220.65,"Client Advocate","6 years","RENT",54000,"Not Verified","Nov-2014","Fully Paid","credit_card","Credit card refinancing","Sep-2006",6,13,"INDIVIDUAL",0,"823 Reid Ford
+Delacruzside, MA 00813"
+"5",24375," 60 months",17.27,609.33,"Destiny Management Inc.","9 years","MORTGAGE",55000,"Verified","Apr-2013","Charged Off","credit_card","Credit Card Refinance","Mar-1999",13,43,"INDIVIDUAL",1,"679 Luna Roads
+Greggshire, VA 11650"
+"6",20000," 36 months",13.33,677.07,"HR Specialist","10+ years","MORTGAGE",86788,"Verified","Sep-2015","Fully Paid","debt_consolidation","Debt consolidation","Jan-2005",8,23,"INDIVIDUAL",4,"1726 Cooper Passage Suite 129
+North Deniseberg, DE 30723"
+"7",18000," 36 months",5.32,542.07,"Software Development Engineer","2 years","MORTGAGE",125000,"Source Verified","Sep-2015","Fully Paid","home_improvement","Home improvement","Aug-2005",8,25,"INDIVIDUAL",3,"1008 Erika Vista Suite 748
+East Stephanie, TX 22690"
+"8",13000," 36 months",11.14,426.47,"Office Depot","10+ years","RENT",46000,"Not Verified","Sep-2012","Fully Paid","credit_card","No More Credit Cards","Sep-1994",11,15,"INDIVIDUAL",0,"USCGC Nunez
+FPO AE 30723"
+"9",18900," 60 months",10.99,410.84,"Application Architect","10+ years","RENT",103000,"Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1994",13,40,"INDIVIDUAL",3,"USCGC Tran
+FPO AP 22690"
+"10",26300," 36 months",16.29,928.4,"Regado Biosciences","3 years","MORTGAGE",115000,"Verified","Apr-2012","Fully Paid","debt_consolidation","Debt Consolidation","Dec-1997",13,37,"INDIVIDUAL",1,"3390 Luis Rue
+Mauricestad, VA 00813"
+"11",10000," 36 months",13.11,337.47,"Sodexo","2 years","RENT",95000,"Verified","Jun-2013","Fully Paid","debt_consolidation","Debt Consolidation","Dec-1990",5,26,"INDIVIDUAL",4,"40245 Cody Drives
+Bartlettfort, NM 00813"
+"12",35000," 36 months",14.64,1207.13,"Director Bureau of Equipment Inventory","8 years","MORTGAGE",130000,"Verified","May-2014","Fully Paid","credit_card","Credit card refinancing","May-1984",30,61,"INDIVIDUAL",4,"3126 Sean Dale Apt. 141
+South Matthew, MS 00813"
+"13",7500," 36 months",9.17,239.1,"Social Work/Care Manager","7 years","OWN",55000,"Not Verified","Dec-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-1995",13,35,"JOINT",4,"4173 David Extension
+West Beckyfort, MS 70466"
+"14",35000," 60 months",12.29,783.7,"Regional Counsel","10+ years","MORTGAGE",157000,"Verified","Apr-2015","Fully Paid","debt_consolidation","Debt consolidation","Jan-1997",17,27,"INDIVIDUAL",2,"3343 Wells Mews
+Shellychester, OR 29597"
+"15",25975," 36 months",6.62,797.53,"Pullman Regional Hospital","9 years","MORTGAGE",65000,"Verified","Oct-2012","Fully Paid","small_business","Business","May-2001",9,35,"INDIVIDUAL",6,"0472 Weber Manors Apt. 660
+Lake Andrew, NH 29597"
+"16",18000," 36 months",8.39,567.3,"firefighter","8 years","MORTGAGE",45000,"Not Verified","Jul-2014","Fully Paid","major_purchase","Major purchase","Sep-1994",5,23,"INDIVIDUAL",4,"11629 Sean Hills Suite 614
+Stevenfort, HI 30723"
+"17",32350," 60 months",21.98,893.11,"Comcast Corporate office","10+ years","MORTGAGE",72000,"Verified","Feb-2013","Fully Paid","debt_consolidation","Debt consolidation","Mar-1982",16,22,"INDIVIDUAL",1,"407 Briggs Lodge Suite 778
+West Aprilborough, PA 00813"
+"18",11200," 60 months",12.29,250.79,"principal","10+ years","MORTGAGE",81000,"Not Verified","Oct-2015","Fully Paid","debt_consolidation","Debt consolidation","Sep-1996",6,20,"INDIVIDUAL",5,"487 Jennifer Parkway Suite 940
+Cummingsshire, NH 30723"
+"19",34000," 36 months",7.9,1063.87,"Pilot","10+ years","RENT",130580,"Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-1990",16,36,"INDIVIDUAL",3,"254 Mary Ferry
+Port Kirstenborough, CO 70466"
+"20",20000," 36 months",6.97,617.27,"Registered Nurse","7 years","MORTGAGE",85000,"Not Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Mar-2000",15,38,"INDIVIDUAL",1,"Unit 8386 Box 5821
+DPO AE 05113"
+"21",9200," 36 months",6.62,282.48,"Personal Trainer","< 1 year","RENT",65000,"Source Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-2006",12,23,"INDIVIDUAL",0,"9930 Darryl Hollow Apt. 443
+Staffordmouth, CO 30723"
+"22",7350," 36 months",13.11,248.05,"Francis Howell School District","10+ years","MORTGAGE",54800,"Not Verified","Jun-2013","Fully Paid","debt_consolidation","Debt Consolidation/Home Repairs","Mar-1999",10,36,"INDIVIDUAL",6,"0224 Kenneth Junctions
+Bradystad, SD 05113"
+"23",4200," 36 months",6.99,129.67,"midstate steel llc","5 years","OWN",24000,"Not Verified","Jun-2011","Fully Paid","other","kawasaki jetski","Oct-2006",6,7,"INDIVIDUAL",NA,"54395 Melissa Walks
+Jenniferbury, AL 05113"
+"24",20000," 36 months",8.39,630.34,"Office Manager","10+ years","OWN",55000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-2003",9,18,"INDIVIDUAL",5,"32520 Shawn Radial Suite 404
+South Tamarafort, FL 22690"
+"25",5000," 36 months",15.61,174.83,"Operations Manager","5 years","RENT",75000,"Verified","Sep-2015","Fully Paid","vacation","Vacation","May-2008",9,26,"INDIVIDUAL",0,"25722 Horn Harbor
+Lauraville, VA 30723"
+"26",6000," 36 months",11.36,197.47,"CSU Monterey Bay","2 years","RENT",46680,"Not Verified","Apr-2010","Charged Off","medical","Medical and Post Graduate Education Expenses","Oct-2003",9,10,"INDIVIDUAL",NA,"44130 Powers Course Suite 880
+East Preston, AZ 30723"
+"27",8400," 36 months",13.35,284.45,"Bartender","6 years","RENT",35000,"Source Verified","Jun-2014","Charged Off","debt_consolidation","Debt consolidation","Jun-2004",6,17,"INDIVIDUAL",0,"Unit 3166 Box 1862
+DPO AE 48052"
+"28",23050," 36 months",12.12,766.92,"Anheuser-Busch ","3 years","RENT",80000,"Verified","Apr-2013","Fully Paid","debt_consolidation","Credit card debt","Jan-1999",18,23,"INDIVIDUAL",0,"5105 Madison Glen Apt. 955
+Charlesport, WI 05113"
+"29",15000," 36 months",9.99,483.94,"Teacher","10+ years","MORTGAGE",79000,"Verified","Oct-2013","Fully Paid","debt_consolidation","concolidation","Apr-1994",13,25,"INDIVIDUAL",2,"10747 Jennifer Lights
+East Graceburgh, NC 05113"
+"30",20000," 36 months",8.19,628.49,"Sr. Business Analyst","10+ years","MORTGAGE",87000,"Source Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Mar-2000",15,29,"INDIVIDUAL",6,"955 Tapia Circles Apt. 754
+Port Antonio, IN 48052"
+"31",13200," 36 months",18.75,482.2,"Medtronic, Inc.","10+ years","RENT",71000,"Source Verified","May-2013","Fully Paid","other","Consolidation Loan","Apr-1998",9,35,"INDIVIDUAL",4,"19223 Laurie Causeway Apt. 914
+Barryton, MO 48052"
+"32",4600," 36 months",12.29,153.43,"Stocker","5 years","RENT",29400,"Not Verified","Feb-2015","Fully Paid","credit_card","Credit card refinancing","Jul-2007",12,17,"INDIVIDUAL",0,"054 Adam Mission Suite 172
+South Mitchell, WI 70466"
+"33",3000," 36 months",6.03,91.31,"American Heart Association","1 year","OWN",64000,"Source Verified","Oct-2011","Fully Paid","credit_card","Consolidate debt","Apr-2002",6,18,"INDIVIDUAL",NA,"2722 Smith Branch Suite 131
+Shaunbury, NH 22690"
+"34",20000," 36 months",12.29,667.06,"Senior Software Engineer","3 years","RENT",95000,"Source Verified","Jun-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-2007",11,17,"INDIVIDUAL",0,"USNV Trujillo
+FPO AA 30723"
+"35",12725," 36 months",14.99,441.06,"dealer","10+ years","RENT",43000,"Not Verified","Jun-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-2004",10,16,"INDIVIDUAL",0,"85164 Michael Overpass Suite 653
+Lancechester, SD 30723"
+"36",5375," 36 months",13.11,181.39,"","","RENT",34000,"Verified","May-2013","Fully Paid","credit_card","Pay Off Credit Card","Apr-1998",9,20,"INDIVIDUAL",5,"23617 Michael Viaduct
+West John, MS 05113"
+"37",3250," 36 months",16.78,115.52,"","","RENT",22500,"Verified","Aug-2013","Charged Off","debt_consolidation","Cover","Jun-2009",7,7,"INDIVIDUAL",0,"361 Erica Forest
+Lake Mariaton, TN 30723"
+"38",15000," 36 months",13.67,510.27,"facility technician","10+ years","MORTGAGE",90000,"Not Verified","Oct-2013","Fully Paid","debt_consolidation","Making a difference","May-1997",10,40,"INDIVIDUAL",2,"974 Wood Squares
+West Stevenfurt, KS 05113"
+"39",15000," 36 months",13.35,507.95,"Housekeeper","7 years","RENT",52000,"Verified","Jun-2014","Fully Paid","credit_card","Credit card refinancing","Jul-2006",13,21,"INDIVIDUAL",0,"76019 Young Motorway Suite 134
+New Heatherland, DE 00813"
+"40",10800," 36 months",13.98,369.02,"Shift Supervisor","4 years","RENT",51840,"Source Verified","Oct-2014","Fully Paid","credit_card","Credit card refinancing","Sep-2003",11,22,"INDIVIDUAL",1,"PSC 5108, Box 2953
+APO AP 05113"
+"41",35000," 60 months",16.99,869.66,"","4 years","MORTGAGE",130000,"Verified","Feb-2014","Fully Paid","debt_consolidation","Debt consolidation","Aug-1992",10,27,"INDIVIDUAL",10,"8268 Reed Gardens Suite 996
+East Johnmouth, ND 05113"
+"42",28000," 60 months",19.91,312.04,"American Airlines","10+ years","RENT",52000,"Verified","Dec-2011","Charged Off","debt_consolidation","Debt Consalidation","Dec-1988",10,16,"INDIVIDUAL",NA,"5836 Garcia Falls Apt. 525
+Matthewtown, CT 22690"
+"43",21000," 60 months",17.86,531.67,"laborer","2 years","MORTGAGE",80000,"Source Verified","Dec-2015","Fully Paid","debt_consolidation","Debt consolidation","Feb-2002",15,35,"INDIVIDUAL",1,"419 James Branch
+Johnsonmouth, WY 70466"
+"44",8400," 36 months",12.12,279.49,"Vegas.com","10+ years","RENT",120000,"Verified","Mar-2013","Fully Paid","debt_consolidation","Debt consolidation","Jan-1992",11,34,"INDIVIDUAL",6,"976 Smith Bridge
+West Michael, NE 30723"
+"45",11950," 60 months",16.29,292.45,"labor","10+ years","RENT",30000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Aug-2001",6,15,"INDIVIDUAL",1,"0062 Stephanie Well Suite 269
+Riveratown, TX 48052"
+"46",6700," 36 months",21.49,254.12,"Home attendant ","< 1 year","RENT",21000,"Verified","Jun-2016","Fully Paid","debt_consolidation","Debt consolidation","Dec-2010",15,21,"INDIVIDUAL",0,"PSC 7168, Box 4065
+APO AA 22690"
+"47",16000," 36 months",12.99,539.03,"Payroll Manager","10+ years","MORTGAGE",78000,"Source Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-1999",15,23,"INDIVIDUAL",2,"62323 Christopher Forges Apt. 968
+Cindyview, RI 00813"
+"48",20000," 36 months",13.67,680.36,"Litigation Paralegal","10+ years","MORTGAGE",64000,"Verified","Nov-2013","Fully Paid","debt_consolidation","Thank you for your help!","Sep-2004",18,37,"INDIVIDUAL",3,"57769 John Via Suite 037
+Stephaniehaven, AR 48052"
+"49",16000," 60 months",18.54,411.01,"Accountant","3 years","RENT",40000,"Source Verified","Dec-2014","Charged Off","debt_consolidation","Debt consolidation","Sep-2003",16,20,"INDIVIDUAL",0,"76010 Houston Haven
+Port Keithburgh, MI 86630"
+"50",15000," 36 months",7.89,469.29,"","","MORTGAGE",90000,"Verified","Apr-2016","Fully Paid","debt_consolidation","Debt consolidation","Aug-1994",7,18,"INDIVIDUAL",6,"84009 David Stream
+South Nicolehaven, IL 05113"
+"51",12875," 36 months",17.1,459.67,"Cracker Barrel Old Country Store","8 years","OWN",58000,"Not Verified","Sep-2013","Fully Paid","medical","Medical expenses","Jul-2003",11,16,"INDIVIDUAL",0,"70807 Elizabeth Vista Apt. 384
+Garciaville, CO 29597"
+"52",15000," 60 months",18.25,382.95,"Rn","8 years","MORTGAGE",75000,"Source Verified","May-2016","Fully Paid","debt_consolidation","Debt consolidation","Apr-1995",18,23,"INDIVIDUAL",2,"51321 Joshua Villages Suite 660
+West Amandaside, AR 05113"
+"53",8000," 36 months",11.67,264.46,"Client Support Specialist","9 years","OWN",55000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-2000",15,36,"INDIVIDUAL",4,"71523 Jamie Cove Suite 930
+North Barbara, LA 05113"
+"54",14000," 36 months",6.24,427.44,"Branch Manager","2 years","MORTGAGE",1e+05,"Not Verified","Jul-2015","Fully Paid","debt_consolidation","Debt consolidation","Jan-1999",11,29,"INDIVIDUAL",3,"655 Lawrence Ville Apt. 951
+West Coleland, MO 05113"
+"55",12000," 60 months",8.18,244.36,"clinical therapist","7 years","MORTGAGE",60000,"Source Verified","Apr-2015","Charged Off","debt_consolidation","Debt consolidation","Feb-2002",7,20,"INDIVIDUAL",1,"78275 Rodriguez Square
+Hallchester, AZ 30723"
+"56",15000," 36 months",13.98,512.52,"Armored Car Guard","3 years","OWN",40000,"Not Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-2006",4,9,"INDIVIDUAL",0,"6360 Claire Motorway
+East Shannonchester, AL 05113"
+"57",12000," 36 months",12.35,400.59,"MCSO","6 years","MORTGAGE",38000,"Not Verified","Jul-2013","Fully Paid","credit_card","Credit card refinancing","Dec-2004",10,14,"INDIVIDUAL",2,"5100 Cantu Burg Apt. 409
+Adamland, PA 48052"
+"58",35000," 36 months",14.16,1198.94,"Administrator","9 years","MORTGAGE",118497.84,"Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1995",8,59,"INDIVIDUAL",3,"578 Smith View Suite 106
+Miguelfort, IN 29597"
+"59",10000," 36 months",17.56,359.33,"","","MORTGAGE",32000,"Verified","Jul-2013","Fully Paid","debt_consolidation","debt consolidation","Sep-2006",6,7,"INDIVIDUAL",0,"965 Spencer Courts
+Pacetown, AZ 00813"
+"60",15000," 60 months",18.55,385.41,"Field Biologist","3 years","RENT",50000,"Verified","Jul-2015","Fully Paid","other","Other","Dec-2003",6,23,"INDIVIDUAL",3,"230 Denise Vista
+Carterville, NY 30723"
+"61",9000," 36 months",12.35,300.44,"salt lake city school district","7 years","MORTGAGE",59500,"Not Verified","Aug-2013","Fully Paid","credit_card","Credit card refinancing","Jul-1994",9,35,"INDIVIDUAL",4,"199 David Lane
+South Virginiaberg, ND 70466"
+"62",25000," 60 months",22.15,692.61,"Rural Letter Carrier","10+ years","MORTGAGE",80000,"Source Verified","Aug-2014","Fully Paid","home_improvement","Home improvement","Oct-1990",13,41,"INDIVIDUAL",4,"0676 Kaiser Bypass
+Singhburgh, SD 22690"
+"63",5000," 36 months",10.39,118.45,"self","10+ years","RENT",66000,"Not Verified","May-2008","Fully Paid","medical","Dental Work","Dec-2001",12,17,"INDIVIDUAL",NA,"USS Goodman
+FPO AE 22690"
+"64",20000," 36 months",7.9,625.81,"Sr Social Worker","9 years","RENT",76000,"Verified","Nov-2013","Fully Paid","debt_consolidation","Dept Consolodation/Home Improvement","Apr-1999",10,19,"INDIVIDUAL",0,"973 Carlos Junctions Suite 840
+Reneechester, NC 00813"
+"65",10000," 60 months",15.99,243.13,"Truck driver","5 years","RENT",60000,"Source Verified","Jan-2015","Fully Paid","credit_card","Credit card refinancing","Dec-2001",8,14,"INDIVIDUAL",2,"5723 Kane Skyway Apt. 920
+New Oliviachester, IA 00813"
+"66",10000," 36 months",16.07,351.94,"Taylor Public Schools","10+ years","RENT",61000,"Verified","Mar-2010","Fully Paid","debt_consolidation","Want to be debt free in ""3""","Feb-1995",11,19,"INDIVIDUAL",NA,"3109 Rachel Shores Suite 682
+Port Andreaside, AK 05113"
+"67",15975," 60 months",24.99,468.8,"carrier","5 years","MORTGAGE",47000,"Verified","Dec-2015","Fully Paid","debt_consolidation","Debt consolidation","May-2003",10,23,"INDIVIDUAL",1,"59681 Christopher Lock
+North Williamtown, UT 70466"
+"68",12000," 60 months",14.99,285.42,"Attorney","1 year","MORTGAGE",128000,"Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-2002",8,21,"INDIVIDUAL",2,"88359 Howard Landing Apt. 565
+Rodriguezton, NE 48052"
+"69",9900," 36 months",9.67,317.92,"Bartender","3 years","RENT",40000,"Verified","Dec-2013","Fully Paid","credit_card","Moving Forward","Sep-2003",8,12,"INDIVIDUAL",0,"68278 Henderson Junction Suite 802
+Port Georgetown, OK 29597"
+"70",3350," 36 months",15.61,117.14,"Administrative Assistant","10+ years","MORTGAGE",52000,"Not Verified","Oct-2014","Charged Off","debt_consolidation","Debt consolidation","Mar-2004",4,9,"INDIVIDUAL",1,"97848 Roman Circles Suite 098
+New Claudiafort, RI 48052"
+"71",17000," 60 months",19.19,442.77,"Bookkeeper","2 years","RENT",50000,"Source Verified","Jul-2015","Fully Paid","small_business","Business","Aug-2003",14,21,"INDIVIDUAL",0,"308 Silva Centers Suite 208
+West Davidview, WI 48052"
+"72",6425," 36 months",8.39,202.5,"Office Administrator","3 years","RENT",33000,"Not Verified","Jun-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-2000",13,30,"INDIVIDUAL",0,"5012 Carter Lock Apt. 045
+North Robertberg, NE 30723"
+"73",7200," 36 months",21,271.27,"Roofers Local 195","5 years","RENT",30000,"Not Verified","May-2013","Charged Off","credit_card","Bills","Nov-2004",8,13,"INDIVIDUAL",0,"00014 Rocha Walk
+Jacksonstad, MD 93700"
+"74",7475," 36 months",12.69,250.75,"Cleric II","< 1 year","RENT",33000,"Verified","Apr-2015","Fully Paid","debt_consolidation","Debt consolidation","Mar-2010",20,30,"INDIVIDUAL",0,"1200 Hines Mountains Apt. 494
+West Tiffany, MA 70466"
+"75",10000," 36 months",13.98,341.68,"Executive Manager","10+ years","MORTGAGE",55200,"Not Verified","Jun-2014","Fully Paid","credit_card","Credit card refinancing","Mar-1996",13,27,"INDIVIDUAL",3,"4798 Monica Lock Suite 925
+North Michelleberg, SD 00813"
+"76",13200," 36 months",10.74,430.53,"Brookdale University Hospital","1 year","RENT",45000,"Source Verified","Mar-2012","Fully Paid","debt_consolidation","Honost Consolidation","May-1994",8,10,"INDIVIDUAL",0,"1741 Jackson Street Suite 615
+New Jenny, MA 70466"
+"77",19000," 36 months",6.68,583.89,"owner","10+ years","OWN",80000,"Not Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","Jun-1996",16,56,"INDIVIDUAL",6,"44296 Victor Plaza Apt. 108
+Kimhaven, NM 30723"
+"78",11250," 60 months",19.22,293.2,"Global Account Director","1 year","RENT",135000,"Verified","Dec-2013","Fully Paid","debt_consolidation","Debt consolidation","Nov-1986",13,26,"INDIVIDUAL",6,"55921 Dean Inlet Suite 937
+New Diane, IL 22690"
+"79",17800," 60 months",11.49,391.38,"Dekalb County Fire Rescue","4 years","MORTGAGE",95000,"Source Verified","Sep-2011","Charged Off","wedding","home expenses","Jan-2001",8,26,"INDIVIDUAL",NA,"6651 Diana Freeway Suite 777
+Leahton, WA 70466"
+"80",33000," 60 months",17.27,824.94,"Medtronic","9 years","MORTGAGE",92000,"Verified","Mar-2013","Fully Paid","debt_consolidation","Pay the Bills","Apr-2000",12,24,"INDIVIDUAL",1,"43848 Lee Spurs
+Mcclainshire, IL 29597"
+"81",19000," 36 months",12.12,632.17,"Broward Sheriff Office","8 years","RENT",48000,"Source Verified","Jul-2012","Fully Paid","debt_consolidation","Debt Loan","Jun-1994",12,28,"INDIVIDUAL",0,"58673 Foster Freeway
+Port Meredithville, NY 22690"
+"82",10000," 36 months",16.99,356.48,"CNA/QMA","7 years","OWN",40000,"Not Verified","Jan-2014","Charged Off","debt_consolidation","Debt consolidation","May-2003",8,18,"INDIVIDUAL",0,"519 Dillon Lights Suite 839
+Meghanstad, HI 48052"
+"83",8050," 36 months",16.55,285.21,"CNA","4 years","RENT",29500,"Not Verified","Mar-2015","Charged Off","debt_consolidation","Debt consolidation","Jan-2002",9,12,"INDIVIDUAL",0,"610 Joshua Haven Suite 591
+Johnsonside, MN 70466"
+"84",9000," 36 months",15.61,314.69,"Program Manager","6 years","RENT",80000,"Source Verified","Mar-2015","Fully Paid","car","Car financing","Sep-1994",10,26,"INDIVIDUAL",0,"41919 Philip Walk Apt. 811
+Ramosmouth, OH 29597"
+"85",7200," 36 months",19.97,267.47,"Ultrasound Technologist","6 years","RENT",72000,"Not Verified","Feb-2014","Charged Off","moving","Moving and relocation","Mar-2001",19,43,"INDIVIDUAL",0,"5740 Aaron Mountains Suite 747
+Samanthaview, MT 22690"
+"86",5600," 36 months",7.89,175.2,"Mate","5 years","MORTGAGE",63000,"Verified","Jun-2016","Fully Paid","credit_card","Credit card refinancing","Sep-2012",5,8,"INDIVIDUAL",1,"7762 Leslie Dale
+Cynthiaville, NJ 70466"
+"87",10000," 36 months",18.25,362.78,"Lead Technician level 4 ","3 years","RENT",39000,"Not Verified","Jan-2014","Fully Paid","house","Home buying","Apr-2006",20,26,"INDIVIDUAL",0,"006 Bryan Parks
+Kennedyview, CO 22690"
+"88",30000," 60 months",24.7,875.28,"Medtronic","5 years","MORTGAGE",187321,"Verified","Jul-2012","Fully Paid","debt_consolidation","Debt Consolidation","Oct-2002",21,52,"INDIVIDUAL",3,"25281 Kevin Neck
+Armstrongton, TN 29597"
+"89",9425," 36 months",13.49,319.8,"beach house mkt inc","8 years","RENT",45000,"Not Verified","Dec-2011","Fully Paid","credit_card","credit card refinance loan","Dec-2001",12,31,"INDIVIDUAL",NA,"983 Young Causeway Suite 575
+Fostermouth, KS 30723"
+"90",23000," 36 months",8.39,724.89,"Controller","10+ years","MORTGAGE",80000,"Source Verified","Jul-2014","Fully Paid","debt_consolidation","Debt consolidation","May-1998",15,34,"INDIVIDUAL",2,"805 Scott Mountain
+Port Connie, DC 00813"
+"91",18000," 36 months",10.99,589.22,"Sales Manager","4 years","MORTGAGE",90000,"Source Verified","Oct-2013","Fully Paid","debt_consolidation","Moving Payoff","Dec-2002",9,16,"INDIVIDUAL",1,"03377 Russell Crescent Suite 154
+Port Derekton, DE 00813"
+"92",30225," 60 months",18.24,771.47,"","","MORTGAGE",65800,"Verified","Aug-2014","Charged Off","debt_consolidation","Debt consolidation","Mar-1999",11,31,"INDIVIDUAL",1,"493 Michael Route
+Hillfurt, AZ 70466"
+"93",3000," 36 months",7.9,93.88,"PA Leadership Charter School","< 1 year","RENT",39000,"Source Verified","Sep-2011","Fully Paid","small_business","Small Business Loan - Gourmet Food Truck","Nov-2003",11,13,"INDIVIDUAL",NA,"USCGC Hamilton
+FPO AA 48052"
+"94",5000," 36 months",10.99,163.67,"Electrician","7 years","RENT",52000,"Not Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-2005",11,19,"INDIVIDUAL",0,"9561 Villa Coves
+Haleyfurt, DE 05113"
+"95",4000," 36 months",13.33,135.42,"technician","10+ years","MORTGAGE",75000,"Not Verified","Oct-2015","Fully Paid","debt_consolidation","Debt consolidation","May-1990",9,16,"INDIVIDUAL",0,"6755 Wright Shore
+Monicatown, NV 70466"
+"96",30000," 36 months",16.49,1061.99,"Sergeant Major","10+ years","RENT",101000,"Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-2003",7,15,"INDIVIDUAL",2,"2528 Herrera Track Suite 897
+Savannahburgh, NY 70466"
+"97",12625," 60 months",25.78,376.36,"Nursing Assistant","7 years","MORTGAGE",43000,"Verified","Jul-2015","Fully Paid","credit_card","Credit card refinancing","Aug-2003",18,31,"INDIVIDUAL",1,"522 Melissa Village
+East Janice, MT 00813"
+"98",13400," 60 months",25.83,399.86,"DESIGNER","10+ years","MORTGAGE",56000,"Verified","Nov-2014","Charged Off","debt_consolidation","Debt consolidation","Jun-2001",23,44,"INDIVIDUAL",6,"0326 Jacob Via
+Jacksonstad, MI 93700"
+"99",24250," 60 months",18.64,624.27,"Keystone Automotive Operations","10+ years","MORTGAGE",46200,"Verified","Dec-2011","Fully Paid","debt_consolidation","consolidation loan","Jan-1998",9,22,"INDIVIDUAL",NA,"7371 Holland Circles Suite 244
+Gibsonport, WV 48052"
+"100",21000," 36 months",12.12,698.71,"","7 years","RENT",150000,"Source Verified","Mar-2013","Fully Paid","debt_consolidation","first loan","May-2003",9,20,"INDIVIDUAL",0,"3239 Michael Vista Suite 848
+East Amanda, IL 70466"
+"101",17000," 36 months",7.51,528.89,"Black Horse Pike Regional School Distric","10+ years","MORTGAGE",87000,"Verified","Oct-2011","Fully Paid","debt_consolidation","Personal","Oct-1978",15,35,"INDIVIDUAL",NA,"9919 Thomas Shore Suite 574
+West Allison, VT 00813"
+"102",9100," 36 months",13.99,310.98,"Store manager","9 years","RENT",41000,"Source Verified","Oct-2015","Charged Off","debt_consolidation","Debt consolidation","Feb-2001",6,12,"INDIVIDUAL",0,"1465 Giles Ranch Suite 073
+Wyattshire, OH 70466"
+"103",26000," 36 months",15.22,904.11,"HHC 40th ESB (US Army)","10+ years","RENT",59500,"Verified","Aug-2013","Fully Paid","credit_card","Consolidation","Jul-1994",8,15,"INDIVIDUAL",0,"2360 Stephanie Lane Suite 533
+Garciafort, NM 22690"
+"104",30000," 36 months",15.31,1044.52,"Alice G. Alatorre DDS.","9 years","MORTGAGE",108000,"Verified","Dec-2012","Charged Off","debt_consolidation","Debt consolidation","May-1998",8,15,"INDIVIDUAL",0,"453 Murray Stream
+South Cathyfort, IL 93700"
+"105",15000," 36 months",6.62,460.56,"Capital One","6 years","MORTGAGE",83000,"Verified","Jun-2013","Fully Paid","major_purchase","Loan","Jun-2006",11,22,"INDIVIDUAL",1,"454 Hernandez Rapid Suite 604
+Port Laurenburgh, WI 29597"
+"106",8000," 36 months",12.35,267.06,"Sally beauty supply","7 years","RENT",27000,"Verified","Aug-2013","Fully Paid","home_improvement","The trailer","Oct-2006",6,9,"INDIVIDUAL",0,"510 Sarah Terrace
+Lake Cynthialand, MS 00813"
+"107",8000," 36 months",12.99,269.52,"Production Administrator","8 years","MORTGAGE",25000,"Not Verified","Oct-2013","Fully Paid","credit_card","Fiscal Responsibility","Dec-2002",8,18,"INDIVIDUAL",5,"133 Erin Center Apt. 469
+South Jennifer, MI 05113"
+"108",11200," 60 months",15.31,268.28,"Production Operator","9 years","RENT",106000,"Source Verified","May-2016","Fully Paid","major_purchase","Major purchase","Aug-1993",10,30,"INDIVIDUAL",2,"09693 Smith Alley Apt. 461
+East Miranda, CT 00813"
+"109",12000," 36 months",7.69,374.33,"Maintenance","10+ years","MORTGAGE",45000,"Not Verified","Sep-2014","Fully Paid","credit_card","Credit card refinancing","Apr-2001",11,37,"INDIVIDUAL",2,"2606 Kenneth Grove Apt. 292
+South Jenniferhaven, WV 70466"
+"110",6600," 36 months",19.53,243.71,"Legal Secretary","10+ years","MORTGAGE",48000,"Source Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Nov-2001",23,39,"INDIVIDUAL",2,"9480 Tyler Brook
+Port Emilyborough, NY 30723"
+"111",5000," 36 months",10.16,161.72,"Incomm","6 years","RENT",54000,"Not Verified","Nov-2012","Fully Paid","debt_consolidation","creditbuild1","Feb-2003",10,18,"INDIVIDUAL",0,"0658 Reese Run Apt. 912
+South Rachel, NY 30723"
+"112",5000," 36 months",7.62,155.81,"Systems Administrator","10+ years","OWN",55000,"Not Verified","Nov-2013","Fully Paid","debt_consolidation","Debt consolidation","Jun-1993",8,13,"INDIVIDUAL",2,"Unit 4847 Box 9014
+DPO AE 29597"
+"113",14000," 36 months",9.75,450.1,"line worker","10+ years","MORTGAGE",47000,"Verified","Apr-2016","Fully Paid","debt_consolidation","Debt consolidation","Mar-2001",10,38,"INDIVIDUAL",0,"664 Alexander Circle Suite 078
+Lake Leah, FL 29597"
+"114",26575," 36 months",16.55,941.54,"Train Operator","1 year","RENT",70000,"Source Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-1999",10,24,"INDIVIDUAL",0,"53673 Amanda Stravenue
+New Patrickburgh, OK 30723"
+"115",8000," 36 months",12.99,269.52,"Principal","10+ years","MORTGAGE",110000,"Verified","Oct-2013","Fully Paid","debt_consolidation","Consolidation ","Sep-1992",18,31,"INDIVIDUAL",3,"932 Reed Track Suite 467
+North Anna, CA 70466"
+"116",6500," 36 months",7.9,203.39,"Resident Service Director","< 1 year","MORTGAGE",43000,"Source Verified","Apr-2014","Fully Paid","credit_card","Credit card refinancing","Nov-1992",16,50,"INDIVIDUAL",3,"149 Duffy Road
+Davisfurt, OR 48052"
+"117",19725," 60 months",13.68,455.71,"Virginia Commonwealth University","2 years","MORTGAGE",73410,"Verified","Sep-2013","Fully Paid","debt_consolidation","consolidation","Dec-2001",8,11,"INDIVIDUAL",1,"5255 John Hill Apt. 143
+North Chelsea, NE 70466"
+"118",18525," 36 months",15.88,650.19,"UGHS AUTIMIS BILLING INC","1 year","MORTGAGE",42000,"Verified","Jul-2013","Fully Paid","debt_consolidation","FREEDOM 2","Jun-1983",7,10,"INDIVIDUAL",1,"64445 Jessica Mountains Apt. 496
+Lake Kimberly, NJ 70466"
+"119",5400," 36 months",17.1,192.8,"Solutions Architect","5 years","MORTGAGE",153000,"Not Verified","Dec-2013","Fully Paid","debt_consolidation","Home Improvement","Jun-2003",21,29,"INDIVIDUAL",2,"5785 Hernandez Divide
+Lake Wandashire, NE 22690"
+"120",33600," 60 months",16.29,822.28,"Analyst","3 years","MORTGAGE",145000,"Verified","Jul-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-2001",14,62,"INDIVIDUAL",4,"1274 Parker Squares
+Kevinbury, AR 29597"
+"121",28000," 60 months",17.86,708.89,"Director special projects","4 years","MORTGAGE",120000,"Source Verified","Feb-2015","Fully Paid","debt_consolidation","Debt consolidation","Jul-1999",9,25,"INDIVIDUAL",4,"17089 Compton Track Apt. 734
+Port Michelechester, VA 30723"
+"122",35000," 36 months",14.65,1207.3,"Teacher","10+ years","MORTGAGE",95000,"Source Verified","Oct-2015","Fully Paid","credit_card","Credit card refinancing","Sep-1997",10,25,"INDIVIDUAL",3,"50540 Joshua Islands Suite 375
+Randallville, MI 00813"
+"123",8400," 36 months",6.92,259.07,"Sales Rep.","3 years","RENT",105000,"Source Verified","Feb-2015","Fully Paid","credit_card","Credit card refinancing","Sep-2003",5,12,"INDIVIDUAL",1,"36037 Steven River
+West Nicolebury, MN 22690"
+"124",30000," 60 months",23.83,860.09,"Victorian Senior Care","10+ years","MORTGAGE",72500,"Verified","Nov-2012","Charged Off","debt_consolidation","Debt Consolodation","Nov-1993",7,32,"INDIVIDUAL",4,"8219 Dennis Station Apt. 722
+Bateston, LA 70466"
+"125",28000," 60 months",13.67,646.74,"Vice President","1 year","MORTGAGE",104000,"Verified","Dec-2015","Charged Off","credit_card","Credit card refinancing","Feb-1993",14,19,"INDIVIDUAL",2,"8367 Santos Lodge
+Robinsonmouth, VA 70466"
+"126",12525," 36 months",24.99,497.93,"Driver","2 years","RENT",70000,"Verified","Jul-2015","Fully Paid","house","Home buying","Apr-2007",5,5,"INDIVIDUAL",0,"065 Martinez Flats
+Port Samuel, AL 29597"
+"127",9000," 36 months",10.75,293.59,"Sushi chef","10+ years","RENT",25000,"Source Verified","Jun-2016","Fully Paid","debt_consolidation","Debt consolidation","Nov-1999",5,16,"INDIVIDUAL",0,"53385 Williams Corner
+North Alejandraport, SD 00813"
+"128",19600," 36 months",11.14,642.98,"Wal-Mart","6 years","RENT",44000,"Verified","Dec-2012","Fully Paid","debt_consolidation","Debt consolidation","Nov-2005",8,21,"INDIVIDUAL",2,"460 Justin Squares
+Buchananmouth, MA 70466"
+"129",17625," 36 months",18.49,641.53,"Vero Beach Surgery Center","10+ years","MORTGAGE",85000,"Not Verified","May-2013","Charged Off","debt_consolidation","Credit Consal.","Dec-1992",17,33,"INDIVIDUAL",7,"84036 Myers Shore
+West Thomashaven, OR 30723"
+"130",15000," 36 months",11.99,498.15,"Recruiter","7 years","MORTGAGE",72000,"Source Verified","Nov-2013","Fully Paid","debt_consolidation","Debt Consolidation","May-2003",16,28,"INDIVIDUAL",1,"088 Erica Mall Apt. 059
+North Paulchester, NH 29597"
+"131",11875," 36 months",20.31,443.2,"USPS","10+ years","OWN",56000,"Verified","Jul-2013","Fully Paid","debt_consolidation","Lets go on vacation & do the kitchen","Mar-1986",16,35,"INDIVIDUAL",0,"816 Brown Turnpike
+Port Kimberlyshire, KS 30723"
+"132",30000," 60 months",17.86,759.52,"IT Specialist","10+ years","MORTGAGE",74000,"Verified","Apr-2015","Charged Off","credit_card","Credit card refinancing","Dec-1988",13,18,"INDIVIDUAL",1,"459 Mia Inlet
+North Davidhaven, TN 86630"
+"133",10000," 36 months",17.57,359.38,"Branch Manager","< 1 year","RENT",80000,"Verified","Apr-2015","Fully Paid","debt_consolidation","Debt consolidation","May-1989",13,46,"INDIVIDUAL",1,"8766 Cox Keys
+Samuelfurt, OH 29597"
+"134",13075," 60 months",27.31,401.68,"Clerk-specialist level","10+ years","MORTGAGE",54777,"Source Verified","Sep-2015","Fully Paid","debt_consolidation","Debt consolidation","Dec-2000",4,27,"INDIVIDUAL",2,"1532 Gill Greens Apt. 236
+South Cassandrafurt, MN 48052"
+"135",35000," 60 months",19.99,927.1,"Transportation manager","10+ years","MORTGAGE",88500,"Verified","Mar-2014","Fully Paid","home_improvement","Home improvement","Mar-1991",5,22,"INDIVIDUAL",2,"619 Daniels Junction Suite 249
+Lake Frank, ME 29597"
+"136",6500," 36 months",9.75,208.98,"invoice","10+ years","RENT",40000,"Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Mar-2005",10,28,"INDIVIDUAL",0,"631 Jill Rapids Suite 264
+Russellfort, FL 70466"
+"137",12000," 36 months",6.49,367.74,"LPN","2 years","RENT",55000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-2010",11,24,"INDIVIDUAL",0,"536 Jack Forges Apt. 092
+Petersonfurt, NE 30723"
+"138",21000," 60 months",22.99,591.88,"buyer","2 years","RENT",45000,"Source Verified","Jan-2015","Fully Paid","debt_consolidation","Home improvement","Jun-2001",10,42,"INDIVIDUAL",2,"7914 Jason Inlet
+West Stephenstad, SD 00813"
+"139",25000," 60 months",12.59,563.6,"manager","4 years","MORTGAGE",85000,"Not Verified","Nov-2015","Fully Paid","home_improvement","Home improvement","Dec-1998",8,21,"INDIVIDUAL",6,"2705 Jennifer Trail Suite 049
+Barryshire, VT 22690"
+"140",20000," 36 months",10.37,648.83,"HP","< 1 year","MORTGAGE",170000,"Verified","Jan-2011","Fully Paid","debt_consolidation","Debt Consolidation for Family","Jun-1990",8,19,"INDIVIDUAL",NA,"USCGC Miller
+FPO AE 22690"
+"141",5000," 36 months",9.17,159.4,"Administrative Specialist","10+ years","RENT",85000,"Not Verified","Jul-2014","Fully Paid","credit_card","Credit card refinancing","Jan-1990",9,21,"INDIVIDUAL",4,"USNV Martinez
+FPO AP 29597"
+"142",12000," 36 months",14.33,412.06,"miles electric co","10+ years","RENT",45000,"Source Verified","Jun-2013","Fully Paid","credit_card","2bettermylife","Jan-2001",7,17,"INDIVIDUAL",0,"95976 Anthony Mall Suite 810
+North Jessica, VT 00813"
+"143",10000," 36 months",13.53,339.5,"Program Manager","6 years","MORTGAGE",150000,"Not Verified","Jan-2014","Fully Paid","major_purchase","Major purchase","Sep-2001",6,28,"INDIVIDUAL",0,"6132 Lopez Courts
+South Rebecca, NJ 70466"
+"144",15000," 36 months",7.9,469.36,"Imclone","4 years","MORTGAGE",82000,"Not Verified","Mar-2012","Fully Paid","debt_consolidation","Debt consolidation","Nov-2000",14,33,"INDIVIDUAL",NA,"83769 Green Road
+Port Patriciastad, NV 00813"
+"145",20000," 60 months",22.45,557.51,"Dell Inc.","10+ years","MORTGAGE",90000,"Verified","May-2012","Charged Off","debt_consolidation","DebtConsolidation","Jan-1994",6,15,"INDIVIDUAL",4,"096 Edwin Drives
+Paulstad, VA 86630"
+"146",16800," 60 months",24.99,493.01,"Math Teacher","2 years","OWN",51000,"Not Verified","Mar-2016","Charged Off","credit_card","Credit card refinancing","Aug-2002",8,11,"INDIVIDUAL",0,"42822 Frank Forges
+New Dominiquetown, TX 11650"
+"147",5500," 36 months",13.11,185.61,"Smith & Wollensky","3 years","RENT",38000,"Not Verified","Oct-2012","Fully Paid","credit_card","Credit card pay off","Nov-2003",5,8,"INDIVIDUAL",0,"316 Sharon Orchard
+West Kyle, MS 29597"
+"148",13625," 36 months",14.64,469.92,"medical clinic coordinator","2 years","RENT",36000,"Source Verified","Apr-2014","Fully Paid","credit_card","Credit card refinancing","Jul-2003",6,6,"INDIVIDUAL",0,"3712 Amanda Light
+New Christopher, NC 00813"
+"149",8325," 36 months",16.99,296.77,"FSQA Supervisor II","5 years","RENT",54290,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-2011",11,18,"INDIVIDUAL",0,"355 Mark Point Suite 713
+Schaeferhaven, UT 22690"
+"150",6375," 36 months",24.5,251.79,"Installer","1 year","OWN",20000,"Verified","May-2014","Charged Off","other","Other","Aug-2008",6,7,"INDIVIDUAL",0,"2912 Lopez Freeway Apt. 421
+Alisonhaven, IN 22690"
+"151",10000," 36 months",17.99,361.48,"Quick Cash Advance LLC.","2 years","MORTGAGE",21000,"Not Verified","May-2012","Fully Paid","house","Home Improvement","Sep-2006",3,5,"INDIVIDUAL",0,"629 Andrew View Apt. 306
+East Ann, TN 30723"
+"152",13225," 36 months",12.35,441.48,"Lifepoint Hospitals","2 years","MORTGAGE",65300,"Verified","Aug-2013","Fully Paid","major_purchase","temp","Jun-1994",13,25,"INDIVIDUAL",2,"8768 Megan Shoals Suite 325
+West Kayla, DC 29597"
+"153",12000," 36 months",10.16,388.11,"precision strip, inc","7 years","MORTGAGE",63000,"Not Verified","Sep-2012","Fully Paid","credit_card","consolidate","Jun-2005",11,25,"INDIVIDUAL",2,"USNV Shepherd
+FPO AE 05113"
+"154",35000," 36 months",9.16,1115.6,"Manager Maintenance, Compliance","10+ years","MORTGAGE",110000,"Verified","May-2016","Fully Paid","debt_consolidation","Debt consolidation","Nov-1997",13,26,"INDIVIDUAL",2,"3909 Bentley Mall
+East Tammyside, AL 00813"
+"155",12000," 36 months",6.03,365.23,"Palm Beach County Sheriff's Office","10+ years","MORTGAGE",98794.08,"Not Verified","Mar-2012","Fully Paid","debt_consolidation","Ducks in a Row","May-1996",15,38,"INDIVIDUAL",NA,"USS Moses
+FPO AP 30723"
+"156",5000," 36 months",9.16,159.38,"","","MORTGAGE",20000,"Verified","Feb-2016","Fully Paid","debt_consolidation","Debt consolidation","Apr-2010",12,14,"INDIVIDUAL",0,"76832 Benjamin Meadows
+Lake Robertview, UT 05113"
+"157",11350," 36 months",16.55,402.13,"Assistant Store Director","10+ years","RENT",56300,"Source Verified","Jun-2015","Fully Paid","debt_consolidation","Debt consolidation","Dec-2001",6,22,"INDIVIDUAL",3,"4964 Jeffery Grove
+Webbfort, ID 48052"
+"158",9000," 36 months",13.67,306.16,"Case Manager","4 years","MORTGAGE",92000,"Source Verified","Oct-2013","Charged Off","home_improvement","Home project","Sep-2006",13,42,"INDIVIDUAL",1,"Unit 1229 Box 9010
+DPO AE 86630"
+"159",25000," 60 months",14.99,594.62,"Social worker","10+ years","RENT",65187.37,"Verified","Jun-2014","Fully Paid","credit_card","Credit card refinancing","May-1993",7,16,"INDIVIDUAL",0,"959 Baker Fields Suite 016
+Evansshire, NE 29597"
+"160",21000," 36 months",14.65,724.38,"FINGER LAKES DDSO","10+ years","MORTGAGE",60000,"Verified","Jun-2012","Fully Paid","home_improvement","TIME FOR CHANGE","May-1989",20,33,"INDIVIDUAL",0,"PSC 1487, Box 3386
+APO AP 29597"
+"161",13000," 36 months",12.49,434.84,"Field Nurse","5 years","RENT",52000,"Source Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Sep-2005",9,18,"INDIVIDUAL",0,"929 Mora Locks
+West Isaac, WV 48052"
+"162",9600," 36 months",15.61,335.67,"social service supervisor","10+ years","MORTGAGE",70000,"Verified","Oct-2014","Charged Off","credit_card","Credit card refinancing","Apr-2000",18,50,"INDIVIDUAL",4,"73385 Angela Fords Suite 938
+Port Brittneyhaven, GA 86630"
+"163",2800," 36 months",10.16,90.56,"biomat","3 years","RENT",29000,"Not Verified","Aug-2012","Fully Paid","credit_card","Credit card refinancing","May-2001",8,27,"INDIVIDUAL",0,"461 Ann Isle
+Sarastad, OK 48052"
+"164",2200," 36 months",16.29,77.67,"Quality Control Specialist","10+ years","MORTGAGE",65500,"Not Verified","Jul-2014","Fully Paid","credit_card","Credit card refinancing","Jun-1992",5,9,"INDIVIDUAL",2,"91467 Schmidt Lodge
+Tracytown, KY 30723"
+"165",19200," 36 months",15.31,668.5,"Project manager ","3 years","MORTGAGE",88000,"Source Verified","May-2016","Fully Paid","debt_consolidation","Debt consolidation","Jan-2006",9,20,"INDIVIDUAL",1,"220 Madeline Springs
+West Oscartown, MI 05113"
+"166",9000," 36 months",11.55,297,"Dell Inc","6 years","MORTGAGE",110000,"Not Verified","Aug-2013","Fully Paid","debt_consolidation","Bill Consolidation and flooring","Sep-2001",19,49,"INDIVIDUAL",2,"9670 Smith Island Suite 387
+Lake Stephaniefurt, WI 29597"
+"167",8000," 36 months",6.62,245.63,"Machinist","6 years","MORTGAGE",80000,"Verified","Apr-2014","Fully Paid","credit_card","Credit card refinancing","Apr-1986",12,23,"INDIVIDUAL",2,"225 Megan Lodge
+Douglashaven, HI 22690"
+"168",5000," 36 months",17.76,180.17,"Office Assistant Sr","10+ years","RENT",42000,"Source Verified","Nov-2013","Fully Paid","other","Other","Aug-1996",14,25,"INDIVIDUAL",1,"785 James Road Apt. 837
+Charlesbury, DE 22690"
+"169",11800," 60 months",28.99,374.49,"","","RENT",44011,"Verified","Jan-2016","Fully Paid","debt_consolidation","Debt consolidation","Jun-2004",9,13,"INDIVIDUAL",0,"3019 Smith Manors Suite 402
+Lake Anthonyburgh, GA 22690"
+"170",7000," 36 months",6.24,213.72,"IT Process Manager","10+ years","MORTGAGE",96720,"Not Verified","Jul-2015","Fully Paid","home_improvement","Home improvement","Aug-1997",12,37,"INDIVIDUAL",4,"3946 Stephen Ferry
+Burnsmouth, NJ 30723"
+"171",35000," 60 months",23.1,988.68,"CHIEF ACCOUNTANT","8 years","MORTGAGE",125388,"Verified","Oct-2013","Fully Paid","debt_consolidation","DEBT CONSOLIDATION","May-1984",26,59,"INDIVIDUAL",6,"78517 Gary Neck Suite 758
+Jamesborough, MA 48052"
+"172",10800," 36 months",17.57,388.13,"CPHT","10+ years","RENT",45000,"Source Verified","May-2015","Charged Off","debt_consolidation","Debt consolidation","Jul-2005",12,30,"INDIVIDUAL",0,"Unit 4273 Box 1314
+DPO AP 30723"
+"173",11950," 36 months",13.99,408.37,"Customer Service Agent","10+ years","RENT",40000,"Source Verified","Mar-2015","Charged Off","debt_consolidation","Debt consolidation","Aug-2003",14,31,"INDIVIDUAL",5,"011 Barrett Haven Apt. 426
+Lake Dwaynetown, MD 11650"
+"174",16000," 36 months",15.61,559.44,"Assistant General Manager","10+ years","RENT",72000,"Source Verified","May-2015","Charged Off","major_purchase","Major purchase","May-2011",5,5,"INDIVIDUAL",0,"55885 Page Station Suite 564
+Prattland, CT 48052"
+"175",18000," 36 months",11.14,590.5,"Advent International","6 years","RENT",85000,"Not Verified","Apr-2013","Charged Off","debt_consolidation","Credit card relief","Oct-2002",12,33,"INDIVIDUAL",0,"9031 Cindy Corner Apt. 370
+South Nicholashaven, IN 70466"
+"176",6000," 36 months",10.49,194.99,"Teacher ","6 years","RENT",50000,"Not Verified","Oct-2016","Fully Paid","debt_consolidation","Debt consolidation","Mar-2005",10,23,"INDIVIDUAL",0,"USCGC Sandoval
+FPO AP 00813"
+"177",33425," 36 months",17.57,1201.2,"Assistant Professor","5 years","RENT",76000,"Verified","Jun-2015","Fully Paid","credit_card","Credit card refinancing","Sep-2002",11,13,"INDIVIDUAL",0,"0433 Michael Track
+East Jennifer, MS 05113"
+"178",25600," 36 months",7.69,798.56,"Electrical Engineer","10+ years","MORTGAGE",105000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-1989",15,35,"INDIVIDUAL",10,"71558 Shaw Mountain Suite 811
+West Robertmouth, MO 70466"
+"179",3550," 36 months",24.99,141.13,"professor","8 years","MORTGAGE",120000,"Source Verified","Mar-2014","Charged Off","debt_consolidation","Debt consolidation","Apr-2007",6,8,"INDIVIDUAL",1,"3776 Henry Turnpike
+New Amberton, CO 70466"
+"180",20000," 60 months",20.49,535.35,"Recruiter","3 years","MORTGAGE",68000,"Verified","Apr-2015","Fully Paid","debt_consolidation","Debt consolidation","Aug-1999",11,42,"INDIVIDUAL",3,"95038 Chen Mill
+Smithland, SD 30723"
+"181",18000," 60 months",7.89,364.03,"Manager","9 years","OWN",85000,"Not Verified","Aug-2015","Fully Paid","credit_card","Credit card refinancing","May-1996",8,24,"INDIVIDUAL",2,"30189 Nelson Burg Suite 951
+Alyssafurt, DC 00813"
+"182",12800," 60 months",22.7,358.64,"city of new haven p/w","10+ years","RENT",65000,"Source Verified","Aug-2013","Charged Off","other","Other","Oct-1999",9,13,"INDIVIDUAL",0,"551 Samantha Junction Apt. 651
+Juliastad, AK 93700"
+"183",16000," 60 months",13.33,366.76,"Executive Administrator","1 year","RENT",1e+05,"Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-2000",14,27,"INDIVIDUAL",0,"74650 Arellano Gateway
+East Robert, WY 70466"
+"184",5600," 36 months",17.56,201.22,"Curtain Wall Design Consulting","1 year","RENT",103000,"Not Verified","Sep-2013","Fully Paid","wedding","Wedding Loan","Feb-1992",9,14,"INDIVIDUAL",0,"045 Buchanan Falls Apt. 849
+Schultzborough, ND 29597"
+"185",15000," 36 months",11.99,498.15,"Psychotherapist","7 years","RENT",62000,"Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Sep-1999",23,45,"INDIVIDUAL",0,"2028 Perez Inlet
+Lake Katherine, RI 05113"
+"186",16000," 60 months",16.99,397.56,"Courtroom Clerk","2 years","MORTGAGE",78200,"Not Verified","Jul-2016","Fully Paid","debt_consolidation","Debt consolidation","Jul-2001",12,21,"INDIVIDUAL",6,"5538 Fowler Forges
+South Marcus, HI 29597"
+"187",9000," 36 months",6.03,273.92,"Federal Law Enforcement","10+ years","MORTGAGE",145000,"Not Verified","Jul-2014","Fully Paid","credit_card","Credit card refinancing","Oct-2001",19,39,"INDIVIDUAL",3,"291 John Knoll
+Harrisonview, NV 00813"
+"188",15500," 36 months",10.15,501.24,"","","OWN",107000,"Verified","Nov-2014","Fully Paid","credit_card","Credit card refinancing","May-1980",5,20,"INDIVIDUAL",1,"Unit 7905 Box 7021
+DPO AP 30723"
+"189",6000," 36 months",10.99,196.41,"Supervisor","3 years","RENT",63000,"Not Verified","Aug-2015","Fully Paid","debt_consolidation","Debt consolidation","Aug-2001",9,22,"INDIVIDUAL",2,"5130 Michele Drive
+Emmaberg, IN 22690"
+"190",9000," 36 months",6.89,277.45,"Mechanic","4 years","RENT",65000,"Source Verified","Jun-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-2008",18,31,"INDIVIDUAL",0,"12547 Patricia Dale
+South Jason, MD 22690"
+"191",24000," 36 months",14.65,827.87,"Lab Director","4 years","RENT",1e+05,"Verified","Apr-2015","Fully Paid","debt_consolidation","Debt consolidation","Nov-2007",5,10,"INDIVIDUAL",0,"59579 Hodges Forge
+South Shawn, MI 29597"
+"192",35000," 60 months",17.57,880.61,"teacher","10+ years","MORTGAGE",150000,"Source Verified","Sep-2015","Charged Off","debt_consolidation","Debt consolidation","Jan-1998",42,52,"INDIVIDUAL",1,"USCGC Santana
+FPO AA 11650"
+"193",30000," 60 months",19.52,786.83,"cbp officer","7 years","MORTGAGE",101000,"Verified","Feb-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-1997",13,30,"INDIVIDUAL",6,"8420 John Fork Apt. 046
+West Pamelaside, UT 30723"
+"194",3000," 36 months",8.9,95.26,"Practical Nurse","2 years","RENT",50000,"Not Verified","Apr-2014","Fully Paid","credit_card","Credit card refinancing","Mar-1999",12,27,"INDIVIDUAL",1,"27065 Wilson Trail Apt. 723
+New Mariobury, DE 00813"
+"195",15000," 36 months",20.31,559.83,"Texeltek","3 years","MORTGAGE",1e+05,"Not Verified","Jul-2013","Fully Paid","credit_card","Big loan","Sep-1999",20,40,"INDIVIDUAL",2,"0416 Joanne Knolls Apt. 315
+Lake Samuelberg, NH 30723"
+"196",24000," 60 months",24.5,697.42,"Lieutenant","10+ years","MORTGAGE",224000,"Verified","Jan-2014","Charged Off","debt_consolidation","Debt consolidation","Aug-2001",15,32,"INDIVIDUAL",6,"PSC 8266, Box 8855
+APO AP 11650"
+"197",6000," 36 months",14.3,205.95,"lead tech","5 years","OWN",40000,"Source Verified","Oct-2013","Fully Paid","other","Other","Nov-2005",6,17,"INDIVIDUAL",1,"018 Hunt Isle Suite 279
+Lake Vincentshire, LA 30723"
+"198",28000," 60 months",21.98,773.02,"US Army","10+ years","RENT",73000,"Verified","Nov-2012","Charged Off","debt_consolidation","payoff","Jun-1996",9,15,"INDIVIDUAL",0,"207 Gray Track Apt. 851
+Patelside, TN 93700"
+"199",10000," 36 months",7.89,312.86,"Director","10+ years","RENT",145000,"Source Verified","Feb-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-1998",10,27,"INDIVIDUAL",3,"788 Christine Green
+Lake John, WY 30723"
+"200",9450," 36 months",7.62,294.48,"O2 Media, Inc.","5 years","MORTGAGE",45000,"Verified","Sep-2012","Fully Paid","small_business","Business","Aug-1999",5,6,"INDIVIDUAL",2,"256 Ebony Walks Apt. 216
+Powellbury, WV 00813"
+"201",12000," 36 months",6.03,365.23,"Follet","6 years","RENT",45000,"Not Verified","Feb-2013","Fully Paid","debt_consolidation","Debt con","Jun-1986",8,16,"INDIVIDUAL",0,"8318 Amanda Path
+Kristinmouth, UT 00813"
+"202",13000," 60 months",19.52,340.96,"Lending Manager 2","4 years","MORTGAGE",80000,"Source Verified","May-2014","Charged Off","debt_consolidation","Debt consolidation","Sep-1998",7,14,"INDIVIDUAL",1,"775 Derek Falls
+New Julieside, NM 70466"
+"203",20000," 36 months",16.29,706.01,"URS ","< 1 year","MORTGAGE",150000,"Verified","Nov-2012","Fully Paid","debt_consolidation","Debt Consolidation","Jun-1982",20,44,"INDIVIDUAL",6,"89249 Paul Trail
+Masontown, AZ 00813"
+"204",6500," 36 months",9.67,208.74,"Lead Painter","5 years","MORTGAGE",41000,"Source Verified","Apr-2014","Charged Off","credit_card","Credit card refinancing","Oct-1981",8,20,"INDIVIDUAL",3,"2342 William Trail
+New Jason, VA 70466"
+"205",34350," 60 months",28.99,1090.13,"Quality improvement data analyst","3 years","RENT",84000,"Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Sep-2003",11,23,"INDIVIDUAL",0,"5050 Gomez Mill Suite 557
+East Adamton, SD 22690"
+"206",3500," 36 months",8.18,109.97,"Project manager","1 year","MORTGAGE",85000,"Verified","Apr-2015","Fully Paid","home_improvement","Home improvement","Jun-2005",12,28,"INDIVIDUAL",2,"847 Ashley Forest
+Hallberg, KY 70466"
+"207",3500," 36 months",14.65,120.73,"Owner ","10+ years","MORTGAGE",28000,"Source Verified","Mar-2015","Charged Off","car","Car financing","Feb-1994",4,6,"INDIVIDUAL",1,"26728 Chambers Mount Suite 568
+West Keithborough, OH 93700"
+"208",5400," 36 months",11.99,179.34,"Clinical account specialist","9 years","RENT",65000,"Source Verified","Feb-2015","Fully Paid","debt_consolidation","Debt consolidation","Nov-1997",14,39,"INDIVIDUAL",2,"152 Lopez Divide
+West Elizabethmouth, NC 29597"
+"209",14000," 36 months",9.67,449.58,"Technical Director","10+ years","RENT",98593.24,"Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-1984",6,26,"INDIVIDUAL",0,"Unit 0197 Box 0235
+DPO AE 05113"
+"210",12250," 36 months",10.99,401,"Administrative Support","1 year","RENT",40000,"Not Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-2003",12,21,"INDIVIDUAL",0,"42853 Kathryn Gardens Suite 621
+Port Jacobside, DC 70466"
+"211",28625," 36 months",11.99,950.63,"Teacher","10+ years","MORTGAGE",60000,"Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Nov-1991",11,25,"INDIVIDUAL",6,"2090 Higgins Lane Suite 171
+Cannonbury, OK 48052"
+"212",13600," 36 months",12.99,458.18,"Sales","9 years","MORTGAGE",64000,"Not Verified","May-2014","Fully Paid","credit_card","Credit card refinancing","May-1994",18,52,"INDIVIDUAL",6,"94898 Jordan Land Suite 599
+Wilkinsonview, AZ 29597"
+"213",14675," 36 months",15.61,513.11,"Executive Director, IT and Datacenter","8 years","RENT",130000,"Verified","Oct-2013","Fully Paid","debt_consolidation","Debt Destruction","Oct-2001",6,11,"INDIVIDUAL",0,"6993 Lowe Junctions
+Amandaland, TX 22690"
+"214",15000," 36 months",9.49,480.43,"Security Officer","2 years","RENT",52000,"Verified","Jan-2015","Fully Paid","credit_card","Credit card refinancing","Nov-2006",19,27,"INDIVIDUAL",0,"214 Cohen River
+New Michelle, OH 22690"
+"215",13300," 36 months",10.49,432.22,"Metrics Consultant","10+ years","MORTGAGE",58000,"Source Verified","Dec-2014","Charged Off","debt_consolidation","Debt consolidation","Aug-2000",8,18,"INDIVIDUAL",3,"22810 John Glen Suite 320
+New Shane, CO 70466"
+"216",23050," 60 months",16.29,564.09,"traction power inspector","3 years","RENT",97000,"Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-2004",5,16,"INDIVIDUAL",0,"74470 Kimberly Terrace Suite 534
+Jamieton, NV 30723"
+"217",11325," 60 months",25.99,339.01,"Provisioning Analyst","9 years","MORTGAGE",38000,"Source Verified","Jan-2015","Charged Off","debt_consolidation","Debt consolidation","Sep-2004",18,32,"INDIVIDUAL",0,"9915 Rachel Highway
+Carlosville, VT 11650"
+"218",20000," 36 months",19.52,738.39,"Friedrich Petzel Gallery","< 1 year","RENT",60000,"Verified","Sep-2013","Fully Paid","debt_consolidation","Debt consolidation","Jun-2003",10,25,"INDIVIDUAL",0,"06141 Dennis Brooks
+Port Calvin, NV 05113"
+"219",5800," 36 months",16.29,204.75,"","","OWN",18200,"Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Jun-2011",5,18,"INDIVIDUAL",0,"5926 Rodriguez Plains
+Markborough, VA 22690"
+"220",25900," 60 months",16.29,633.84,"Ferry Terminal Manager I","7 years","RENT",67000,"Not Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Mar-2001",17,21,"INDIVIDUAL",0,"3975 Martinez Gateway
+Port Scott, WA 22690"
+"221",8000," 36 months",12.69,268.36,"mill scheduler","10+ years","RENT",98000,"Not Verified","May-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-1988",10,16,"INDIVIDUAL",0,"7218 Jonathon Route
+Wagnerland, MT 00813"
+"222",25000," 60 months",12.49,562.33,"Director Information Technology","10+ years","RENT",170000,"Verified","Sep-2014","Fully Paid","major_purchase","Major purchase","Sep-1998",10,13,"INDIVIDUAL",0,"381 Garcia Hollow
+West Oliviaport, AK 05113"
+"223",7500," 36 months",24.08,294.57,"Site Manager","10+ years","MORTGAGE",90000,"Verified","Jul-2014","Charged Off","small_business","Business","May-2004",11,13,"INDIVIDUAL",2,"69401 Anderson Shoals Apt. 412
+North Hailey, SD 86630"
+"224",11000," 36 months",11.44,362.43,"Teacher","10+ years","RENT",87000,"Source Verified","Nov-2014","Fully Paid","credit_card","Credit card refinancing","Aug-1988",8,38,"INDIVIDUAL",1,"262 Heath Hill
+West Brittany, WI 30723"
+"225",18000," 36 months",12.12,598.89,"USAF","10+ years","RENT",74000,"Not Verified","Apr-2013","Fully Paid","debt_consolidation","Consolidation","Apr-1998",8,14,"INDIVIDUAL",0,"Unit 5221 Box 9962
+DPO AP 30723"
+"226",21000," 36 months",9.67,674.37,"Truck driver","10+ years","OWN",85000,"Verified","Feb-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-2000",11,39,"INDIVIDUAL",0,"0431 Sarah Cove Suite 904
+Paceton, RI 22690"
+"227",4550," 36 months",8.39,143.41,"Master Chief","10+ years","MORTGAGE",84000,"Source Verified","Jun-2016","Fully Paid","credit_card","Credit card refinancing","Mar-1994",11,30,"INDIVIDUAL",2,"1289 Melanie Shore Suite 059
+New Angelatown, MI 30723"
+"228",18000," 36 months",11.14,590.5,"Palm Springs Unified School District","2 years","MORTGAGE",42000,"Not Verified","Jun-2013","Fully Paid","debt_consolidation","Debt Consolidation","Aug-2004",16,24,"INDIVIDUAL",1,"7788 Michelle Keys
+Port Nathan, OR 48052"
+"229",35000," 36 months",12.99,1179.12,"Lawyer Partner","10+ years","MORTGAGE",350000,"Verified","Feb-2016","Fully Paid","home_improvement","Home improvement","Sep-1992",10,43,"INDIVIDUAL",2,"90980 Melissa Cliffs Suite 259
+Port Angelica, IL 70466"
+"230",15000," 36 months",12.99,505.34,"Operator","< 1 year","RENT",65000,"Not Verified","Mar-2014","Fully Paid","car","Car financing","Dec-1992",5,9,"INDIVIDUAL",0,"14623 Collins Heights Suite 803
+Lake Angelburgh, WY 00813"
+"231",10000," 36 months",13.05,337.19,"sperry rail","1 year","RENT",50000,"Not Verified","Aug-2013","Fully Paid","debt_consolidation","debt payment","Dec-2006",7,19,"INDIVIDUAL",0,"309 Emily Ridges
+Donnahaven, ME 70466"
+"232",10000," 36 months",13.98,341.68,"Billing Manager","10+ years","MORTGAGE",1e+05,"Not Verified","Aug-2014","Fully Paid","debt_consolidation","Debt consolidation","Nov-1998",20,38,"INDIVIDUAL",4,"858 Mendez Wall Suite 366
+Port Shawn, NV 29597"
+"233",15000," 36 months",18.25,544.17,"Bank of America","< 1 year","RENT",75000,"Source Verified","Apr-2012","Charged Off","other","	other","Oct-1997",8,26,"INDIVIDUAL",1,"38013 Bell Points Suite 050
+Lake Laurenmouth, KY 11650"
+"234",2000," 36 months",14.98,69.32,"Teacher","5 years","RENT",50000,"Not Verified","Jan-2014","Fully Paid","debt_consolidation","Debt Consolidation","Mar-1989",13,17,"INDIVIDUAL",0,"PSC 9860, Box 1451
+APO AA 48052"
+"235",3600," 36 months",19.52,132.92,"Police officer","8 years","RENT",110000,"Not Verified","Aug-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-1999",5,20,"INDIVIDUAL",0,"4616 Cameron Harbor Apt. 602
+Marthashire, ID 70466"
+"236",20000," 36 months",11.99,664.2,"Aviation Safety Inspector","6 years","MORTGAGE",98000,"Source Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Feb-1988",19,37,"INDIVIDUAL",12,"2390 Miller Burgs
+New Steven, VA 29597"
+"237",15000," 36 months",13.98,512.52,"Internet Sales","5 years","RENT",120000,"Not Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Nov-1993",11,39,"INDIVIDUAL",7,"5614 Garcia Trafficway
+South Donnaville, WA 05113"
+"238",8000," 36 months",13.98,273.35,"Manager","10+ years","MORTGAGE",85000,"Not Verified","Jun-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1990",14,39,"INDIVIDUAL",2,"PSC 3147, Box 2767
+APO AE 48052"
+"239",24000," 36 months",17.57,862.49,"RN","10+ years","OWN",85000,"Source Verified","Apr-2014","Charged Off","debt_consolidation","Debt consolidation","Jul-1982",18,40,"INDIVIDUAL",2,"5009 Jenkins Mountains Apt. 440
+Michaelmouth, RI 22690"
+"240",12400," 36 months",16.59,439.57,"Sales / Design","10+ years","MORTGAGE",112000,"Source Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-1984",8,38,"INDIVIDUAL",3,"772 Young Harbor
+Port Brooke, LA 22690"
+"241",15000," 36 months",11.26,492.95,"NFI Industries","< 1 year","RENT",140000,"Source Verified","May-2009","Fully Paid","credit_card","Lesson Learned Credit Cards","Nov-1995",10,31,"INDIVIDUAL",NA,"15616 Moran Overpass
+New Beth, PA 70466"
+"242",8500," 36 months",10.15,274.88,"postmaster","10+ years","MORTGAGE",70000,"Not Verified","May-2014","Fully Paid","debt_consolidation","Debt consolidation","Mar-1997",6,18,"INDIVIDUAL",3,"2856 Oneal Street
+Lauraview, IN 70466"
+"243",25000," 36 months",11.99,830.24,"Bottler","10+ years","RENT",1e+05,"Not Verified","Dec-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-1994",7,33,"INDIVIDUAL",3,"4196 Jones Plain Apt. 445
+Tinaside, MN 70466"
+"244",20000," 60 months",25.89,597.51,"Fairleigh Dickinson University","2 years","MORTGAGE",52000,"Verified","Jul-2013","Fully Paid","debt_consolidation","helful loan","Dec-1997",15,39,"INDIVIDUAL",0,"11591 Susan Inlet
+Garrisonchester, NH 29597"
+"245",22950," 60 months",17.57,577.43,"Office Administrator","10+ years","OWN",50000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-1998",9,22,"INDIVIDUAL",0,"0784 Lindsey Spur Apt. 315
+Dawnview, MI 22690"
+"246",15000," 36 months",11.14,492.08,"U.S. Postal Service","10+ years","MORTGAGE",53000,"Not Verified","Feb-2013","Fully Paid","debt_consolidation","consolidation","Nov-1992",8,25,"INDIVIDUAL",2,"5635 Jennifer Cove
+New Hannahmouth, NM 00813"
+"247",9000," 36 months",14.48,309.71,"","","OWN",25000,"Verified","Dec-2015","Charged Off","debt_consolidation","Debt consolidation","Dec-2003",4,9,"INDIVIDUAL",2,"691 Newman Spring Suite 120
+East Kellyhaven, NJ 22690"
+"248",15100," 36 months",21.99,576.6,"machinist","5 years","RENT",42000,"Source Verified","Jun-2015","Charged Off","debt_consolidation","Debt consolidation","Jun-2002",10,15,"INDIVIDUAL",1,"84532 Lopez Mission
+Lake Anthonyton, NY 48052"
+"249",30000," 36 months",12.12,998.15,"The Salvation Army","10+ years","MORTGAGE",95000,"Verified","Apr-2012","Fully Paid","home_improvement","Home Improvement","May-1991",5,10,"INDIVIDUAL",1,"001 Joshua Valleys
+Jefferybury, AK 48052"
+"250",11500," 60 months",23.99,330.77,"warehouse","< 1 year","RENT",36000,"Source Verified","Oct-2015","Charged Off","credit_card","Credit card refinancing","Oct-2011",6,6,"INDIVIDUAL",0,"7459 Deborah Fort
+North Danaview, NC 86630"
+"251",1200," 36 months",5.99,36.51,"Delta Nursing and Rehabilitation","< 1 year","RENT",21600,"Not Verified","Jun-2011","Fully Paid","other","Moving and Debt Consolidation","Nov-2000",10,35,"INDIVIDUAL",NA,"5751 John Groves Suite 100
+New Gabrielborough, FL 05113"
+"252",16000," 60 months",17.57,402.57,"sales","8 years","RENT",56000,"Source Verified","Feb-2014","Charged Off","debt_consolidation","Debt consolidation","Dec-2000",16,20,"INDIVIDUAL",0,"0506 Payne Common Apt. 233
+West Wendy, WI 30723"
+"253",4000," 36 months",15.61,139.86,"PUBLIC HEALTH NURSE","4 years","RENT",39500,"Not Verified","Jul-2014","Charged Off","debt_consolidation","Debt consolidation","Apr-1998",9,20,"INDIVIDUAL",0,"99148 Christina Forks
+Lake Natalie, MT 22690"
+"254",7475," 36 months",16.29,263.88,"OPERATION MANANGER ","10+ years","MORTGAGE",1e+05,"Not Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-2001",8,32,"INDIVIDUAL",6,"Unit 8536 Box 6257
+DPO AA 29597"
+"255",9600," 36 months",11.49,316.53,"Manager","5 years","RENT",45000,"Verified","Aug-2016","Fully Paid","credit_card","Credit card refinancing","Sep-1999",6,16,"INDIVIDUAL",0,"0322 Connie View
+North Kenneth, ID 30723"
+"256",3500," 36 months",14.16,119.9,"BOOKKEEPER","< 1 year","OWN",39648,"Source Verified","Mar-2014","Fully Paid","other","Other","Nov-1999",6,14,"INDIVIDUAL",0,"11635 Christopher Isle Suite 957
+Chavezville, OR 30723"
+"257",8975," 36 months",14.65,309.59,"Accounting","7 years","RENT",36500,"Source Verified","Jun-2015","Fully Paid","debt_consolidation","Debt consolidation","Sep-2007",10,16,"INDIVIDUAL",0,"1031 Ruiz Brooks
+Lake Mariofurt, NH 70466"
+"258",19800," 36 months",14.47,681.25,"Personnel Specialist","7 years","MORTGAGE",47364,"Source Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-2001",9,15,"INDIVIDUAL",2,"34572 David Lakes Apt. 357
+East Tyler, AL 30723"
+"259",2500," 36 months",10.74,81.54,"stevens point police department","10+ years","MORTGAGE",55000,"Not Verified","Jun-2012","Fully Paid","credit_card","credit reduction","Jan-1994",7,30,"INDIVIDUAL",4,"682 Kayla Forest Suite 032
+West Ericafort, UT 00813"
+"260",2000," 36 months",11.53,65.99,"Analyst Management","10+ years","MORTGAGE",102000,"Not Verified","Apr-2015","Fully Paid","home_improvement","Home improvement","Jan-2005",14,29,"INDIVIDUAL",2,"849 Gregory Fall
+New Linda, FL 00813"
+"261",7800," 36 months",11.55,257.4,"Kroger Co","10+ years","RENT",40000,"Not Verified","Jul-2013","Charged Off","debt_consolidation","consolidate bills","Jan-2007",7,13,"INDIVIDUAL",0,"Unit 8547 Box 2436
+DPO AP 48052"
+"262",2400," 36 months",8.67,75.96,"Regular city carrier","5 years","MORTGAGE",61500,"Not Verified","Dec-2014","Fully Paid","debt_consolidation","Debt consolidation","Jan-2010",12,20,"INDIVIDUAL",2,"59376 Tyler Mountain
+West Nichole, VT 05113"
+"263",15000," 36 months",13.11,506.21,"Capital Group","10+ years","RENT",66900,"Verified","Mar-2013","Fully Paid","debt_consolidation","My Payoff Loan","Mar-1987",11,15,"INDIVIDUAL",0,"0100 Singh Green Apt. 105
+Garybury, MS 00813"
+"264",8000," 36 months",12.49,267.6,"instructor","6 years","MORTGAGE",50000,"Source Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Aug-2008",10,15,"INDIVIDUAL",1,"389 Solis Key Suite 522
+Sweeneyburgh, VA 22690"
+"265",12500," 36 months",12.12,415.9,"JSC Transortation","2 years","RENT",45000,"Not Verified","Sep-2012","Charged Off","debt_consolidation","Debt Consol","Feb-1997",10,20,"INDIVIDUAL",1,"137 Jefferson Fork Suite 808
+Hawkinsside, NV 70466"
+"266",8000," 36 months",11.67,264.46,"Dental asst","10+ years","RENT",48000,"Not Verified","Jul-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-1998",4,21,"INDIVIDUAL",0,"640 Mary Heights
+Lake Matthew, AL 48052"
+"267",18000," 36 months",7.89,563.15,"truck driver","7 years","MORTGAGE",87000,"Verified","Mar-2015","Charged Off","debt_consolidation","Debt consolidation","Oct-1986",15,30,"INDIVIDUAL",2,"58512 James Crossroad Suite 006
+Richardsonland, AK 30723"
+"268",8000," 36 months",13.99,273.39,"RN","9 years","MORTGAGE",1e+05,"Verified","Jun-2016","Fully Paid","other","Other","Nov-2004",22,36,"INDIVIDUAL",3,"USS Clark
+FPO AE 00813"
+"269",9500," 36 months",7.62,296.04,"Cook County Government","3 years","OWN",37000,"Source Verified","Mar-2012","Fully Paid","home_improvement","Home renovation","Mar-2002",9,22,"INDIVIDUAL",0,"3268 Neal Port Apt. 997
+Port Nicholasburgh, IA 30723"
+"270",12000," 36 months",13.11,404.97,"ASRT","4 years","MORTGAGE",142000,"Not Verified","Jul-2012","Fully Paid","debt_consolidation","Consolidation1","Jul-1993",11,44,"INDIVIDUAL",7,"022 James Ways
+Port Jonathan, PA 48052"
+"271",10000," 36 months",11.14,328.06,"united states postal service","5 years","MORTGAGE",58000,"Source Verified","Dec-2012","Fully Paid","credit_card","cc refinance","Jul-1999",14,28,"INDIVIDUAL",1,"3636 Kelley Camp Apt. 787
+Pamelaville, ME 70466"
+"272",12000," 60 months",13.49,276.06,"Ag Teacher","2 years","MORTGAGE",61000,"Source Verified","Oct-2016","Fully Paid","debt_consolidation","Debt consolidation","Mar-2007",17,20,"INDIVIDUAL",1,"837 Stevens Shores Suite 778
+South Gloria, TX 29597"
+"273",24000," 36 months",8.59,758.63,"Owner ","10+ years","OWN",98000,"Not Verified","Jul-2016","Fully Paid","debt_consolidation","Debt consolidation","Aug-1989",23,49,"INDIVIDUAL",1,"59772 Hernandez Isle
+Nancyberg, MN 70466"
+"274",5825," 36 months",10.64,189.72,"Northwestern Medical Faculty Foundation","2 years","RENT",35000,"Not Verified","Jul-2013","Fully Paid","debt_consolidation","Pay Down the Cards","Oct-1999",9,15,"INDIVIDUAL",1,"210 Jones Ridge Suite 336
+Kristinemouth, WA 00813"
+"275",2850," 36 months",15.31,99.23,"Supervisor","2 years","RENT",57000,"Source Verified","Feb-2016","Fully Paid","credit_card","Credit card refinancing","Feb-1994",5,12,"INDIVIDUAL",1,"068 Peters Curve Apt. 810
+Christopherfort, NH 70466"
+"276",28000," 36 months",8.18,879.75,"Executive Director","2 years","MORTGAGE",250000,"Source Verified","Oct-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-1999",15,27,"INDIVIDUAL",4,"46182 Adam Centers Suite 528
+Alexanderland, TX 30723"
+"277",25000," 60 months",16.99,621.18,"General Manager","8 years","MORTGAGE",87000,"Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-1995",20,31,"INDIVIDUAL",1,"43999 Mccoy Flat
+Matthewmouth, AK 00813"
+"278",12800," 36 months",9.16,408,"","","RENT",72000,"Verified","Mar-2016","Fully Paid","car","Car financing","Aug-2003",6,15,"INDIVIDUAL",1,"623 Kelly River
+Port Nicoleshire, CT 05113"
+"279",8000," 36 months",15.31,278.54,"","","RENT",22050,"Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-2005",8,15,"INDIVIDUAL",0,"1630 Daniel Burgs
+Russellland, CO 30723"
+"280",11200," 60 months",13.33,256.74,"manager","4 years","MORTGAGE",65000,"Source Verified","Apr-2015","Fully Paid","credit_card","Credit card refinancing","Mar-1997",13,35,"INDIVIDUAL",0,"Unit 5995 Box 0595
+DPO AA 30723"
+"281",1000," 36 months",13.67,34.02,"Superfund Asset Management","< 1 year","RENT",50000,"Source Verified","Jul-2012","Fully Paid","debt_consolidation","Lowering My Interest Rate","May-2007",15,19,"INDIVIDUAL",0,"79864 Colin Isle
+Jamesbury, KY 30723"
+"282",24000," 60 months",23.28,680.44,"","","RENT",55007,"Verified","Jun-2013","Fully Paid","credit_card","My 5-year plan to being debt free!","Sep-2004",14,23,"INDIVIDUAL",0,"72473 Megan Drives
+Port Jessicamouth, AL 22690"
+"283",3900," 36 months",14.64,134.51,"electrician","10+ years","OWN",70000,"Not Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-1993",8,20,"INDIVIDUAL",2,"536 Castro Inlet Suite 439
+West Gina, AL 22690"
+"284",15000," 36 months",7.69,467.91,"Electrician","3 years","MORTGAGE",90000,"Source Verified","Sep-2014","Charged Off","credit_card","Credit card refinancing","Jun-2002",12,19,"INDIVIDUAL",2,"8791 Harvey Circles Apt. 465
+South Lauraview, KS 93700"
+"285",3800," 36 months",18.25,137.86,"certified ophthal. assistant","10+ years","MORTGAGE",54000,"Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","Jun-1990",16,56,"INDIVIDUAL",5,"441 Hoffman Lights
+Sarahton, MD 22690"
+"286",20000," 60 months",15.61,482.23,"sales support","10+ years","MORTGAGE",60000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-1988",18,40,"INDIVIDUAL",4,"8121 Heather Meadows
+Scottside, MT 00813"
+"287",21000," 36 months",6.03,639.15,"Toyota Tsusho","10+ years","OWN",495000,"Source Verified","May-2013","Fully Paid","house","home improvements","Jul-1982",5,26,"INDIVIDUAL",2,"6883 Miller Square
+Valdezburgh, CT 29597"
+"288",3600," 36 months",8.67,113.93,"Marketing Manager","< 1 year","OWN",80000,"Not Verified","Dec-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1989",12,31,"INDIVIDUAL",3,"833 Joshua Garden
+Harryfurt, CT 30723"
+"289",18000," 60 months",14.98,428.03,"Programmer/Analyst","10+ years","MORTGAGE",83000,"Source Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-1995",11,32,"INDIVIDUAL",3,"6135 Nelson Orchard Apt. 683
+Port Hannah, LA 70466"
+"290",3250," 60 months",11.99,72.28,"sarah tuxis","3 years","MORTGAGE",48000,"Verified","Jun-2011","Charged Off","car","buissness","Apr-2004",8,13,"INDIVIDUAL",NA,"3293 Miller Glen Apt. 905
+Chapmantown, NV 70466"
+"291",15000," 36 months",14.33,515.08,"BOCC-Polk County","10+ years","RENT",39000,"Not Verified","Apr-2013","Fully Paid","credit_card","Credit card refinancing","Nov-1998",6,21,"INDIVIDUAL",0,"PSC 3891, Box 4247
+APO AA 30723"
+"292",5000," 36 months",14.99,173.31,"Officer","9 years","MORTGAGE",59000,"Source Verified","Oct-2014","Fully Paid","other","Other","Oct-2002",8,29,"INDIVIDUAL",2,"38026 Louis Forks
+Mooneyport, AR 70466"
+"293",20000," 60 months",18.49,513.22,"Federal Public Defender","10+ years","MORTGAGE",130000,"Verified","Aug-2012","Fully Paid","credit_card","Card Card Payoff","Apr-1998",12,31,"INDIVIDUAL",5,"01524 Shaw Gardens Apt. 846
+Lake Justin, WA 48052"
+"294",6000," 36 months",17.57,215.63,"Correction Officer","10+ years","RENT",80000,"Source Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Aug-1997",5,22,"INDIVIDUAL",0,"563 Michael Cape Suite 406
+Marshshire, NV 48052"
+"295",24725," 60 months",25.44,732.11,"Chief Steward ","6 years","MORTGAGE",85000,"Not Verified","Jun-2016","Fully Paid","other","Other","Mar-2004",18,30,"INDIVIDUAL",2,"7801 Long Island Apt. 714
+South Stephaniebury, IN 30723"
+"296",12000," 60 months",13.99,279.16,"Quality Assurance Supervisior","10+ years","RENT",36000,"Source Verified","Jun-2015","Charged Off","credit_card","Credit card refinancing","Apr-1997",11,16,"INDIVIDUAL",0,"754 Clark Green Apt. 120
+Juliaville, MO 48052"
+"297",12000," 36 months",9.71,385.58,"State of CA","10+ years","MORTGAGE",96000,"Not Verified","Aug-2013","Fully Paid","home_improvement","Fix my House","Dec-1990",8,24,"INDIVIDUAL",6,"405 Reese Rapid Apt. 036
+Davisshire, NJ 70466"
+"298",30000," 36 months",16.2,1057.68,"GE","10+ years","MORTGAGE",75000,"Verified","Sep-2013","Fully Paid","credit_card","Credit Cards","Jun-1997",13,27,"INDIVIDUAL",4,"88600 Matthew Inlet
+Erinborough, AL 00813"
+"299",4000," 36 months",16.49,141.6,"front desk","1 year","MORTGAGE",41000,"Source Verified","Dec-2014","Fully Paid","home_improvement","Home improvement","May-1997",8,20,"INDIVIDUAL",0,"57499 Tiffany Wells Apt. 978
+New Brianbury, DE 48052"
+"300",15000," 36 months",15.61,524.48,"Contract Specialist","7 years","MORTGAGE",71500,"Source Verified","Feb-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-2003",9,30,"INDIVIDUAL",5,"589 Larry Roads Suite 021
+Laurenberg, TN 22690"
+"301",24000," 60 months",19.24,625.75,"Officer","10+ years","RENT",120000,"Source Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","May-1994",14,28,"INDIVIDUAL",0,"9084 Michael Harbors
+New Jonathan, AK 05113"
+"302",23400," 36 months",24.11,919.41,"Sr. Desktop Technician","10+ years","RENT",65000,"Verified","Feb-2016","Charged Off","other","Other","Apr-1996",6,16,"INDIVIDUAL",4,"9568 Bowman Circle Suite 755
+East Christopherhaven, SC 30723"
+"303",27200," 60 months",23.99,782.34,"GM","2 years","RENT",72000,"Verified","Feb-2015","Charged Off","debt_consolidation","Debt consolidation","Apr-1992",9,49,"INDIVIDUAL",11,"4090 Sarah Islands Apt. 161
+Wattsview, IL 70466"
+"304",10000," 36 months",10.49,324.98,"Receiving clerk","2 years","MORTGAGE",95000,"Not Verified","Oct-2016","Fully Paid","debt_consolidation","Debt consolidation","Sep-2005",9,11,"INDIVIDUAL",1,"203 Travis Stream Suite 743
+Michaelmouth, OH 70466"
+"305",24000," 60 months",13.98,558.19,"Associate Attorney","4 years","RENT",85000,"Source Verified","Feb-2014","Fully Paid","credit_card","Credit card refinancing","Oct-1998",22,38,"INDIVIDUAL",0,"82177 Dean Valley Apt. 965
+North George, IL 48052"
+"306",15000," 36 months",11.99,498.15,"Consultant","10+ years","MORTGAGE",74600,"Not Verified","Oct-2013","Fully Paid","debt_consolidation","One Payment","Mar-1983",8,24,"INDIVIDUAL",3,"USNV Sims
+FPO AA 29597"
+"307",31300," 36 months",13.11,1056.28,"East Georgia Regional Medical Center","7 years","MORTGAGE",70000,"Verified","Dec-2012","Fully Paid","debt_consolidation","great consolidation","Mar-1985",12,24,"INDIVIDUAL",2,"0853 Friedman Crest
+Alexabury, TX 05113"
+"308",14400," 60 months",15.31,344.93,"ATPA","< 1 year","MORTGAGE",47500,"Verified","Mar-2013","Fully Paid","debt_consolidation","New beginning","Feb-1997",10,30,"INDIVIDUAL",1,"PSC 9254, Box 8532
+APO AA 70466"
+"309",12000," 36 months",15.8,420.71,"Newman Technology, Inc.","10+ years","MORTGAGE",90480,"Not Verified","Jun-2013","Fully Paid","debt_consolidation","Consolidation","Nov-1991",8,21,"INDIVIDUAL",1,"248 Kimberly Locks Apt. 015
+Jamieville, VT 70466"
+"310",11000," 36 months",13.98,375.85,"Supervisor","10+ years","MORTGAGE",65000,"Verified","Feb-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-2002",11,24,"INDIVIDUAL",4,"348 Barbara Ports
+Perryburgh, CO 22690"
+"311",10000," 36 months",14.99,346.61,"Vice President","3 years","RENT",95000,"Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Oct-1993",22,40,"INDIVIDUAL",4,"618 Michael Crest
+Rickyview, TN 22690"
+"312",20000," 36 months",13.33,677.07,"CPA","10+ years","MORTGAGE",85000,"Source Verified","Apr-2015","Fully Paid","home_improvement","Home improvement","Oct-1998",13,22,"INDIVIDUAL",4,"209 Heather Drives
+Ronaldfurt, GA 48052"
+"313",16000," 36 months",15.96,562.2,"New Hanover Regional Medical Center","10+ years","MORTGAGE",73000,"Verified","Jan-2012","Fully Paid","medical","medical expenses/credit card","Feb-2000",18,30,"INDIVIDUAL",NA,"89359 Deleon Mission Apt. 683
+Lake Samantha, CO 48052"
+"314",7625," 36 months",14.49,262.43,"cSr 1","10+ years","RENT",75000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Nov-1999",7,14,"INDIVIDUAL",2,"Unit 6948 Box 9867
+DPO AP 48052"
+"315",8000," 36 months",7.69,249.55,"Fulfillment Manager","3 years","RENT",45000,"Not Verified","Oct-2014","Fully Paid","credit_card","Credit card refinancing","Nov-2004",19,30,"INDIVIDUAL",0,"3122 Frost Parks
+Millerfurt, OH 05113"
+"316",28500," 36 months",11.99,946.48,"longshoreman","10+ years","MORTGAGE",240000,"Source Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Nov-1997",12,26,"INDIVIDUAL",1,"724 Green Square
+Riggston, NC 05113"
+"317",18000," 36 months",13.11,607.45,"Del Norte County Unified School District","10+ years","MORTGAGE",88000,"Not Verified","Aug-2012","Fully Paid","debt_consolidation","debt consolidation","Apr-1995",14,25,"INDIVIDUAL",1,"920 Hardin Ville Suite 896
+Austinfort, WV 30723"
+"318",26375," 36 months",17.86,951.67,"Vice President","2 years","RENT",60000,"Not Verified","Nov-2014","Charged Off","debt_consolidation","Debt consolidation","May-2001",5,16,"INDIVIDUAL",2,"548 Brian Wall
+Crossstad, HI 30723"
+"319",20000," 36 months",10.49,649.96,"Manager of Engineering","10+ years","MORTGAGE",164732,"Source Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-2002",10,20,"INDIVIDUAL",3,"73275 Smith Square Apt. 500
+Anneland, TN 70466"
+"320",9000," 36 months",12.69,301.91,"B Operater","9 years","RENT",85000,"Verified","Jul-2015","Fully Paid","debt_consolidation","Debt consolidation","Dec-2004",9,12,"INDIVIDUAL",0,"330 Diana Summit Apt. 989
+Port Veronicaville, MT 00813"
+"321",15000," 36 months",9.67,481.69,"E-5","10+ years","MORTGAGE",58164,"Source Verified","Feb-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-2003",9,33,"INDIVIDUAL",1,"141 Jennifer Club Suite 584
+West Kevin, PA 00813"
+"322",12500," 36 months",11.14,410.07,"Center for Employment Training","1 year","MORTGAGE",55000,"Not Verified","Oct-2012","Fully Paid","debt_consolidation","Clean-Up","Mar-2000",8,13,"INDIVIDUAL",0,"7391 Nancy Dale
+Jacksonstad, MT 05113"
+"323",8875," 36 months",18.24,321.93,"","","MORTGAGE",50000,"Source Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Oct-1985",7,18,"INDIVIDUAL",0,"698 Marshall Estate
+Davidborough, MN 00813"
+"324",10000," 36 months",5.32,301.15,"Staff Accountant","4 years","MORTGAGE",65000,"Not Verified","May-2015","Fully Paid","credit_card","Credit card refinancing","Jan-2005",13,57,"INDIVIDUAL",1,"8834 Martin Fork Suite 825
+Medinatown, MI 29597"
+"325",4000," 36 months",21.49,151.71,"Correctional Officer","10+ years","MORTGAGE",60000,"Source Verified","Jul-2016","Fully Paid","debt_consolidation","Debt consolidation","Jun-2003",5,23,"INDIVIDUAL",3,"08680 Kathy Junctions Suite 109
+West Sydney, NY 05113"
+"326",10000," 36 months",7.62,311.62,"CITY OF LA - FIRE AND POLICE PENSIONS","10+ years","MORTGAGE",85838,"Not Verified","Jan-2013","Fully Paid","debt_consolidation","DEBT CONSOLIDATION","Jul-1985",9,16,"INDIVIDUAL",3,"928 Atkins Ville Apt. 033
+Smithhaven, MI 22690"
+"327",20000," 60 months",9.99,424.85,"Teacher","10+ years","MORTGAGE",94000,"Not Verified","Nov-2015","Fully Paid","debt_consolidation","Debt consolidation","May-1978",11,25,"INDIVIDUAL",3,"93780 Jennings Row Apt. 643
+Mitchellfort, MA 70466"
+"328",34800," 36 months",18.99,1275.46,"Human Resource Manager","6 years","RENT",78000,"Verified","Sep-2014","Fully Paid","car","Car financing","Aug-1999",10,26,"INDIVIDUAL",1,"92225 Aaron Station
+Maryborough, OR 22690"
+"329",5000," 36 months",12.12,166.36,"New Dimensions","7 years","MORTGAGE",24000,"Not Verified","Jun-2013","Fully Paid","debt_consolidation","pay off my debt","Feb-1994",7,25,"INDIVIDUAL",3,"2851 Heather Gardens
+Lake William, NV 22690"
+"330",15000," 36 months",13.05,505.78,"Duff and Phelps LLC","6 years","MORTGAGE",64500,"Verified","Aug-2013","Fully Paid","credit_card","Credit card refinancing","Aug-2000",14,29,"INDIVIDUAL",2,"3151 Mary Brooks Suite 058
+Penningtonton, MI 22690"
+"331",25000," 60 months",14.64,590.04,"Physician","10+ years","MORTGAGE",210000,"Not Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Aug-1988",12,29,"INDIVIDUAL",4,"55562 Duncan Shore Suite 406
+South Nichole, UT 00813"
+"332",5075," 36 months",17.27,181.63,"Walmart","10+ years","MORTGAGE",53000,"Verified","Jan-2013","Fully Paid","credit_card","refi","Feb-2001",14,33,"INDIVIDUAL",4,"3434 Aaron Center Apt. 863
+Garzatown, DC 30723"
+"333",7500," 36 months",14.99,259.96,"Personal Trainer","3 years","RENT",20000,"Not Verified","Jan-2015","Fully Paid","credit_card","Credit card refinancing","Sep-2010",8,11,"INDIVIDUAL",0,"584 Anderson Camp Apt. 958
+Lake Jillland, AL 70466"
+"334",35000," 60 months",23.28,992.31,"Berne-Knox-Westerlo Central School Distr","10+ years","MORTGAGE",78000,"Verified","Mar-2013","Fully Paid","debt_consolidation","Consolidation","May-1989",9,17,"INDIVIDUAL",3,"PSC 2746, Box 0900
+APO AE 29597"
+"335",4950," 36 months",14.65,170.75,"Journey wireman","< 1 year","MORTGAGE",60000,"Verified","Jul-2015","Fully Paid","debt_consolidation","Debt consolidation","Dec-2002",8,20,"INDIVIDUAL",2,"6021 Ferguson Court Suite 591
+Johnstad, DE 22690"
+"336",12000," 36 months",13.33,406.24,"Business Customer Service Analyst","10+ years","RENT",65000,"Source Verified","Apr-2015","Charged Off","debt_consolidation","Debt consolidation","Oct-1996",21,38,"INDIVIDUAL",0,"8950 Christian Rapids Apt. 348
+Jacobton, CA 22690"
+"337",12000," 36 months",5.79,232.01,"Technisand","4 years","MORTGAGE",55000,"Not Verified","Nov-2010","Fully Paid","other","debt consolidation","Aug-1993",9,19,"INDIVIDUAL",NA,"66635 Reginald Prairie Suite 440
+Allisontown, ND 29597"
+"338",17600," 36 months",13.11,593.95,"Blue River Productions","4 years","RENT",50000,"Not Verified","Mar-2013","Fully Paid","debt_consolidation","Lending Club Debt Consolidation","Apr-2007",9,11,"INDIVIDUAL",0,"08915 Gallagher Mountains
+West Dustinfort, MN 00813"
+"339",10000," 36 months",6.62,307.04,"Kohler","1 year","MORTGAGE",43900,"Not Verified","Oct-2012","Fully Paid","credit_card","No More Credit Card Debt!","May-1997",16,19,"INDIVIDUAL",1,"419 Julie Underpass Suite 909
+New Charlesfurt, AK 22690"
+"340",13475," 60 months",19.29,351.71,"Juniper Networks","4 years","RENT",121392,"Verified","Jul-2011","Fully Paid","debt_consolidation","Planning to pay off in less than 3 yrs","Jan-2006",5,16,"INDIVIDUAL",NA,"30962 Pope Brook Suite 077
+Stephaniechester, WV 05113"
+"341",18000," 36 months",12.69,603.81,"Foreman","2 years","OWN",51500,"Source Verified","Sep-2015","Fully Paid","credit_card","Credit card refinancing","Apr-1995",16,21,"INDIVIDUAL",1,"68189 Nelson Extension Suite 851
+Port Andrew, VT 29597"
+"342",16475," 60 months",19.99,436.4,"Logistics and Tranportation","10+ years","MORTGAGE",55000,"Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1993",7,29,"INDIVIDUAL",3,"509 Larry Roads
+Port Megan, IA 48052"
+"343",10150," 36 months",19.22,373.19,"Team Lead Loss Mitigation-FHLMC","2 years","RENT",48360,"Source Verified","Feb-2014","Fully Paid","debt_consolidation","Debt consolidation","Sep-2009",9,18,"INDIVIDUAL",0,"220 Sullivan Pines
+East Jean, FL 30723"
+"344",15250," 36 months",16.29,538.34,"Commonwealth of massachusetts","5 years","RENT",44000,"Not Verified","May-2013","Fully Paid","debt_consolidation","Bills","Oct-1998",17,24,"INDIVIDUAL",1,"462 Wolf Meadow Suite 348
+Derekshire, KS 00813"
+"345",20000," 60 months",25.89,597.51,"NYC  Human Resource Administration","4 years","OWN",90000,"Verified","Jul-2013","Charged Off","wedding","Wedding ","Jan-1999",12,24,"INDIVIDUAL",0,"2340 Veronica Extension Suite 429
+Houseland, ID 93700"
+"346",6900," 36 months",16.99,245.97,"3rd Grade Teacher","< 1 year","MORTGAGE",39000,"Verified","Aug-2014","Fully Paid","home_improvement","Home improvement","Jun-1999",5,15,"INDIVIDUAL",3,"0419 Thompson Isle Suite 419
+East Jacquelineview, OR 05113"
+"347",20400," 60 months",18.24,520.7,"Sales Representative","4 years","RENT",51000,"Source Verified","Aug-2014","Charged Off","debt_consolidation","Debt consolidation","Oct-1994",25,38,"INDIVIDUAL",0,"95540 Barnes Summit Suite 139
+North Corey, MI 93700"
+"348",2400," 36 months",8.18,75.41,"Grounds keeper","2 years","RENT",49464,"Not Verified","Jul-2015","Fully Paid","other","Other","May-1996",8,25,"INDIVIDUAL",2,"Unit 9645 Box 3794
+DPO AA 22690"
+"349",4200," 36 months",14.54,144.66,"etr associates","5 years","RENT",41000,"Not Verified","Mar-2011","Fully Paid","debt_consolidation","Debt Consolidation Loan","May-2007",6,7,"INDIVIDUAL",NA,"0815 Veronica Branch
+Robinsonton, MN 05113"
+"350",3000," 36 months",9.49,96.09,"Staff Assistant","10+ years","MORTGAGE",65839,"Source Verified","Jul-2016","Fully Paid","debt_consolidation","Debt consolidation","Jun-2005",7,23,"INDIVIDUAL",4,"PSC 2605, Box 5324
+APO AA 48052"
+"351",25000," 36 months",12.12,831.8,"","10+ years","RENT",90000,"Source Verified","Mar-2012","Fully Paid","other","Major Purchase","Jan-2001",12,22,"INDIVIDUAL",NA,"87600 Connie Inlet Suite 338
+West Gabriel, NM 30723"
+"352",6625," 36 months",14.09,226.72,"home depot","10+ years","RENT",42000,"Verified","May-2013","Fully Paid","credit_card","consoladate","Jan-2000",7,36,"INDIVIDUAL",6,"881 Harris Skyway Suite 307
+Kellystad, ND 05113"
+"353",28000," 36 months",8.19,879.88,"Pharmacist","2 years","RENT",1e+05,"Source Verified","Nov-2014","Fully Paid","credit_card","Credit card refinancing","Jan-2001",22,45,"INDIVIDUAL",3,"PSC 5298, Box 0538
+APO AE 00813"
+"354",6625," 36 months",15.8,232.27,"ability house","10+ years","OWN",25000,"Not Verified","May-2013","Charged Off","credit_card","Credit card refinancing","Apr-2000",13,21,"INDIVIDUAL",0,"05352 Charles Parkways Apt. 066
+West Deborahland, NJ 30723"
+"355",35000," 60 months",22.99,986.47,"Half owner","8 years","OWN",250000,"Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Sep-1987",7,31,"INDIVIDUAL",8,"0753 Thomas Rue Apt. 166
+West Beth, CO 70466"
+"356",4000," 36 months",11.53,131.97,"office Manager","10+ years","MORTGAGE",60000,"Not Verified","May-2015","Fully Paid","credit_card","Credit card refinancing","Aug-1998",5,11,"INDIVIDUAL",3,"4349 Lisa Estate
+West Susan, DE 05113"
+"357",8275," 36 months",9.25,264.11,"Candy Maker","10+ years","OWN",25000,"Source Verified","Oct-2013","Fully Paid","debt_consolidation","Debt consolidation","Oct-1993",10,15,"INDIVIDUAL",0,"216 Matthew Port Suite 231
+Stephanieburgh, OK 22690"
+"358",17000," 60 months",8.39,347.89,"Charge Nurse","7 years","MORTGAGE",76000,"Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Feb-2001",22,35,"INDIVIDUAL",4,"529 Newton Mews Suite 951
+Lake Mark, VT 30723"
+"359",35000," 36 months",12.29,1167.36,"Comptroller","10+ years","MORTGAGE",130000,"Source Verified","Sep-2015","Charged Off","debt_consolidation","Debt consolidation","Jan-2003",15,28,"INDIVIDUAL",2,"10575 Maxwell Islands
+Kimberlymouth, IA 93700"
+"360",18000," 36 months",6.03,547.84,"water plant operator","2 years","MORTGAGE",42000,"Not Verified","Jan-2015","Charged Off","debt_consolidation","Debt consolidation","Jan-1995",4,27,"INDIVIDUAL",6,"USNS Roberts
+FPO AA 11650"
+"361",15000," 36 months",16.29,529.51,"USAF","9 years","RENT",72000,"Source Verified","Nov-2012","Fully Paid","debt_consolidation","Pay Bills","Oct-2005",9,27,"INDIVIDUAL",0,"483 Roth Stravenue Suite 634
+Lake Brandon, DE 70466"
+"362",13000," 36 months",11.67,429.74,"","","RENT",58000,"Verified","Oct-2014","Charged Off","debt_consolidation","Debt consolidation","Jul-1988",17,48,"INDIVIDUAL",2,"USNS Hawkins
+FPO AA 70466"
+"363",21150," 36 months",13.11,713.75,"Audience, Inc.","2 years","RENT",52000,"Not Verified","Jan-2013","Fully Paid","debt_consolidation","Demolish Credit Card Debt","May-2000",15,27,"INDIVIDUAL",0,"65042 Lane Course Apt. 041
+Sandersview, NV 22690"
+"364",17325," 60 months",14.33,406.1,"four seasons hotel","6 years","RENT",40000,"Source Verified","Sep-2013","Fully Paid","debt_consolidation","Debt consolidation","Aug-2001",9,15,"INDIVIDUAL",0,"5760 Jennifer Underpass Apt. 998
+East Jessica, KS 70466"
+"365",25000," 60 months",11.44,549.07,"Store Manager","10+ years","MORTGAGE",99000,"Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Jun-1981",26,49,"INDIVIDUAL",3,"37658 Pugh Rest
+West Patriciatown, WV 30723"
+"366",10000," 36 months",8.19,314.25,"Treasury Analyst ","4 years","RENT",65000,"Source Verified","Feb-2015","Fully Paid","credit_card","Credit card refinancing","Dec-2003",19,30,"INDIVIDUAL",0,"6900 Scott Motorway
+North Jennifer, RI 05113"
+"367",23050," 36 months",6.03,701.54,"","","MORTGAGE",150000,"Source Verified","Aug-2014","Fully Paid","debt_consolidation","Debt consolidation","Feb-1998",18,67,"INDIVIDUAL",11,"474 Martin Shore Apt. 673
+New Joshua, AR 70466"
+"368",12000," 36 months",13.11,404.97,"United Parcel Service","10+ years","RENT",39000,"Verified","May-2013","Fully Paid","debt_consolidation","Lconsolidate","Nov-1996",8,11,"INDIVIDUAL",0,"96476 Walters Wells Apt. 837
+Rileyberg, MD 30723"
+"369",15350," 36 months",19.05,563.06,"Calcasieu parish school board","10+ years","MORTGAGE",72000,"Source Verified","Dec-2012","Fully Paid","debt_consolidation","Debt consolidation","Aug-1996",10,49,"INDIVIDUAL",5,"703 Miller Pike Suite 175
+New David, HI 30723"
+"370",9950," 36 months",17.77,358.57,"CPSI","< 1 year","OWN",30000,"Verified","Nov-2012","Fully Paid","credit_card","CC Consolidate","Jul-2001",17,32,"INDIVIDUAL",0,"217 Bruce Path Suite 029
+Port Wendy, SD 70466"
+"371",10000," 36 months",14.09,342.22,"Columbia distributing","6 years","MORTGAGE",65000,"Not Verified","Oct-2012","Charged Off","other","Acting","Feb-1998",6,8,"INDIVIDUAL",0,"0468 Clark Forest Apt. 691
+East Nicholasview, IN 48052"
+"372",10000," 36 months",13.11,337.47,"Denver Water","4 years","RENT",45000,"Not Verified","Oct-2012","Fully Paid","debt_consolidation","MyLoan","Oct-2000",7,12,"INDIVIDUAL",2,"646 Lewis Flats Suite 893
+Ochoaborough, IN 29597"
+"373",24000," 60 months",13.33,550.14,"Field Engineer","10+ years","RENT",70500,"Source Verified","Oct-2015","Fully Paid","debt_consolidation","Debt consolidation","Jul-2005",8,12,"INDIVIDUAL",0,"95419 Justin Ports Apt. 283
+Port Gwendolyn, NH 00813"
+"374",11000," 36 months",12.99,370.59,"Senior Recruiter","10+ years","RENT",90000,"Verified","Dec-2013","Fully Paid","debt_consolidation","Consolidation","Aug-1967",7,21,"INDIVIDUAL",0,"80071 Shaw Underpass Suite 284
+Port Michelleville, AK 00813"
+"375",15000," 36 months",15.99,527.29,"Vice President","7 years","RENT",204018,"Verified","Jan-2015","Fully Paid","debt_consolidation","Debt consolidation","Dec-1999",14,56,"INDIVIDUAL",4,"25497 Jason Stravenue
+Ronaldhaven, UT 30723"
+"376",8000," 36 months",18.92,292.93,"System Administrator","3 years","RENT",85000,"Not Verified","Feb-2014","Fully Paid","other","Other","Oct-1996",14,28,"INDIVIDUAL",0,"6842 Mcgrath Manors
+Josephville, MO 05113"
+"377",23225," 60 months",20.75,625.06,"Peer Support Specialist","5 years","MORTGAGE",52800,"Source Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","Feb-1995",9,32,"INDIVIDUAL",4,"8479 Torres Corners Apt. 994
+Palmerburgh, TN 70466"
+"378",17000," 36 months",10.99,556.48,"Instructor ","1 year","MORTGAGE",97000,"Not Verified","Mar-2015","Fully Paid","credit_card","Credit card refinancing","Sep-2001",19,34,"INDIVIDUAL",2,"286 Huang Throughway Apt. 267
+New John, AL 22690"
+"379",24000," 36 months",13.98,820.04,"Teacher","6 years","OWN",80000,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Nov-2003",13,27,"INDIVIDUAL",0,"9499 Williams Island Apt. 062
+Aaronstad, PA 00813"
+"380",10000," 36 months",10.65,325.74,"REstoration Technologies","3 years","MORTGAGE",49920,"Not Verified","Feb-2012","Fully Paid","debt_consolidation","bye bye credit cards","Jul-2001",11,14,"INDIVIDUAL",NA,"672 Sharon Flats Apt. 725
+South Christophertown, ID 48052"
+"381",10000," 36 months",12.49,334.49,"","","MORTGAGE",65000,"Verified","Feb-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-2001",8,15,"INDIVIDUAL",1,"5958 Philip Expressway
+Port Dylan, PA 00813"
+"382",15000," 36 months",18.85,548.71,"California Travel and Tourism Commission","5 years","MORTGAGE",260000,"Verified","Aug-2013","Fully Paid","wedding","Short term loan for wedding expenses","Sep-1994",13,34,"INDIVIDUAL",9,"33146 Flores Shoals
+Michaelfort, SC 22690"
+"383",16000," 36 months",12.99,539.03,"Manager","10+ years","MORTGAGE",65000,"Verified","Jul-2014","Fully Paid","medical","Medical expenses","Aug-2006",3,9,"INDIVIDUAL",1,"6624 Jackson Stream
+Adamborough, NC 29597"
+"384",10200," 36 months",10.59,331.96,"squeaky clean car wash","6 years","MORTGAGE",38000,"Verified","Sep-2011","Fully Paid","major_purchase","Arctic spa loan","Sep-2002",11,26,"INDIVIDUAL",NA,"8007 Jennifer Street Apt. 950
+East Stephen, MO 70466"
+"385",24000," 36 months",6.62,736.89,"Air Traffic Controller","5 years","MORTGAGE",107000,"Not Verified","Apr-2014","Fully Paid","home_improvement","Home improvement","Oct-2001",11,31,"INDIVIDUAL",6,"872 Jeffrey Glens Apt. 899
+Sarahfurt, WV 05113"
+"386",13475," 36 months",22.99,521.55,"Technician","2 years","RENT",60000,"Source Verified","May-2015","Fully Paid","debt_consolidation","Debt consolidation","Nov-2009",13,24,"INDIVIDUAL",0,"296 Jackson Mission
+Millerhaven, NM 29597"
+"387",25000," 36 months",12.85,840.55,"","4 years","MORTGAGE",122800,"Source Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-2000",16,25,"INDIVIDUAL",1,"624 Lisa Shores Suite 886
+New Madisonshire, NM 05113"
+"388",6600," 36 months",9.17,210.41,"Security Guard","10+ years","RENT",24000,"Not Verified","Jun-2014","Charged Off","credit_card","Credit card refinancing","May-1997",9,20,"INDIVIDUAL",0,"53544 Dawn Lakes Suite 167
+New Brett, MI 70466"
+"389",19200," 60 months",19.99,508.58,"Director","3 years","MORTGAGE",60000,"Source Verified","Dec-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1997",11,26,"INDIVIDUAL",0,"96390 Walker Haven
+Pettyburgh, MS 22690"
+"390",10000," 60 months",24.08,288.15,"Unum","10+ years","MORTGAGE",44000,"Verified","Oct-2013","Charged Off","debt_consolidation","Consolidated Freedom","Nov-1993",11,28,"INDIVIDUAL",2,"91932 Jackson Extension Apt. 649
+New Edward, MI 22690"
+"391",17400," 36 months",11.39,572.88,"Landside Officer 1","10+ years","OWN",81000,"Not Verified","Oct-2016","Fully Paid","other","Other","Mar-1988",28,47,"INDIVIDUAL",1,"031 Marie Green
+Robinberg, DC 05113"
+"392",9550," 36 months",13.65,324.78,"CSLM","7 years","RENT",45000,"Not Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-1992",9,32,"INDIVIDUAL",0,"6787 Laura Road Suite 971
+Lake Suzanneton, AK 29597"
+"393",19200," 60 months",17.27,479.97,"Florida Seal & Rubber","5 years","MORTGAGE",67000,"Source Verified","Jun-2013","Fully Paid","debt_consolidation","Debt consolidation","Jul-1991",7,17,"INDIVIDUAL",1,"56078 Amber Lock Suite 724
+South Chelsea, OR 70466"
+"394",3650," 36 months",16.99,130.12,"Materials Operations Assistant","1 year","RENT",36638,"Not Verified","Apr-2015","Fully Paid","credit_card","Credit card refinancing","Feb-2003",7,13,"INDIVIDUAL",0,"4786 Mccall Fort
+South Amyburgh, VA 05113"
+"395",11750," 36 months",17.57,422.27,"Counselor","10+ years","OWN",49000,"Verified","Nov-2015","Charged Off","debt_consolidation","Debt consolidation","Mar-1990",12,17,"INDIVIDUAL",0,"044 Garrison Wall
+Lopezfort, KY 93700"
+"396",10000," 60 months",13.06,227.84,"Invesco","3 years","RENT",80000,"Not Verified","Jan-2011","Fully Paid","debt_consolidation","Credit Card Consolidation","Jan-1994",7,24,"INDIVIDUAL",NA,"6094 Perez Manor
+North Sonya, UT 30723"
+"397",5375," 36 months",15.61,187.94,"Server","7 years","RENT",27000,"Not Verified","Nov-2013","Fully Paid","debt_consolidation","free","Nov-2001",13,15,"INDIVIDUAL",0,"868 Bianca Freeway Suite 644
+Kimberlyhaven, NY 30723"
+"398",20000," 36 months",6.03,608.72,"OLIVER WYMAN GROUP","< 1 year","MORTGAGE",115000,"Source Verified","Jun-2013","Fully Paid","debt_consolidation","Credit Card Debt Consolidation","May-1986",11,19,"INDIVIDUAL",2,"75219 Mark Skyway
+South Travis, AR 30723"
+"399",20000," 36 months",9.17,637.58,"Bakery Manager","5 years","MORTGAGE",52800,"Source Verified","Feb-2015","Fully Paid","credit_card","Credit card refinancing","Nov-1999",14,23,"INDIVIDUAL",3,"9340 Gutierrez Unions Suite 111
+Port Keithmouth, MD 30723"
+"400",15000," 60 months",14.49,352.85,"Underwriter","< 1 year","RENT",45000,"Source Verified","Oct-2014","Charged Off","debt_consolidation","Debt consolidation","Jun-1991",12,26,"INDIVIDUAL",0,"5390 Meyers Canyon
+Cindyberg, NH 70466"
+"401",10000," 36 months",9.67,321.13,"driver","1 year","MORTGAGE",1e+05,"Not Verified","Nov-2013","Fully Paid","debt_consolidation","Debt consolidation","Jan-2006",11,13,"INDIVIDUAL",0,"98222 Joe Inlet
+Jamesshire, TX 70466"
+"402",16500," 36 months",8.39,520.03,"Engineer","10+ years","MORTGAGE",1e+05,"Not Verified","Feb-2016","Fully Paid","car","Car financing","Dec-1987",15,32,"INDIVIDUAL",1,"298 Jacob Fork
+Brooksbury, WV 30723"
+"403",7075," 36 months",15.61,247.38,"Senior Money Processing","10+ years","MORTGAGE",36000,"Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-1996",13,37,"INDIVIDUAL",7,"8099 Jason Plains
+New Lindatown, NC 29597"
+"404",28000," 36 months",5.32,843.22,"Senior Tax Manager","5 years","MORTGAGE",162000,"Source Verified","Jun-2015","Fully Paid","debt_consolidation","Debt consolidation","Jul-1988",19,51,"INDIVIDUAL",5,"00845 Robert Court
+Port Brent, CO 70466"
+"405",9000," 36 months",8.39,283.65,"Driver","< 1 year","RENT",56000,"Source Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-2002",8,15,"INDIVIDUAL",0,"81344 Melton Spur Apt. 505
+Suttonfort, NY 05113"
+"406",15000," 36 months",12.99,505.34,"Teacher","10+ years","MORTGAGE",78000,"Source Verified","Mar-2014","Fully Paid","credit_card","Credit card refinancing","Mar-1999",19,56,"INDIVIDUAL",5,"81122 Maldonado Rue
+West Larry, NH 29597"
+"407",28200," 60 months",21.49,770.7,"Swarovski","7 years","RENT",64000,"Verified","May-2013","Fully Paid","debt_consolidation","Personal 2013","Jul-1997",2,7,"INDIVIDUAL",0,"76538 Kennedy Common
+Stevensfort, CA 05113"
+"408",7200," 36 months",16.2,253.85,"","","RENT",32000,"Source Verified","Oct-2013","Fully Paid","debt_consolidation","Debt consolidation","Aug-1990",9,28,"INDIVIDUAL",0,"USNS Porter
+FPO AE 05113"
+"409",8000," 36 months",6.03,243.49,"","6 years","MORTGAGE",51000,"Not Verified","Jul-2012","Fully Paid","home_improvement","Home Love","Nov-1998",10,17,"INDIVIDUAL",3,"30547 Moore Tunnel Suite 238
+Wesleyhaven, IL 22690"
+"410",12000," 36 months",14.09,410.66,"Shin Shin","2 years","RENT",50000,"Not Verified","Dec-2012","Charged Off","credit_card","Credit card refinancing","Apr-2004",9,13,"INDIVIDUAL",0,"270 Jeremiah Walk Suite 464
+Lake Paulhaven, NM 11650"
+"411",15000," 36 months",10.74,489.24,"Bradshaw Internationa","5 years","RENT",48000,"Source Verified","May-2012","Fully Paid","debt_consolidation","debt_consolidation","Mar-1999",11,20,"INDIVIDUAL",0,"31519 David Tunnel Suite 043
+North Luke, MN 22690"
+"412",2200," 36 months",15.31,76.6,"","","RENT",57000,"Verified","Jan-2013","Fully Paid","debt_consolidation","Debt consolidation","Jan-1988",13,15,"INDIVIDUAL",0,"52743 Harris Brooks Apt. 627
+East Joshua, ME 30723"
+"413",30000," 36 months",18.75,1095.9,"Converse consulting","5 years","MORTGAGE",95000,"Source Verified","Nov-2012","Fully Paid","debt_consolidation","Consolidation","Jun-1996",11,27,"INDIVIDUAL",3,"5243 Taylor View Apt. 596
+Turnerbury, HI 70466"
+"414",2400," 36 months",7.12,74.24,"interpreter","4 years","MORTGAGE",24000,"Not Verified","Sep-2014","Fully Paid","credit_card","Credit card refinancing","Dec-2005",7,17,"INDIVIDUAL",0,"3483 White Ports
+West Brianberg, TN 48052"
+"415",17000," 36 months",10.16,549.83,"Dept of Trans","4 years","RENT",83000,"Verified","Feb-2013","Fully Paid","debt_consolidation","Consolidate","Dec-2001",8,25,"INDIVIDUAL",0,"257 Lewis Ford
+North Melissa, ID 29597"
+"416",15800," 36 months",12.99,532.29,"Teacher","10+ years","MORTGAGE",104000,"Source Verified","Mar-2014","Fully Paid","debt_consolidation","Debt consolidation","Mar-1997",9,22,"INDIVIDUAL",1,"4306 Victoria Pass Apt. 220
+West Aaron, ID 29597"
+"417",15000," 36 months",16.78,533.15,"Crown tonka walk-in coolers","9 years","OWN",40000,"Not Verified","Aug-2013","Fully Paid","debt_consolidation","Loan 1","Mar-1986",7,22,"INDIVIDUAL",1,"94456 Dixon Forest Apt. 941
+Lake Christineview, MO 70466"
+"418",20000," 60 months",20.99,349.6,"Unifirst","1 year","RENT",62500,"Verified","May-2011","Fully Paid","debt_consolidation","Debt Consolidation","Feb-2000",9,50,"INDIVIDUAL",NA,"537 Patel Creek Apt. 980
+Port Jason, NY 30723"
+"419",8000," 36 months",14.09,273.78,"University of Georgia","10+ years","MORTGAGE",45000,"Verified","Jan-2013","Fully Paid","home_improvement","waterproof crawl space/replace AC","Feb-2001",3,5,"INDIVIDUAL",0,"9972 Hampton Vista
+East Edward, TX 29597"
+"420",4000," 36 months",18.25,145.12,"Property Manager","5 years","RENT",41499,"Verified","Jul-2015","Fully Paid","other","Other","Jan-2007",17,24,"INDIVIDUAL",0,"PSC 8821, Box 2694
+APO AE 29597"
+"421",6850," 36 months",12.49,229.13,"Program Manager","5 years","RENT",46574,"Source Verified","Apr-2014","Fully Paid","credit_card","Debt consolidation","Dec-1999",13,21,"INDIVIDUAL",0,"02859 Charles Prairie
+Lake Sierra, OK 29597"
+"422",15000," 36 months",18.49,545.99,"ALEXANDER OILFIELD SERVICE","7 years","MORTGAGE",98000,"Verified","May-2013","Fully Paid","home_improvement","HOME IMPROVEMENT","Dec-2001",11,22,"INDIVIDUAL",2,"46194 Davis Isle Apt. 614
+Aliceside, IN 05113"
+"423",12500," 36 months",13.61,424.86,"SusQtech","< 1 year","RENT",40500,"Not Verified","Aug-2010","Fully Paid","debt_consolidation","JB 2010 Debt Consolidation Loan","Oct-2003",14,25,"INDIVIDUAL",NA,"7829 Douglas Knoll Apt. 893
+Lake John, VT 00813"
+"424",13500," 60 months",17.57,339.67,"SALES MANAGER","6 years","OWN",89000,"Verified","Oct-2014","Charged Off","home_improvement","Home improvement","Oct-2003",10,16,"INDIVIDUAL",2,"14699 Daniel Springs Suite 415
+Campbellberg, NM 86630"
+"425",12000," 36 months",11.99,398.52,"Systems Engineer","2 years","MORTGAGE",72000,"Verified","Mar-2014","Fully Paid","credit_card","Credit card refinancing","Mar-2003",8,13,"INDIVIDUAL",1,"3232 Victor Wall
+East Michele, GA 05113"
+"426",7700," 36 months",10.15,249,"Teller ","10+ years","OWN",47000,"Source Verified","Jul-2014","Charged Off","debt_consolidation","Debt consolidation","May-1996",13,28,"INDIVIDUAL",0,"9607 Erika Pines Apt. 599
+Amandaville, LA 22690"
+"427",10500," 60 months",14.99,249.74,"Project Manager","10+ years","MORTGAGE",84000,"Not Verified","Nov-2014","Charged Off","credit_card","Credit card refinancing","Feb-1999",13,42,"INDIVIDUAL",5,"94150 Walton Station Suite 825
+Millermouth, TN 70466"
+"428",10000," 36 months",12.73,335.67,"Oracle Corp","4 years","MORTGAGE",195000,"Not Verified","Mar-2010","Fully Paid","debt_consolidation","Loan","Nov-1990",21,58,"INDIVIDUAL",NA,"134 Hansen Junction
+West Jason, WA 05113"
+"429",1000," 36 months",10.99,32.74,"Bayside Restaurant","10+ years","OWN",60000,"Not Verified","Sep-2011","Fully Paid","debt_consolidation","Debt Consolidation Loan","Oct-1999",6,24,"INDIVIDUAL",NA,"9994 Audrey Fords
+Kellyburgh, WA 48052"
+"430",15000," 36 months",14.33,515.08,"Carmel Transportation","10+ years","MORTGAGE",45000,"Verified","Aug-2013","Fully Paid","debt_consolidation","credit cards","May-1984",17,29,"INDIVIDUAL",2,"23077 Cline Pass
+Williamsfort, CA 05113"
+"431",16000," 36 months",8.19,502.79,"Cash Application Clerk","< 1 year","RENT",40000,"Verified","Dec-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-2000",22,28,"INDIVIDUAL",0,"004 William Ridges
+West Markburgh, ND 22690"
+"432",19075," 36 months",13.11,643.73,"Wilson County Home Health","8 years","MORTGAGE",60000,"Not Verified","Oct-2012","Fully Paid","debt_consolidation","Debt consolidation","Dec-1996",7,14,"INDIVIDUAL",1,"41914 Graves Port
+West Toddview, HI 30723"
+"433",10000," 36 months",8.19,314.25,"E learning designer","6 years","OWN",120000,"Not Verified","Jan-2015","Charged Off","debt_consolidation","Debt consolidation","Sep-2007",14,23,"INDIVIDUAL",4,"35508 Brown Ridge
+Thomasbury, HI 30723"
+"434",35000," 60 months",22.99,986.47,"Head, Departmental Civil Service Represe","6 years","RENT",92000,"Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","Apr-2010",9,11,"INDIVIDUAL",0,"5351 Michelle Mission Suite 255
+East Kristinburgh, MI 22690"
+"435",5000," 36 months",14.49,172.09,"Performance Team Leader","6 years","MORTGAGE",59000,"Not Verified","May-2014","Fully Paid","home_improvement","Home improvement","Feb-2003",14,26,"INDIVIDUAL",4,"53117 Hoffman Causeway Suite 303
+Flemingland, OR 29597"
+"436",11500," 36 months",13.67,391.21,"warehouse asistent","10+ years","RENT",35000,"Source Verified","Nov-2013","Charged Off","credit_card","Credit card refinancing","May-2004",14,24,"INDIVIDUAL",0,"29730 John Points Apt. 108
+Port Amandashire, OK 93700"
+"437",12000," 36 months",6.49,367.74,"Sales Manager","< 1 year","RENT",35000,"Not Verified","Sep-2014","Fully Paid","credit_card","Credit card refinancing","Jul-2005",10,20,"INDIVIDUAL",0,"907 Kelli Islands
+Collinsburgh, ME 05113"
+"438",20950," 60 months",18.99,543.34,"buyer","10+ years","MORTGAGE",50000,"Source Verified","Oct-2014","Fully Paid","home_improvement","Home improvement","Jan-2004",17,37,"INDIVIDUAL",3,"37537 Michelle Canyon
+Lake Brian, TX 70466"
+"439",9725," 36 months",14.46,334.56,"Real Estate/Poker professional","6 years","OWN",90000,"Not Verified","Jun-2016","Charged Off","debt_consolidation","Debt consolidation","Dec-1993",11,18,"INDIVIDUAL",3,"2726 Jackson Rapids
+South Bradleyborough, NH 93700"
+"440",10000," 60 months",13.99,232.64,"Bejo Seeds Inc","6 years","OWN",65000,"Source Verified","May-2012","Fully Paid","debt_consolidation","Consolidation","May-1999",12,27,"INDIVIDUAL",2,"556 Stacy Shoals Apt. 232
+Paynemouth, TN 48052"
+"441",9600," 36 months",6.49,294.19,"Office Manager","3 years","RENT",42000,"Source Verified","May-2014","Fully Paid","debt_consolidation","Debt consolidation","Sep-1972",8,12,"INDIVIDUAL",0,"103 Kathleen Fork
+Lake Holly, VA 05113"
+"442",11500," 36 months",13.11,388.1,"P&H Farms","10+ years","MORTGAGE",35000,"Not Verified","Apr-2013","Fully Paid","home_improvement","Home improvement","Sep-1992",12,51,"INDIVIDUAL",5,"547 James Causeway
+Jenniferview, WI 70466"
+"443",12000," 60 months",15.96,291.57,"Timet","9 years","RENT",64320,"Not Verified","Jan-2012","Fully Paid","debt_consolidation","Debt consolidation","Jun-1996",7,28,"INDIVIDUAL",NA,"2020 Lynn Prairie
+Thomashaven, GA 30723"
+"444",1200," 36 months",13.33,40.63,"","","RENT",53000,"Verified","Apr-2015","Fully Paid","credit_card","Credit card refinancing","Jun-2004",15,23,"INDIVIDUAL",0,"89888 Porter Dale
+Lake Kimberly, TN 70466"
+"445",23625," 60 months",12.59,532.6,"manager","10+ years","MORTGAGE",65000,"Not Verified","Nov-2015","Fully Paid","debt_consolidation","Debt consolidation","Jun-2005",13,31,"INDIVIDUAL",1,"88059 Charles Stravenue
+Josephville, MT 70466"
+"446",9700," 36 months",9.99,312.95,"Preservation & Operations Specialist","2 years","RENT",33384,"Source Verified","Oct-2013","Fully Paid","debt_consolidation","CC Loan","Oct-2006",15,30,"INDIVIDUAL",0,"308 Kimberly Lodge
+Carlychester, KS 48052"
+"447",12000," 60 months",14.16,280.22,"guidance counselor","10+ years","RENT",43000,"Source Verified","Mar-2014","Charged Off","debt_consolidation","Debt consolidation","Aug-1996",9,10,"INDIVIDUAL",0,"97643 Jodi View Apt. 580
+Vincentmouth, SD 70466"
+"448",19750," 60 months",17.27,493.72,"Wells Fargo Bank","10+ years","OWN",44000,"Verified","Dec-2012","Fully Paid","debt_consolidation","Debt Consolidation","May-1991",16,27,"INDIVIDUAL",0,"698 Janet Branch Apt. 987
+North Nicole, NE 22690"
+"449",15000," 36 months",6.62,460.56,"Aerotek ","< 1 year","MORTGAGE",73000,"Not Verified","Jul-2013","Fully Paid","debt_consolidation","Credit Payoff","Oct-1994",12,26,"INDIVIDUAL",1,"8471 Julie Park Suite 784
+Port Brianstad, NY 00813"
+"450",7200," 36 months",14.65,248.36,"officemax","10+ years","MORTGAGE",82000,"Verified","Jun-2012","Fully Paid","home_improvement","home improvement","Jul-1981",11,24,"INDIVIDUAL",3,"82322 Scott Manors Suite 904
+Arianaville, WA 30723"
+"451",33000," 36 months",12.99,1111.75,"Assistant Director of Therapy","4 years","MORTGAGE",105000,"Verified","Oct-2014","Charged Off","debt_consolidation","Debt consolidation","Jul-1999",18,36,"INDIVIDUAL",2,"Unit 3155 Box 4064
+DPO AE 93700"
+"452",13600," 36 months",16.24,479.75,"Office Manager","1 year","RENT",32500,"Not Verified","Jan-2014","Fully Paid","credit_card","Credit card refinancing","Dec-2004",4,8,"INDIVIDUAL",0,"9139 Christopher Circle
+Angelastad, IA 29597"
+"453",4000," 36 months",14.65,137.98,"Sales Account Manager","2 years","RENT",125000,"Source Verified","Aug-2015","Fully Paid","debt_consolidation","Debt consolidation","Sep-2003",11,22,"INDIVIDUAL",0,"806 Wang Forest Suite 150
+Taylorside, UT 70466"
+"454",13000," 36 months",12.49,434.84,"branch manager","10+ years","RENT",70000,"Source Verified","Apr-2014","Charged Off","debt_consolidation","Debt consolidation","Mar-2000",11,30,"INDIVIDUAL",3,"9688 Montgomery Heights
+Port Teresabury, WI 30723"
+"455",12000," 60 months",22.45,334.51,"Shipper III","1 year","RENT",46500,"Verified","Jan-2016","Fully Paid","debt_consolidation","Debt consolidation","Sep-1993",19,50,"INDIVIDUAL",2,"90377 Edwards Vista Apt. 094
+West Josemouth, ME 22690"
+"456",15000," 60 months",25.49,444.59,"Personal Banker","2 years","OWN",42000,"Source Verified","Nov-2016","Fully Paid","credit_card","Credit card refinancing","Feb-2009",15,20,"INDIVIDUAL",0,"7325 Meredith Isle
+Lake Franklin, IN 22690"
+"457",6000," 36 months",7.89,187.72,"labor","8 years","MORTGAGE",62000,"Source Verified","Nov-2015","Fully Paid","car","Car financing","Oct-2007",9,13,"INDIVIDUAL",1,"USNV Schmidt
+FPO AA 48052"
+"458",10750," 36 months",13.98,367.31,"Operations Manager","5 years","RENT",33000,"Source Verified","Dec-2013","Fully Paid","debt_consolidation","Credit Card Debt Payments","Jul-2000",13,20,"INDIVIDUAL",0,"8312 Sabrina Crossroad Suite 654
+Port Shaneville, AL 05113"
+"459",1000," 36 months",7.39,31.06,"Aircraft mechanic","4 years","RENT",55000,"Source Verified","Apr-2016","Fully Paid","other","Other","Jan-2007",10,12,"INDIVIDUAL",0,"80716 Johnson Centers
+West Leslie, VT 22690"
+"460",26875," 36 months",10.78,877.06,"technician","9 years","RENT",56000,"Not Verified","Jan-2016","Fully Paid","major_purchase","Major purchase","Jan-2002",7,11,"INDIVIDUAL",0,"7983 Williams Manor Apt. 443
+Sanchezfort, NC 70466"
+"461",4500," 36 months",10.99,147.31,"Event Coordinator","8 years","RENT",34000,"Verified","Dec-2013","Fully Paid","debt_consolidation","Debt consolidation","Jun-1989",6,17,"INDIVIDUAL",3,"521 Caldwell Islands Apt. 847
+Williamsstad, DE 05113"
+"462",12000," 36 months",16.2,423.08,"Food Purchasing Coordinator","10+ years","MORTGAGE",39000,"Source Verified","Oct-2013","Fully Paid","debt_consolidation","No Moan Loan","Jan-2000",11,28,"INDIVIDUAL",3,"275 Dean Field Suite 918
+Lake Lori, MN 30723"
+"463",18500," 60 months",10.64,398.93,"USAF","10+ years","MORTGAGE",85000,"Verified","Aug-2013","Fully Paid","debt_consolidation","Debt Consolidation","Feb-1994",7,26,"INDIVIDUAL",3,"669 Christopher Shoals Apt. 598
+Port Justinborough, NV 48052"
+"464",34200," 60 months",9.17,712.77,"vice president","< 1 year","RENT",94500,"Verified","Mar-2015","Charged Off","debt_consolidation","Debt consolidation","Apr-2001",16,29,"INDIVIDUAL",0,"11084 Hensley Village Suite 830
+New Jesusview, MS 22690"
+"465",28000," 36 months",8.9,889.09,"System Administrator","9 years","RENT",109152,"Source Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-1984",6,20,"INDIVIDUAL",3,"864 Adrian Knolls Suite 450
+South Aaron, GA 70466"
+"466",10000," 36 months",10.16,323.43,"Best Buy","4 years","MORTGAGE",60000,"Verified","Mar-2013","Fully Paid","credit_card","Credit loan","Nov-2002",9,18,"INDIVIDUAL",2,"650 Davis Place
+New Jacqueline, UT 22690"
+"467",12000," 36 months",12.69,402.54,"","2 years","RENT",60000,"Verified","Dec-2011","Fully Paid","credit_card","Installment Loan","Mar-2005",6,6,"INDIVIDUAL",NA,"77524 Jason Street
+Dwayneland, WV 05113"
+"468",16225," 60 months",19.52,425.55,"Director","4 years","RENT",122000,"Source Verified","Aug-2014","Fully Paid","debt_consolidation","Debt consolidation","Apr-1992",12,37,"INDIVIDUAL",4,"8000 Kevin Falls
+North David, NC 05113"
+"469",8850," 36 months",16.99,315.49,"Machinist","10+ years","RENT",40000,"Not Verified","Jul-2016","Charged Off","debt_consolidation","Debt consolidation","Nov-2002",7,17,"INDIVIDUAL",0,"66522 Tracy Inlet
+North Melissa, CA 86630"
+"470",6000," 36 months",11.99,199.26,"","","MORTGAGE",42238.32,"Verified","Feb-2014","Charged Off","debt_consolidation","Debt consolidation","Nov-1993",6,11,"INDIVIDUAL",2,"9016 Paige Roads
+Lindseychester, ME 11650"
+"471",12000," 36 months",14.49,413,"sr warehouse specialist","10+ years","MORTGAGE",43653,"Source Verified","Oct-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-2003",11,33,"INDIVIDUAL",0,"335 Thompson Street
+Timothystad, AK 48052"
+"472",3050," 36 months",12.29,101.73,"Student Assistant (Career Technician)","< 1 year","RENT",40000,"Not Verified","Mar-2015","Charged Off","other","Other","Apr-2003",6,8,"INDIVIDUAL",0,"015 Charles Islands Apt. 226
+Lukeland, UT 11650"
+"473",12000," 36 months",15.31,417.81,"City of Green Bay","5 years","RENT",1e+05,"Not Verified","Jul-2012","Fully Paid","debt_consolidation"," Debt Consolidation Loan","Jan-1998",21,32,"INDIVIDUAL",0,"302 Daniel Corners
+South Katherineberg, NE 00813"
+"474",3850," 36 months",12.12,128.1,"Z'Tejas Restaurant Holdings, LP","< 1 year","RENT",15000,"Source Verified","Oct-2012","Fully Paid","credit_card","Get out of debt already!","Nov-2003",5,6,"INDIVIDUAL",0,"Unit 2096 Box 1628
+DPO AA 22690"
+"475",7500," 36 months",15.61,262.24,"","","RENT",23559.24,"Verified","Jan-2014","Charged Off","debt_consolidation","Debt consolidation","Nov-1969",11,20,"INDIVIDUAL",1,"090 Wilson Roads
+West Charlesview, WV 70466"
+"476",27200," 36 months",9.67,873.46,"Director of Business Development","6 years","MORTGAGE",130000,"Verified","Jan-2014","Fully Paid","debt_consolidation","Debt consolidation","Dec-2000",11,27,"INDIVIDUAL",2,"89348 Sanchez Route Apt. 848
+South Cherylfort, IN 48052"
+"477",2500," 36 months",8.67,79.12,"Front Desk Reception","10+ years","RENT",36500,"Not Verified","Nov-2014","Fully Paid","debt_consolidation","Debt consolidation","Jun-1999",11,39,"INDIVIDUAL",3,"598 Jessica Parkways Suite 197
+Marcbury, WY 22690"
+"478",8000," 36 months",12.69,268.36,"System Administrator","10+ years","MORTGAGE",62450,"Verified","Mar-2015","Fully Paid","debt_consolidation","Debt consolidation","May-2000",12,41,"INDIVIDUAL",3,"439 Collier Islands
+West Michelle, NE 30723"
+"479",21000," 36 months",13.67,714.37,"Lead Auditor - Quality","3 years","MORTGAGE",85000,"Source Verified","Oct-2013","Charged Off","credit_card","CC Debt","Jan-1999",20,40,"INDIVIDUAL",4,"0280 John Springs
+West Stuartville, CA 22690"
+"480",22900," 36 months",13.05,772.15,"Remedial Environmental Manpower, Inc.","10+ years","RENT",64800,"Verified","Aug-2013","Fully Paid","debt_consolidation","Credit Card Consolidation","Jun-1997",8,21,"INDIVIDUAL",0,"459 Mark Junction
+Monicastad, GA 29597"
+"481",5000," 36 months",7.9,156.46,"Freemanco, Ges, other deco companies","10+ years","RENT",53038,"Source Verified","Dec-2012","Fully Paid","debt_consolidation","Credit cards paid off","Jan-1993",15,40,"INDIVIDUAL",0,"PSC 0455, Box 5595
+APO AE 05113"
+"482",7500," 36 months",14.49,258.13,"Owner ","2 years","RENT",68000,"Source Verified","Jun-2014","Fully Paid","other","Other","Oct-1996",6,21,"INDIVIDUAL",2,"09884 Dale Grove
+New David, MA 29597"
+"483",24000," 60 months",10.75,518.84,"Order selector","9 years","MORTGAGE",73000,"Source Verified","Mar-2016","Fully Paid","debt_consolidation","Debt consolidation","May-2005",15,24,"INDIVIDUAL",3,"4920 Jones Coves
+Smithland, UT 00813"
+"484",20000," 36 months",8.19,628.49,"Fleet sales rep","< 1 year","MORTGAGE",75000,"Source Verified","Jan-2015","Fully Paid","credit_card","Credit card refinancing","Sep-1982",16,31,"INDIVIDUAL",1,"USNS Shepherd
+FPO AE 48052"
+"485",13075," 60 months",20.8,352.26,"","","MORTGAGE",51456,"Verified","Jul-2013","Fully Paid","credit_card","Credit card refinancing","Oct-2004",10,15,"INDIVIDUAL",3,"928 Christina Via Suite 224
+North Veronicafurt, NH 70466"
+"486",15000," 36 months",11.14,492.08,"ibew 481","10+ years","RENT",65000,"Not Verified","Feb-2013","Fully Paid","home_improvement","creditcard payoff","Apr-1990",15,26,"INDIVIDUAL",2,"1002 Cantrell Stream Apt. 660
+North Jillbury, UT 30723"
+"487",35000," 36 months",18.25,1269.73,"Manager","10+ years","MORTGAGE",95000,"Verified","Dec-2013","Fully Paid","debt_consolidation","debt consolidation","Feb-2002",8,22,"INDIVIDUAL",5,"72327 Evans Glen Suite 718
+Triciahaven, KS 30723"
+"488",7125," 36 months",15.61,249.13,"truck driver","< 1 year","MORTGAGE",46824,"Source Verified","Jan-2014","Charged Off","debt_consolidation","Pay off","Apr-1999",7,32,"INDIVIDUAL",1,"8871 Saunders Neck Suite 948
+Brianaberg, OR 30723"
+"489",23000," 60 months",16.99,571.49,"HR Manager","< 1 year","RENT",125000,"Verified","Aug-2014","Fully Paid","debt_consolidation","Debt consolidation","Jul-1981",11,27,"INDIVIDUAL",2,"48923 House Neck Suite 085
+Barronton, CA 00813"
+"490",15000," 36 months",7.88,469.22,"Technip USA","6 years","MORTGAGE",90084,"Not Verified","Jul-2010","Fully Paid","debt_consolidation","Credit Cards","Oct-1998",10,25,"INDIVIDUAL",NA,"64559 Katelyn Locks Apt. 099
+South Angela, MD 00813"
+"491",10000," 36 months",13.05,337.19,"City Of Hurley","10+ years","MORTGAGE",52000,"Not Verified","Sep-2013","Fully Paid","credit_card","Credit card refinancing","Jan-2000",5,22,"INDIVIDUAL",4,"Unit 3206 Box 4874
+DPO AP 00813"
+"492",9600," 36 months",11.53,316.71,"OPERATIONS MANAGER","9 years","RENT",35000,"Not Verified","Aug-2015","Fully Paid","credit_card","Credit card refinancing","Mar-2005",10,15,"INDIVIDUAL",0,"443 Freeman Union Apt. 661
+Thomasstad, MO 48052"
+"493",10000," 60 months",14.33,234.4,"Asst manager","< 1 year","RENT",50000,"Source Verified","Nov-2015","Fully Paid","credit_card","Credit card refinancing","Apr-2001",7,36,"INDIVIDUAL",5,"7694 William Knoll
+Port Thomasport, NE 70466"
+"494",15000," 36 months",11.49,494.57,"Planner","10+ years","MORTGAGE",88000,"Source Verified","Aug-2016","Fully Paid","home_improvement","Home improvement","Dec-1998",9,24,"INDIVIDUAL",4,"83337 Katherine Plaza
+North Gregoryside, NE 00813"
+"495",10000," 36 months",16.29,353.01,"United States Postal Service","1 year","OWN",36000,"Not Verified","Jun-2012","Fully Paid","credit_card","Credit Card refinance","May-2003",10,23,"INDIVIDUAL",0,"221 Antonio Grove Apt. 572
+New Dana, WI 70466"
+"496",29100," 36 months",14.98,1008.48,"Medical Coder","1 year","RENT",65000,"Verified","Dec-2013","Fully Paid","credit_card","Credit Card payoff","Jul-2001",12,26,"INDIVIDUAL",3,"USCGC Smith
+FPO AA 29597"
+"497",9000," 36 months",13.99,307.56,"Presidio Way Veterinary Hospital","4 years","RENT",68000,"Not Verified","Apr-2012","Fully Paid","debt_consolidation","DEBT CONSOLIDATION","Nov-1991",8,10,"INDIVIDUAL",0,"34790 Lambert Drive Suite 844
+Port Katie, MO 30723"
+"498",9000," 36 months",14.64,310.41,"Senior Operations Specialist","6 years","MORTGAGE",61000,"Verified","Apr-2014","Fully Paid","debt_consolidation","Debt consolidation","Feb-1996",20,44,"INDIVIDUAL",7,"6892 Ritter Key
+Lake Janetfurt, NY 00813"
+"499",12500," 36 months",12.85,420.28,"front office manager","5 years","MORTGAGE",42000,"Not Verified","Jan-2014","Fully Paid","debt_consolidation","debt consolidation","Apr-1999",15,20,"INDIVIDUAL",1,"3605 Pollard Turnpike Apt. 997
+Danielstad, MI 00813"
+"500",10000," 36 months",10.64,325.69,"U. S. Military","10+ years","MORTGAGE",70000,"Not Verified","Aug-2013","Fully Paid","major_purchase","Improvement","Mar-1993",8,15,"INDIVIDUAL",1,"86229 Pam Manor Apt. 907
+Ashleymouth, AL 29597"

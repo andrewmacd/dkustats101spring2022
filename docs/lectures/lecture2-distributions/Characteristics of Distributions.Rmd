@@ -1,0 +1,205 @@
+---
+title: "Characteristics of Distributions"
+subtitle: "DKU Stats 101 Spring 2022"
+author: "Professor MacDonald"
+date: "1/11/2022"
+output: 
+  learnr::tutorial:
+    toc_depth: 2
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(gapminder)
+library(learnr)
+
+theme_set(theme_classic())
+
+modes <- function(x) {
+  ux <- unique(x)
+  tab <- tabulate(match(x, ux))
+  ux[tab == max(tab)]
+}
+```
+
+# Characteristics of distributions
+
+## Distribution of common quantities
+
+Many phenomena in nature have a relatively easily guessed distribution characteristics
+
+- What is the distribution of length of rivers in the U.S.?
+- What is the distribution of width of flower sepals? 
+- What is the distribution of life expectancy across countries in 2007?
+
+Features to guess: 
+
+- Shape
+- Center
+- Spread
+
+```{r importroster}
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
+```
+
+
+```{r picker1, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Graphs of common quantities
+
+### Length of rivers in the U.S.
+
+```{r river_shape, exercise=TRUE}
+ggplot(data.frame(rivers), aes(x=rivers)) + 
+  geom_histogram(fill="blue4", color="black") +
+  labs(x="Length in miles", y="count")
+```
+
+### Flower sepal width
+
+```{r flower_width, exercise=TRUE}
+ggplot(iris, aes(x=Sepal.Width)) + 
+  geom_histogram(fill="blue4", color="black", bins=15) +
+  labs(x="Sepal width", y="Count")
+```
+
+### Life expetancy in 2007
+
+```{r life_exp, exercise=TRUE}
+gap2007 <-gapminder %>%
+  filter(year==2007)
+
+ggplot(gap2007, aes(x=lifeExp)) + 
+  geom_histogram(fill="blue4", color="black") +
+  labs(x="Life expectancy in years", y="Count")
+```
+
+## Distribution of our data
+
+Let's now collect some data about our class
+
+- Height
+- Information about handedness
+
+## Guessing the shape of our data
+
+Take a guess at what each question's distribution characteristics will be:
+
+- Shape
+  + Skew 
+  + Modes
+- Center
+  + Mean
+  + Median
+- Spread
+  + Range
+  + IQR
+  + Standard deviation
+
+- Also think carefully about the difference between the three different calculations of handedness - how do they differ? Discuss with your partner.
+
+## Height summary statistics
+
+```{r importdata}
+ourdata <- read.csv("www/ourdata.csv")
+```
+
+- Shape
+  + Skew:  
+  + Modes: **`r modes(ourdata$Q1)`** 
+- Center
+  + Mean **`r mean(ourdata$Q1, na.rm=TRUE)`**
+  + Median **`r median(ourdata$Q1, na.rm=TRUE)`**
+- Spread
+  + Range **`r range(ourdata$Q1, na.rm=TRUE)`**
+  + IQR **`r IQR(ourdata$Q1, na.rm=TRUE)`**
+  + Standard deviation **`r sd(ourdata$Q1, na.rm=TRUE)`**
+
+```{r picker2, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Height graph
+
+```{r heights, exercise=TRUE}
+ggplot(ourdata, aes(x=Q1)) +
+  geom_histogram(fill="blue4", color="black", bins=6) + 
+  labs(x="Height in cm", y="Count")
+```
+
+## Handedness l-r summary statistics
+
+- Shape
+  + Skew: 
+  + Modes: **`r modes(ourdata$Q2)`** 
+- Center
+  + Mean **`r mean(ourdata$Q2)`**
+  + Median **`r median(ourdata$Q2, na.rm=TRUE)`**
+- Spread
+  + Range **`r range(ourdata$Q2, na.rm=TRUE)`**
+  + IQR **`r IQR(ourdata$Q2, na.rm=TRUE)`**
+  + Standard deviation **`r sd(ourdata$Q2, na.rm=TRUE)`**
+
+- What does this measure? 
+
+```{r picker3, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Handedness l-r graph
+
+```{r lminusr, exercise=TRUE}
+ggplot(ourdata, aes(x=Q2)) +
+  geom_histogram(fill="blue4", color="black", binwidth=2) + 
+  labs(x="Handedness left - right", y="Count")
+```
+
+## Handedness l+r summary statistics
+
+- Shape
+  + Skew: 
+  + Modes: **`r modes(ourdata$Q3)`** 
+- Center
+  + Mean **`r mean(ourdata$Q3, na.rm=TRUE)`**
+  + Median **`r median(ourdata$Q3, na.rm=TRUE)`**
+- Spread
+  + Range **`r range(ourdata$Q3, na.rm=TRUE)`**
+  + IQR **`r IQR(ourdata$Q3, na.rm=TRUE)`**
+  + Standard deviation **`r sd(ourdata$Q3, na.rm=TRUE)`**
+
+- What does this measure? 
+
+```{r picker4, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Handedness l+r graph
+
+```{r lplusr, exercise=TRUE}
+ggplot(ourdata, aes(x=Q3)) +
+  geom_histogram(fill="blue4", color="black", binwidth=2) + 
+  labs(x="Handedness left + right", y="Count")
+```
+
+### Handedness left - right / left + right graph
+
+```{r lrratio, exercise=TRUE}
+ggplot(ourdata, aes(x=Q4)) +
+  geom_histogram(fill="blue4", color="black", binwidth=2) + 
+  labs(x="Handedness left - right / left + right", y="Count")
+```
+
+## Closing thoughts
+
+- Many distributions can be guessed in advanced based on the data generating process
+- You should have at least a guess as to what the distribution is before starting your exploratory data analysis
+- Think carefully about what your variable is actually measuring
+- Characteristics of distributions are **summaries** of the data, almost always obscure features of the data
+  + Don't mislead your readers!!

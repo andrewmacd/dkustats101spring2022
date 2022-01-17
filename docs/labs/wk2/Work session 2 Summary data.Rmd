@@ -1,0 +1,113 @@
+---
+title: "Work Session 2 worksheet - summary data"
+author: "Student"
+date: "1/18/2022"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+library(tidyverse)
+library(knitr)
+
+# Load your data here
+mcdonalds <- read.csv("mcdonalds.csv") 
+```
+
+![](mcdonaldsfood.jpg)
+
+# Planning 
+
+## Describe the dataset
+
+### Where did the data come from?
+
+- Write down the 5 W's of this dataset
+
+### What are the variables?
+
+- Write down the variable type definition for the first five variables in the dataset (you can get more detail about the dataset by `summary(mcdonalds)`)
+
+## Expectations
+
+### Overall expectations
+
+- You should develop a question based on some curiosity you have about the distribution of at least **two variables**. For example, what do you expect is the distribution of fat? Calories?     
+  + Write down your question and the motivation for the question.
+  + Remember to describe what you expect the distribution to be like in the terms of the textbook: shape, center, and spread
+  
+### Expectations for a specific category
+
+- Now think about what the distribution of the same two variables might be for a specific menu item type and write down some expectations. 
+
+# Investigation
+
+## Distribution displays
+
+### Histograms
+
+- Make histograms of your **two** variables using `ggplot()` and `geom_histogram()`, make one for the entire menu, just for the menu item type you considered earlier, and one faceted by `Category` so you can see the distribution of each menu item category.
+  + Hint 1: remember, to subset the data, you can use the `filter()` verb like the below code block.
+  + Hint 2: make sure to replace `<your variable of interest>` and `<your category>` with the actual name of the variable you are investigating and the category of items you are considering! 
+  + Hint 3: remember also, you will need to create a new code block. The above block is simply for text display, you will need to use the Insert Code Block button to make a new code block.
+  
+```
+menu.subset <- mcdonalds %>%
+  filter(Category = <your category>)
+
+ggplot(menu.subset, aes(x=<your variable of interest>)) +
+  geom_histogram()
+```
+
+- Interpret your histograms
+
+### Box plots
+
+- Make a box plot comparing the distribution of every menu item for your two chosen variables.
+  + Hint 1: in the `aes()` section of the `ggplot()` call, specify `x=<your variable of interest>, y=Category`
+  + Hint 2: to make a boxplot, use `geom_boxplot()`
+  
+- Interpret the box plots. 
+  + What is interesting or notable about the distributions? 
+  + What does the distribution look like for your chosen Category? 
+  + Do you prefer this distribution view to the histograms? 
+  + When would you use histograms and when would you use a graph like this?
+
+### Transformations
+
+- Could the distributions of your two chosen variables benefit from being re-expressed? Try a few re-expressions and see how it affects the shape of the distributions via viewing the histograms before and after reeexpression.
+  + Hint: remember, you can use the `mutate()` verb in a piped command, such as: `mutate(logcals = log(Calories))` 
+
+### Contingency table
+
+- First, create a new variable via `mutate()` that is `yes` if the `Saturated.Fat` is greater than 10 (this is about the recommended amount per meal according to [here](https://my.clevelandclinic.org/health/articles/11208-fat-what-you-need-to-know)) and `no` otherwise
+
+  + Hint: you can use a bit of code similar to the below to generate a contingency table:
+  
+```
+mcdonalds.new <- mcdonalds %>%
+  mutate(<new variable name>, ifelse(<logical condition>, 
+                                     <if statement is true value>,  
+                                     <if statement is false value>))
+```
+
+- Breaking this down,
+  + `<new variable name>` is the name of the new variable you want to create
+  + `<logical condition>` indicates a true/false statement (such as x>1)
+  + `<if statement is true value>` specifies what value to assign the new variable if the logical statement is true
+  + `<if statement is false value>` specifies what value to assign the new variable if the logical statement is false
+
+- Create a contingency table (using the `kable(table(...))` commands) for your variable according to Category
+  + What interesting or insightful findings can we develop from this contingency table?
+
+# Concluding thoughts
+
+Overall, summarize what you have learned about the distribution of your two variables and from the contingency table. 
+
+# Extra
+
+If you have time, complete the above steps with additional variables.

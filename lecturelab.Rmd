@@ -91,7 +91,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Week 2: Exploratory Data Analysis
 
-* Lab files: Lab 2 - Exploratory Data Analysis
+* Lab files: [Lab 2 - Exploratory Data Analysis](labs/wk2/lab2.zip)
 
 ## Week 3: Association and Correlation
 

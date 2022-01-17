@@ -5,9 +5,9 @@ account: andrewm
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5421592
-bundleId: 5454913
+bundleId: 5476291
 url: https://andrewm.shinyapps.io/spr2022distributions/
-when: 1641883707.82071
-lastSyncTime: 1641883707.82071
+when: 1642410227.46371
+lastSyncTime: 1642410227.46371
 asMultiple: FALSE
 asStatic: FALSE

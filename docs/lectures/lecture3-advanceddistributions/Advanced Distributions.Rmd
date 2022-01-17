@@ -1,0 +1,326 @@
+---
+title: "Advanced Distributions"
+subtitle: "DKU Stats 101 Spring 2022"
+author: "Professor MacDonald"
+date: "1/17/2022"
+output: 
+  learnr::tutorial:
+    toc_depth: 2
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(gridExtra)
+library(learnr)
+
+theme_set(theme_classic())
+
+titanic_survival <- read.csv("www/titanic_survival.csv")
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
+nbaboxscores <- read.csv("www/nbaboxscores.csv")
+
+western_conf <- c("DAL", "DEN", "GSW", "HOU", "LAC", "LAL", "MEM", "MIN", "NOP", "OKC", "PHX", "POR", "SAC", "SAS", "UTA")
+divisions <- as.factor(c("West", "East"))
+
+nbaboxscores <- nbaboxscores %>%
+  mutate(W.L = factor(nbaboxscores$W.L, labels = c("Loss", "Win")))
+
+nbaboxscores <- nbaboxscores %>%
+  mutate(DIV = ifelse(TEAM %in% western_conf, "West", "East")) %>%
+  mutate(DIV = as.factor(DIV))
+
+titanic_mean <- mean(titanic_survival$age)
+titanic_sd <- sd(titanic_survival$age)
+```
+
+# More on distributions
+
+## Thoughts about comparing groups
+
+- Faceted histograms are a reasonable display to show distributions by a categorical variable
+  + However these displays become hard to interpret when the number of levels in a category grows large
+- Much easier to interpret is side by side box plots
+- Box plots capture many important characteristics of a distribution into a summary display
+- Think carefully about how you treat outliers
+- Let's view data from the 2018-2019 NBA season
+
+## Two group comparison
+
+### NBA side-by-side histograms of points scored by W/L
+
+```{r nbacomparison-hist, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=PTS)) +
+  geom_histogram(fill="blue4") +
+  labs(x="Points scored", y="Count") +
+  facet_wrap(~W.L)
+```
+
+### NBA boxplot comparison of points scored by W/L
+
+```{r nbacomparison-box, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=W.L,y=PTS)) + 
+  geom_boxplot() + 
+  labs(x="Result", y="Points scored")
+```
+
+### NBA boxplot comparison of points scored by W/L (better)
+
+```{r nbacomparison-betterbox, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=W.L,y=PTS)) + 
+  geom_boxplot(fill="light blue") + 
+  labs(x="Result", y="Points scored") + 
+  coord_flip()
+```
+
+## Many group comparison
+
+### NBA side-by-side histograms of points scored by team
+
+```{r nbateamcomparison-hist, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=PTS)) +
+  geom_histogram(fill="blue4") +
+  labs(x="Points scored", y="Count") +
+  facet_wrap( ~ as.factor(TEAM))
+```
+
+### NBA boxplot comparison  of points scored by team (better)
+
+```{r nbateamcomparison-box, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=as.factor(TEAM),y=PTS, fill=DIV)) + 
+  geom_boxplot() + 
+  labs(x="Team", y="Points scored") +
+   scale_x_discrete(guide = guide_axis(n.dodge=2))
+```
+
+## Checking outliers - blocks
+
+### Outliers - blocks
+
+```{r blocksoutliers, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=BLK)) +
+  geom_histogram(fill="blue4", binwidth=1) +
+  labs(x="Blocks", y="Count")
+```
+
+### Blocks > 13 - true outliers?
+
+```{r blocksoutlierscheck, exercise=TRUE}
+nbaboxscores %>% 
+    filter(BLK > 13) %>%
+    select(TEAM, MATCH.UP, MIN, PTS, REB, PF, BLK)
+```
+
+```{r picker0, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Checking outliers - points
+
+### Outliers - points
+
+```{r pointsoutliers, exercise=TRUE}
+ggplot(nbaboxscores, aes(x=PTS)) +
+  geom_histogram(fill="blue4", binwidth=1) +
+  labs(x="Points", y="Count")
+```
+
+### Points > 150 - true outliers?
+
+```{r pointsoutlierscheck, exercise=TRUE}
+nbaboxscores %>% 
+    filter(PTS > 150) %>%
+    select(TEAM, MATCH.UP, MIN, PTS, X3PM, PF)
+```
+
+```{r picker0-5, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## In summary
+
+- Think about which kind of display is appropriate for comparing distributions
+- When conditioning on a categorical variable, boxplots are usually better
+- But boxplots lose information
+- Think carefully about omitting outliers
+- Outliers may reveal important information about your dataset!
+
+## Titanic passengers and the Normal distribution
+
+![Titanic](www/Titanic.jpg)
+
+### Dataset of passengers on the Titanic
+
+```{r datastructure, exercise=TRUE}
+str(titanic_survival)
+```
+
+- What are your expectations for how each of the variable should be distributed?
+
+```{r picker1, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+- We are going to violate our first three rules:
+  1. Make a picture
+  2. Make a picture
+  3. Make a picture
+
+### Were the passenger ages normally distributed?
+
+To answer that question, we need some information about the distribution
+
+Remember, our main information about distributions is:
+
+- Shape
+- Center
+- Spread
+
+- What information do you think we need to determine if `age` is normally distributed?
+
+```{r picker2, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Information about `age`
+
+- Standard deviation: `r round(sd(titanic_survival$age), digits=1)`
+- Mean: `r round(mean(titanic_survival$age), digits=1)`
+- Normal model: $N(\mu, \sigma) = N(`r round(mean(titanic_survival$age), digits=1)`, `r round(sd(titanic_survival$age), digits=1)`)$
+  + $\mu$ is the theoretical mean
+  + $\sigma$ is the theoretical standard deviation
+  + These values define the data generating process
+  + We only see some values of the data generating process, but if we saw infinite values, the mean would be $\mu$ and the sd would be $\sigma$
+  + More on this in the second half of class
+- How can we check normality using this information?
+
+```{r picker3, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Checking normality
+
+### Thinking about normality
+
+- We can check normality by comparing the quantiles of our data with that of the known quantiles of the normal distribution
+  + We know approximately 95% of the data lies within two standard deviations
+  + Therefore, 2.5% data with the lowest values lie outside of -2 standard deviations and 2.5% of data with the highest values lie outside of 2 standard deviations
+- Similarly, we know the same information for data within one standard deviation (16%, 68%, 16%)
+
+### Data within standard deviations
+
+```{r agesd, exercise=TRUE}
+norm.dist <- rnorm(1000000)
+
+ds.low <- density(norm.dist, from=min(norm.dist), to=-2)
+ds.high <- density(norm.dist, from=2, to=max(norm.dist))
+ds.low.mid <- density(norm.dist, from=min(norm.dist), to=-1)
+ds.high.mid <- density(norm.dist, from=1, to=max(norm.dist))
+
+ds.low.data <- data.frame(x = ds.low$x, y = ds.low$y)
+ds.low.mid.data <- data.frame(x = ds.low.mid$x, y = ds.low.mid$y)
+ds.high.data <- data.frame(x = ds.high$x, y = ds.high$y)
+ds.high.mid.data <- data.frame(x = ds.high.mid$x, y = ds.high.mid$y)
+
+two.sd <- ggplot(data.frame(norm.dist), aes(norm.dist)) + 
+  geom_density() + 
+  geom_vline(xintercept=-2, color="dark red") +
+  geom_vline(xintercept=2, color="dark red") +
+  geom_area(data = ds.low.data, aes(x = x, y = y), fill="blue4", color="blue4") +
+  geom_area(data = ds.high.data, aes(x = x, y = y), fill="blue4", color="blue4") + 
+  labs(x="Standard deviations", y="Density") + 
+  scale_x_continuous(breaks=c(-3, -2, -1, 0, 1, 2, 3), limits=(c(-4, 4))) +
+  annotate(geom="text", x=-3, y=0.1, label="~2.5% of the data") +
+  annotate(geom="text", x=3, y=0.1, label="~2.5% of the data") +
+  annotate(geom="text", x=0, y=0.1, label="~95% of the data") 
+  
+one.sd <- ggplot(data.frame(norm.dist), aes(norm.dist)) +
+  geom_density() +
+  geom_vline(xintercept = -1, color="dark red") +
+  geom_vline(xintercept = 1, color="dark red") +
+  geom_area(data = ds.low.mid.data, aes(x = x, y = y), fill="blue4", color="blue4") +
+  geom_area(data = ds.high.mid.data, aes(x = x, y = y), fill="blue4", color="blue4") +
+  labs(x="Standard deviations", y="Density") + 
+  scale_x_continuous(breaks=c(-3, -2, -1, 0, 1, 2, 3), limits=(c(-4, 4))) +
+  annotate(geom="text", x=-2.5, y=0.2, label="~16% of the data") +
+  annotate(geom="text", x=2.5, y=0.2, label="~16% of the data") +
+  annotate(geom="text", x=0, y=0.2, label="~68% of the data") 
+
+grid.arrange(two.sd, one.sd)
+```
+
+### Using quantiles to check normality
+
+Remember:
+
+- Standard deviation of `age`: `r round(sd(titanic_survival$age), digits=1)`
+- Mean of `age`: `r round(mean(titanic_survival$age), digits=1)`
+
+Therefore, 
+
+- ~2.5% of the data should be below $\mu - 2*\sigma$ 
+- In practical terms, $`r round(titanic_mean, digits=1)` - 2*`r round(titanic_sd, digits=1)` = `r round(titanic_mean - 2*titanic_sd, digits=1)`$
+  + Actual observation at ~2.5% cutoff: `quantile(titanic_survival$age, 0.0228)` = `r quantile(titanic_survival$age, 0.0228)`
+- Other cutoffs vs. actual:
+  + Predicted observation at ~16% cutoff: `r round(titanic_mean-titanic_sd, digits=1)`, Actual at ~16% cutoff: `r quantile(titanic_survival$age, 0.158)`  
+  + Predicted at ~84% cutoff: `r round(titanic_mean+titanic_sd, digits=1)`, Actual: `r quantile(titanic_survival$age, 0.842)`
+  + Predicted at ~97.5% cutoff: `r round(titanic_mean+2*titanic_sd, digits=1)`, Actual:`r quantile(titanic_survival$age, 0.9775)`
+
+Based on this information, what do you think the shape of the distribution is?
+
+```{r picker4, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Checking against the data
+
+### Histogram of ages from the data
+
+```{r agehist, exercise=TRUE}
+norm.dist.titanic <- rnorm(1000000, mean=titanic_mean, sd=titanic_sd)
+norm.dist.titanic <- data.frame(norm.dist.titanic)
+
+ggplot(titanic_survival, aes(x=age)) + 
+  geom_histogram(aes(y=..density..), fill="blue4") +
+  geom_vline(xintercept=titanic_mean, color="dark red") + 
+  geom_density(data=norm.dist.titanic, aes(norm.dist.titanic), color="dark red") +
+  labs(x="Age", y="Count") +
+  scale_x_continuous(limits=c(-10, 80))
+```
+
+### Normality and scaling
+
+- Note that normality does not depend on the size of the sd or the size of the mean
+- Could easily change the units to be months instead of years
+  + Mean would increase a lot
+  + Standard deviation would increase a lot
+  + However, amount of observations within each standard deviation would stay the same
+
+## Final thoughts on normality
+
+### When is the normal distribution useful?
+
+- When we know a data-generating process is normally distributed we don't even need to sample the population
+  + Can find out exactly how much data is between a certain number of standard deviations
+- When we expect a data-generating process to be normally distributed, can test for deviations from normality
+  + In the case of Titanic passengers, some parts of the distribution were more bunched up, others more spread out
+- A lot of our statistical techniques require or work better when the data is 'roughly' normal
+  + Will detail these in the coming weeks
+- We can transform our data to be closer to normal
+  + Note that transformations won't work if the data has multiple modes, can only correct skew
+
+### What transformation would be helpful for `age`?
+
+```{r agehist2, exercise=TRUE}
+ggplot(titanic_survival, aes(x=age)) + 
+  geom_histogram(fill="blue4") +
+  labs(x="Age", y="Count")
+```
+
+```{r picker5, exercise=TRUE}
+sample(classroster$name, 1)
+```

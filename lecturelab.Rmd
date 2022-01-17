@@ -13,17 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Class Welcome
 
-* Recording: 
+* Recording: [Class 1](https://duke.zoom.us/rec/share/FCbA4ibrJeV1GwOvOk6KxH6SDdPV-F9RNpcAQa-hWsM7HDFBG-NQt9G-iXjgE2M5.BkTVTjo-mUDpoVLO)
 
 ### Characteristics of Distributions
 
 * Lecture webpage: [Characteristics of distributions](https://andrewm.shinyapps.io/spr2022distributions) 
-* Recording: 
+* Recording: [Class 2](https://duke.zoom.us/rec/share/vJJq_BUoeuefn70dqfkvhHsX0Giru8tJnESfMcHxfaszLq6i2GdeLssZOwEZWpan.PRcKW8xhkwEsn6Y-)
 * Quality YouTube content: [Tidyverse music video](https://www.youtube.com/watch?v=p8Py9C8iq2s&ab_channel=TheRaf)
 
 ### Comparing distributions and the Normal distribution
 
-* Lecture webpage: 
+* Lecture webpage: [Advanced distributions](https://andrewm.shinyapps.io/spr2022advanceddistributions/)
 * Recording: 
 
 ## Unit 2: Relationships Between Variables

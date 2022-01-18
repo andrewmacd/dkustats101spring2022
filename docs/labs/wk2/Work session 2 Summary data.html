@@ -296,9 +296,9 @@ ggplot(menu.subset, aes(x=&lt;your variable of interest&gt;)) +
 </ul></li>
 </ul>
 <pre><code>mcdonalds.new &lt;- mcdonalds %&gt;%
-  mutate(&lt;new variable name&gt;, ifelse(&lt;logical condition&gt;, 
-                                     &lt;if statement is true value&gt;,  
-                                     &lt;if statement is false value&gt;))</code></pre>
+  mutate(&lt;new variable name&gt; = ifelse(&lt;logical condition&gt;, 
+                                      &lt;if statement is true value&gt;,  
+                                      &lt;if statement is false value&gt;))</code></pre>
 <ul>
 <li>Breaking this down,
 <ul>

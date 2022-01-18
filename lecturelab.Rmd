@@ -13,18 +13,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Class Welcome
 
-* Recording: [Class 1](https://duke.zoom.us/rec/share/FCbA4ibrJeV1GwOvOk6KxH6SDdPV-F9RNpcAQa-hWsM7HDFBG-NQt9G-iXjgE2M5.BkTVTjo-mUDpoVLO)
+* Recording: [Class 1](https://duke.zoom.us/rec/share/P63Iyay_3X-RQ1aixtu4xV0cYVllbvh8KyYrpqEY0sglGTBt7hFMOh2YeF6-5HNR.kNFMe07lvFiQW3Rb?startTime=1641811488000)
 
 ### Characteristics of Distributions
 
 * Lecture webpage: [Characteristics of distributions](https://andrewm.shinyapps.io/spr2022distributions) 
-* Recording: [Class 2](https://duke.zoom.us/rec/share/vJJq_BUoeuefn70dqfkvhHsX0Giru8tJnESfMcHxfaszLq6i2GdeLssZOwEZWpan.PRcKW8xhkwEsn6Y-)
+* Recording: [Class 2](https://duke.zoom.us/rec/share/-ZCftywyQVABVGi3myZHE3S-Dry3RV-diMDomS2-m1V_m5tA2ibQms7zF-MSerBL.KA0UhVWsOAejLJSD?startTime=1641984674000)
 * Quality YouTube content: [Tidyverse music video](https://www.youtube.com/watch?v=p8Py9C8iq2s&ab_channel=TheRaf)
 
 ### Comparing distributions and the Normal distribution
 
 * Lecture webpage: [Advanced distributions](https://andrewm.shinyapps.io/spr2022advanceddistributions/)
-* Recording: 
+* Recording: [Class 3](https://duke.zoom.us/rec/share/XxjQSOejfWjRibeiQTTljfoOd8okrgmiRRS9bVFzWlmtUsOwQEOwhZk1fTg1W0-e.ofozZZ1JiknM6TEq?startTime=1642416412000)
 
 ## Unit 2: Relationships Between Variables
 

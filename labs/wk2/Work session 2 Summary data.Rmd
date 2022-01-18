@@ -90,9 +90,9 @@ ggplot(menu.subset, aes(x=<your variable of interest>)) +
   
 ```
 mcdonalds.new <- mcdonalds %>%
-  mutate(<new variable name>, ifelse(<logical condition>, 
-                                     <if statement is true value>,  
-                                     <if statement is false value>))
+  mutate(<new variable name> = ifelse(<logical condition>, 
+                                      <if statement is true value>,  
+                                      <if statement is false value>))
 ```
 
 - Breaking this down,

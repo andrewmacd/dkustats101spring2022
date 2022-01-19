@@ -1,0 +1,226 @@
+---
+title: "Association and correlation"
+subtitle: "DKU Stats 101 Spring 2022"
+author: "Professor MacDonald"
+date: "1/19/2022"
+output: 
+  learnr::tutorial:
+    toc_depth: 2
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(gridExtra)
+library(knitr)
+library(learnr)
+library(knitr)
+
+theme_set(theme_classic())
+
+kc.houses <- read.csv("www/kc.house.data.all.csv")
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
+
+kc.houses <- kc.houses %>% 
+  mutate(waterfront = factor(waterfront),
+         view = factor(view))
+```
+
+# Association and correlation
+
+## Exercise 1
+
+In your groups, try to think of two variables that, in the real world, that might have this correlation for each of the following correlations. Try to think of a few examples for each correlation.
+
+- 0.95
+- 0.75
+- 0.5
+- 0.25
+- 0.0
+- -0.25
+- -0.5
+- -0.75
+- -0.95
+
+Pick a few of these and draw by hand what you expect these graphs to look like.
+
+```{r picker1, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Exercise 2
+
+![Seattle](www/seattle.jpg)
+
+### Exercise details
+
+In your groups, develop some expectations about some of the variables in the `kc.houses` dataset might be related. 
+
+Variables:
+
+```{r datasetdetails, exercise=TRUE}
+kable(names(kc.houses), col.names=c("Variables"))
+```
+
+What to do in the breakout rooms:
+
+1. Write down some questions (at least 3) we think we might be able to answer with this dataset
+2. Choose some variables that you think might be able to answer these questions
+3. Write down what you expect the relationship to be between these two variables based on any prior knowledge
+4. Decide which variable is the response variable and which is the predictor variable
+
+```{r picker2, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Viewing an example relationship
+
+* First, what is our expectation about the relationship between bedrooms and bathrooms?
+ - Direction?
+ - Form?
+ - Strength?
+ - Outliers?
+
+```{r picker3, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Bedrooms and bathrooms - direction
+
+A scatterplot is the easiest way to check for direction. In this case, the direction is obvious 
+
+```{r bbdirection, exercise=TRUE}
+# should we jitter this?
+ggplot(kc.houses, aes(x=bedrooms, y=bathrooms)) + 
+  geom_point() +
+  labs(x="Bedrooms", y="Bathrooms")
+```
+
+## Bedrooms and bathrooms - form
+
+```{r bbform, exercise=TRUE}
+ggplot(kc.houses, aes(x=bedrooms, y=bathrooms)) + 
+  geom_point(position="jitter") +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Bedrooms", y="Bathrooms")
+```
+
+
+## Bedrooms and bathrooms - strength
+
+```{r bbstrength, exercise=TRUE}
+ggplot(kc.houses, aes(x=bedrooms, y=bathrooms)) + 
+  geom_point(position="jitter") +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Bedrooms", y="Bathrooms")
+```
+
+```{r picker4, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Correlation as a measure of strength
+
+```{r bbcorr, exercise=TRUE}
+kable(kc.houses %>% 
+        summarize(cor(bedrooms, bathrooms, use="complete.obs")), col.names="Correlation")
+```
+
+This correlation is a little weaker than perhaps what we expected
+
+- In general, mechanically generated processes with little noise can have very high correlations 
+- Most correlations of social or real world processes rarely have above moderate correlation due to noise
+
+## Bedrooms and bathrooms - outlier
+
+Again, we do not have a rule for selecting outliers other than to observe them on the scatterplot. In this case, there is one very obvious value far from other values
+
+```{r bboutlierplot, exercise=TRUE}
+ggplot(kc.houses, aes(x=bedrooms, y=bathrooms)) + 
+  geom_point(position="jitter") +
+  geom_smooth(method="lm", se=FALSE)  +
+  geom_text(data=kc.houses %>% filter(bedrooms > 20), # Filter data first
+    aes(label=bedrooms), vjust=1.5, color="red") +
+  labs(x="Bedrooms", y="Bathrooms")
+```
+
+To investigate if this outlier matters, we can check some other values of the observation.
+
+```{r bboutlier, exercise=TRUE}
+kable(
+  kc.houses %>%
+    filter(bedrooms>20) %>%
+    select(c("price", "sqft_living", "sqft_lot", "bathrooms", "floors")))
+```
+
+What kind of outlier do you think this is? Why?
+
+```{r picker5, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Outlier - actual observation
+
+![Outlier view](www/outlier.png)
+
+### Data with no outlier
+
+```{r bbnooutlier, exercise=TRUE}
+#should we jitter this?
+kc.houses %>%
+  filter(bedrooms<20) %>%  
+  ggplot(aes(x=bedrooms, y=bathrooms)) + 
+    geom_point(position="jitter") +
+    geom_smooth(method="lm", se=FALSE) +
+    labs(x="Bedrooms", y="Bathrooms")
+```
+
+### Describing the association
+
+1. Direction - positive
+2. Form - linear
+3. Strength - moderate/strong
+4. Outliers - one obvious outlier
+
+Outlier:
+```{r bboutlier2, exercise=TRUE}
+kable(
+  kc.houses %>%
+    filter(bedrooms>20) %>%
+    select(c("price", "sqft_living", "sqft_lot", "lat", "long")))
+```
+
+## Does b/b relationship match expectations?
+
+- Seems to, more or less, the more bedrooms, the more bathrooms, so the relationship is positive
+- The relationship is fairly linear, indicating a strong relationship
+- Relationship is moderate
+- Only one outlier, and that appears to be a mistake
+
+However....
+
+* What are some possible lurking variables that influence the relationship of bedrooms and bathrooms?
+
+```{r picker6, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Relationship reexpressed?
+
+One final issue to consider is if this relationship should be reexpressed - made more linear.
+
+```{r bbreexpress, exercise=TRUE}
+kc.houses %>%
+  mutate(log.bedrooms = log(bedrooms),
+         log.bathrooms = log(bathrooms)) %>%
+  ggplot(aes(x=log.bathrooms, y=log.bedrooms)) + 
+    geom_point() +
+    geom_smooth(method="lm", se=FALSE) +
+    labs(x="Log Bedrooms", y="Log Bathrooms")
+```
+
+- Doesn't seem so clear

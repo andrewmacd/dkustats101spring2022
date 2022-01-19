@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Association and Correlation
 
-* Lecture webpage: 
+* Lecture webpage: [Association and correlation](https://andrewm.shinyapps.io/spr2022association/)
 * Recording: 
 
 ### Simple Linear Regression

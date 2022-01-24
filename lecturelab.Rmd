@@ -93,13 +93,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Lab files: [Lab 2 - Exploratory Data Analysis](labs/wk2/lab2.zip)
 
-## Week 3: Association and Correlation
+## Week 3: Regression Interpretation
 
-* Lab files: Lab 3 - Association and Correlation
+* Lab files: [Lab 3 - Association and Correlation](labs/wk3/lab3.zip)
 
-## Week 4: Regression Interpretation
+## Week 4: Model Building
 
-* Lab files Lab 4 - Regression Interpretation
+* Lab files Lab 4 - Model Building
 
 ## Week 5: Hypothesis Testing
 

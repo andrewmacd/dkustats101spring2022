@@ -1,0 +1,111 @@
+---
+title: "Stats 101 Spring 2022 Midterm"
+subtitle: "Seoul Bicycle Sharing Report"
+author: "Anonymous"
+date: "1/24/2022"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+
+bicyclesharing <- read.csv("bicyclesharing.csv")
+```
+
+# Assignment instructions
+
+## Task
+
+```{r, echo=FALSE, fig.cap="Bicycle sharing in Seoul^[https://english.visitseoul.net/hallyu/Explore-Seoul-on-a-Seoul-Bike_/18469]",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("bicycle.sharing.jpg"))
+``` 
+
+Imagine you are hired by a large city in China with a climate and size similar to Seoul, South Korea that is interested in installing a bicycle sharing system. Your firm has been hired to write a report on the likely demand in this Chinese city for bicycle sharing according to the climate conditions, day of week, and trends over time based on data obtained from Seoul. 
+
+Specifically, you should analyze a few things.
+
+1. Consider the trend over time of bicycles rented - will bicycle sharing become more popular over time?
+2. Consider the hour of the day - what pattern do bicycle rentals have over a 24 cycle, and does this cycle change depending on what type of day it is?
+3. Create a regression model to consider what weather factors are most important in predicting number of bicycles rented
+
+Finally, your boss asks you to make a series of recommendations for the Chinese client city about some features or important design considerations they need to take into account when building their own system.
+
+## Specific requirements
+
+* Save this document as a new document (Save As...) and rename it `Bicycle Sharing Report`.
+* Rename the title of your report to `Bicycle Sharing Report`
+* Delete the `Assignment instructions`, `Task`, `Specific requirements` and `Points of emphases` sections
+* Final report should be minimum 1500 words
+  + Maximum 8 graphs
+  + Maximum 4 tables
+  
+* Suggested structure:
+  + Introduction & literature review
+  + Time trends
+  + Climate model
+    + Summary statistics
+    + Regression model
+    + Regression diagnostics
+    + Interpreting coefficients
+  + Conclusion
+  
+The definition of the variables can be found here: [dataset source](https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand) 
+
+***There will be a midterm check to make sure you are making good progress due Sunday, January 30th at 11:59 pm***
+
+You need to submit a relatively finished version for the first two sections (`Introduction & literature review` and `Time trends`) by the Sunday deadline. The grade will be pass/fail. The submitted check does not have to be in its final form (you can modify it later if you choose) or be polished (some shown code / text not formatted perfectly is OK). 
+
+However, both sections should be substantially complete - all code necessary to fulfill the requirements of the section included and all text necessary to meet the requirements written.
+
+## Points of emphasis
+
+* Your job as an analyst is to write a report analyzing what time and weather features you think cause more bicycles to be rented. For the time trends, summary data and high quality plots is enough to consider the problem. For the climate data, summary information about the key variables is also important to discuss.
+
+* For the climate model, you should limit your focus to one response variable and maximum 4-5 predictor variables that you think are most important in your analyses. You can consider multiple, related models if you wish - models that share most predictor variables but differ by one or two minor variables. 
+
+* You should transform the precipitation and snowfall into categorical variables (yes/no variables depending on if there was any precipitation or snow that day)
+
+* For your climate model, to make the problem simple enough for the midterm, just consider the same hour every day (filter by hour before starting your analysis). Consider which hour of the day to filter by that you think is going to produce the most reliable model and explain why you made this choice. 
+
+* Whether a variable should be included in your model or not should be based on whether the variable is important in evaluating the client demand. You a source or two relevant to answering the question to better help you select variables that you include in your analysis. 
+
+* Do not exclude a variable just because it initially does not meet the regression requirements if it is substantively important. However, consider carefully whether some variables are actually highly related to another predictor variable – do not include several measures of the same basic concept (collinearity). In general, you want to start by picking the variables you think matter the most in determining rent price and then work to try to understand their relationship to rent. 
+
+* You should focus your graphs and tables on that illustrating the most important information for drawing your conclusion. Choose your tables carefully such that they convey the key information needed to arrive at your conclusion. Do not make tables and graphs of irrelevant information or points that do not need discussing. Multiple graphs of the same type (for example, distribution plots) can be combined using the `gridExtra` command, but unrelated plots should be listed separately. 
+
+* Make sure to also interpret the coefficients. You need to interpret the impact of a one unit change in the predictor variable on the response variable. You additionally need to examine whether changes in the predictor variables lead to a substantively large or small change in the predictor variable. One way to do this is examining whether changing the predictor variable from its Q1 to Q3 value leads to a large or small change in the response variable. You may want to make a table with this information.  
+
+# Introduction and literature review
+
+Discuss what your expectations are here and how you arrived at your expectation, including the source of your expectation.
+
+# Time trends
+
+Consider how to display and discuss the trends across time and by hour in this section, including any summary statistics and important graphical displays to answer these questions
+
+# Climate model
+
+In this section you will fully develop a model of bicycle rentals by climactic conditions. Remember to filter the data so that the basic unit is the same hour, considered each day. 
+
+## Summary data
+
+Discuss summary data of the key variables in the dataset. 
+
+## Regression model
+
+State clearly what your proposed model is and why you selected the relevant predictor variables. 
+
+## Regression diagnostics
+
+Check to see how well your model fits the data here.
+
+## Interpreting coefficients
+
+Interpret the magnitude of your coefficients here.
+
+# Conclusion
+
+Add conclusion and recommendations here. Note also any limitations of your analysis and what other forms of advanced analysis could be conducted to strengthen the analysis in the future.

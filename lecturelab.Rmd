@@ -35,7 +35,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Simple Linear Regression
 
-* Lecture webpage: 
+* Lecture webpage: [Simple linear regression](https://andrewm.shinyapps.io/spr2022simpleregression/)
 * Recording:
 
 ### Regression Wisdom

@@ -1,0 +1,448 @@
+---
+title: "Regression Wisdom"
+subtitle: "DKU Stats 101 Spring 2022"
+author: "Professor MacDonald"
+date: "1/26/2022"
+output: 
+  learnr::tutorial:
+    toc_depth: 2
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+library(tidyverse)
+library(knitr)
+library(gridExtra)
+library(broom)
+library(learnr)
+
+theme_set(theme_classic())
+set.seed(20200915)
+
+auto.mpg <- read.csv("www/auto.mpg.csv")
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
+
+mod.dis <- lm(mpg ~ displacement, data=auto.mpg)
+mod <- lm(data=auto.mpg, mpg ~ horsepower, na.action = na.exclude)
+
+shoesize <- rnorm(20, mean=43, sd=1.5)
+iq <- rnorm(20, mean=100, sd=15)
+shoeiq<-data.frame(shoesize, iq)
+
+shoesize.lb<-c(shoesize,52)
+iq.lb<-c(iq,150)
+shoeiq.lb<-data.frame(shoesize.lb, iq.lb)
+
+shoesize.bg<-c(shoesize,43)
+iq.bg<-c(iq,150)
+shoeiq.bg<-data.frame(shoesize.bg, iq.bg)
+
+shoesize.rw<-c(shoesize,52)
+iq.rw<-c(iq,100)
+shoeiq.rw<-data.frame(shoesize.rw, iq.rw)
+```
+
+# Regression issues
+
+* Model fit measures
+* Extrapolation
+* Outliers
+  + Leverage
+  + Influence
+* Interpreting a regression
+
+## Model fit measures
+
+### Regression results
+
+Many parts of these results we already know how to interpret. For now, we will focus on model fit measures.
+
+- $R^2$
+- $s_e$
+- Residuals 5 number summary
+
+```{r basicmodel, exercise=TRUE}
+mod.dis <- lm(mpg ~ displacement, data=auto.mpg)
+summary(mod.dis)
+```
+
+### Residuals - histogram
+
+```{r basicmodelresids, exercise=TRUE}
+auto.mpg.augment <- augment(mod.dis, auto.mpg)
+
+ggplot(auto.mpg.augment, aes(x=.resid)) +
+  geom_histogram(fill="blue4", color="black") + 
+  labs(y = "Count", x="Residual size") +
+  geom_vline(xintercept=0, color="red")
+```
+
+How would you interpret this residual histogram?
+
+```{r picker1, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Correlation review
+
+* Recall that a correlation, $r$, ranges from -1 to 1 and indicates the strength of the association between two variables
+  + If $r$ is -1 or 1 exactly, there is no variation, the correlation indicate the relationship is a straight line
+  + Note that $r$ does not indicate the slope
+  + If $r$ is 0, that means there is no relationship
+    - What is the slope in that case?
+    - $\hat{y} = b_0 + b_1*x$
+
+```{r picker2, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### R squared definition
+
+* $R^2$ is the square of $r$ in a two variable case, so between 0 and 1
+
+* But, unlike $r$, $R^2$ is meaningful in multivariate models
+
+* Percent of the total variation in the data explained by the model
+
+* Sum of the errors from our model divided by sum of errors from the 'braindead' model of $\hat{y}=\bar{y}$
+
+* If the $R^2$ is small, that means our model doesn't beat the 'braindead' model by very much
+
+```{r braindead, exercise=TRUE}
+ggplot(auto.mpg, aes(x=displacement, y=mpg)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  geom_hline(yintercept=mean(auto.mpg$mpg), color="red")
+```
+
+### When is R squared "big enough"?
+
+* $R^2$ is useful, but only so much so
+
+* The closer $R^2$ is to 1, the more useful the model
+  + How close is "close"?
+  + Depends on the situation
+  + $R^2$ of 0.5 might be very bad for a model that uses height to predict weight
+    - Should be more closely related
+  + $R^2$ of 0.5 might be very good for a model using test scores to predict future income
+    - Response variable has a lot of factors that shape it and a lot of noise
+
+* **Good practice**: always report $R^2$ and $s_e$ and let readers analyze the results as well
+
+## Extrapolating
+
+* The farther a new value is from the range of x, the less trust we should place in the predicted value of y
+
+* Venture into new x territory, called extrapolation
+
+* **Dubious**: questionable assumption that nothing changes about the relationship between x and y changes for extreme values of x
+
+### Predicting MPG of cars
+
+1970s data on automobiles
+
+```{r weightmodel, exercise=TRUE}
+summary(lm(data=auto.mpg, mpg ~ weight), digits=3)
+```
+
+### Predicting the Maybach
+
+```{r maybachexterior, out.width = "400px", fig.cap="World's heaviest car"}
+knitr::include_graphics("www/maybach.exterior.jpg")
+```
+
+### Predicting the Maybach
+
+```{r maybachinterior, out.width = "400px", fig.cap="World's heaviest car"}
+knitr::include_graphics("www/maybach.interior.jpg")
+```
+
+### Predicting the Maybach
+
+```{r maybachnk, out.width = "400px", fig.cap="World's heaviest car"}
+knitr::include_graphics("www/maybach.nk.jpg")
+```
+
+Will our model do a good job predicting this car's miles per gallon?
+
+```{r picker3, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Can we predict this car's MPG using our model?
+
+Weight: 6581 pounds  
+  
+Model: 
+$\hat{y} = b_0 + b_1*x$  
+$\hat{y} = 46.3 + -0.00767*6581$  
+$\hat{y} = -4.17$ miles per gallon
+
+* Nonsense prediction
+
+### Be wary of out of sample predictions
+
+```{r weightmodelgraph, exercise=TRUE}
+ggplot(auto.mpg, aes(x=weight, y=mpg)) +
+  geom_point() +
+  geom_point(aes(x=6581, y=-4.17), color="red") +
+  labs(x="Weight", y="Miles per gallon", title="Miles per gallon as a function of weight")
+```
+
+## Outliers
+
+### Shoe size and IQ
+
+First, we can create random data for both a variable called `shoesize` and one called `iq` but in the below example they are defined to be random and have no relation to each other.
+
+```{r basicshoemodel, exercise=TRUE}
+#shoesize <- rnorm(20, mean=43, sd=1.5)
+#iq <- rnorm(20, mean=100, sd=15)
+#shoeiq<-data.frame(shoesize, iq)
+```
+
+```{r basicshoemodelgraph, exercise=TRUE}
+ggplot(shoeiq, aes(x=shoesize, y=iq)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Shoe size", y="IQ", title="IQ as a function of shoe size") +
+  annotate(geom="text", x=43, y=120, label="Slope is 2.77, r2 is 0.025", color="red")
+```
+
+### Adding LeBron James
+
+```{r lebron, out.width = "400px"}
+knitr::include_graphics("www/lebron.jpg")
+```
+
+```{r lebronmodel, exercise=TRUE}
+#shoesize.lb<-c(shoesize,52)
+#iq.lb<-c(iq,150)
+#shoeiq.lb<-data.frame(shoesize.lb, iq.lb)
+```
+
+What will happen to the slope and $R^2$?
+
+```{r picker4, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Lebron plot
+
+```{r lebronplot, exercise=TRUE}
+ggplot(shoeiq.lb, aes(x=shoesize.lb, y=iq.lb)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Shoe size", y="IQ", title="IQ as a function of shoe size with Lebron James") +
+  annotate(geom="text", x=46, y=100, label="Slope is 4.85, r2 is 0.32", color="red")
+```
+
+### Adding Bill Gates
+
+```{r gates, out.width = "400px"}
+knitr::include_graphics("www/billgates.jpg")
+```
+
+```{r billgatesmodel, exercise=TRUE}
+#shoesize.bg<-c(shoesize,43)
+#iq.bg<-c(iq,150)
+#shoeiq.bg<-data.frame(shoesize.bg, iq.bg)
+```
+
+```{r billgatesplot, exercise=TRUE}
+ggplot(shoeiq.bg, aes(x=shoesize.bg, y=iq.bg)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Shoe size", y="IQ", title="IQ as a function of shoe size with Bill Gates") +
+  annotate(geom="text", x=42, y=130, label="Slope is 3.4, r2 is 0.03", color="red")
+```
+
+### Adding Russell Westbrook
+
+```{r westbrook, out.width = "400px"}
+knitr::include_graphics("www/westbrook.jpg")
+```
+
+```{r westbrookmodel, exercise=TRUE}
+#shoesize.rw<-c(shoesize,52)
+#iq.rw<-c(iq,100)
+#shoeiq.rw<-data.frame(shoesize.rw, iq.rw)
+```
+
+```{r westbrookplot, exercise=TRUE}
+ggplot(shoeiq.rw, aes(x=shoesize.rw, y=iq.rw)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Shoe size", y="IQ", title="IQ as a function of shoe size with Russell Westbrook") +
+  annotate(geom="text", x=45, y=110, label="Slope is 0.34, r2 is 0.00", color="red")
+```
+
+### Leverage vs. influence
+
+* A data point whose `x` value is far from the mean of the rest of the `x` values is said to have high leverage.
+
+* Leverage points have the potential to strongly pull on the regression line. 
+
+* A point is influential if omitting it from the analysis changes the model enough to make a meaningful difference.
+
+* Influence is determined by
+  + The residual 
+  + The leverage
+
+### Warnings
+
+* Influential points can hide in plots of residuals.
+
+* Points with high leverage pull line close to them, so have small residuals.
+
+* See points in scatterplot of original data.
+
+* Find regression model with and without the points.
+
+## Interpreting a regression
+
+### Step 1: develop some expectations
+
+Horsepower vs. MPG
+
+* More powerful engines probably are less fuel efficient
+
+* Relationship is likely roughly linear
+
+* The exact relationship depends on the efficiency of the engine
+  + Could be noisy
+
+### Step 2: make a picture
+
+```{r horsepowerplot, exercise=TRUE}
+ggplot(auto.mpg, aes(x=horsepower, y=mpg)) + 
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Horsepower", y="Miles per gallon", title="Miles per gallon as a function of horsepower")
+```
+
+### Step 3: check the conditions
+
+* Quantitative variable condition
+
+* Straight enough condition
+
+* Outlier condition
+
+* Does the plot thicken
+
+* **Conclusion:**?
+
+```{r picker5, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Step 4: identify the units
+
+* Miles per gallon: amount of miles you can travel on one gallon of gas, a measure of efficiency. 
+  + Most gasoline-using cars have MPG between 10-40, higher being better
+  
+* Horsepower: power of the engine. 
+  + Typical values for standard cars are in the 100-200 range, higher meaning more powerful
+
+### Step 5: intepret the slope of the regression line
+
+```{r horsepowerregsummary, exercise=TRUE}
+lm(data=auto.mpg, mpg ~ horsepower) %>%
+  tidy() %>%
+  select(c(term, estimate)) %>%
+  kable(digits=3, col.names=c("Term", "Estimate"))
+```
+
+* For every one unit increase in horsepower, miles per gallon decreases by about -0.15 units
+  + Is that a lot or a little?
+
+```{r picker6, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Step 6: determine reasonable values for the predictor variable
+
+```{r horsepowermodunits, exercise=TRUE}
+auto.mpg %>%
+  summarize(min = min(horsepower, na.rm=TRUE), q1 = quantile(horsepower, p=0.25, na.rm=TRUE), median=median(horsepower, na.rm=TRUE), q3 = quantile(horsepower, p=0.75, na.rm=TRUE), max(horsepower, na.rm=TRUE)) %>%
+  kable(col.names=c("Min", "Q1", "Median", "Q3", "Max"))
+```
+
+### Step 7: interpret the intercept
+
+```{r horsepowermodintercept, exercise=TRUE}
+lm(data=auto.mpg, mpg ~ horsepower) %>%
+  tidy() %>%
+  select(c(term, estimate)) %>%
+  kable(digits=3, col.names=c("Term", "Estimate"))
+```
+
+### Step 8: solve for reasonable predictor values
+
+Horsepower = Q1 = 75:  
+
+$\hat{y} = b_0 + b_1*x$  
+$\hat{y} = 39.94 + -0.158*100$  
+$\hat{y} = 28.09$  
+
+Horsepower = Median = 93.5:  
+
+$\hat{y} = b_0 + b_1*x$  
+$\hat{y} = 39.94 + -0.158*100$  
+$\hat{y} = 25.17$  
+
+Horsepower = Q3 = 126:  
+
+$\hat{y} = b_0 + b_1*x$  
+$\hat{y} = 39.94 + -0.158*100$  
+$\hat{y} = 20.03$
+
+### Step 9: interpret the residuals and identify their units
+
+```{r horsepowerresids, exercise=TRUE}
+mod <- lm(data=auto.mpg, mpg ~ horsepower, na.action = na.exclude)
+auto.mpg.augment <- augment(mod, auto.mpg)
+
+ggplot(auto.mpg.augment, aes(x=horsepower, y=.resid)) +
+  geom_point() + 
+  geom_hline(yintercept = 0, color = "blue", linetype='dashed') + 
+  labs(y = "Residual error", x="Horsepower")
+```
+
+### Step 10: view the distribution of the residuals
+
+```{r horsepowerresidsdist, exercise=TRUE}
+auto.mpg.augment <- augment(mod, auto.mpg)
+
+ggplot(auto.mpg.augment, aes(x=.resid)) +
+  geom_histogram(fill="blue4") + 
+  labs(x = "Residual size", y="Count", title="Residuals from a model of MPG as a function of HP")
+```
+
+### Step 11: interpret the residual standard error
+
+```{r horsepowerresidsse, exercise=TRUE}
+summary(mod, digits=3)
+```
+
+### Step 12: interpret the R squared
+
+```{r horsepowerrsquared, exercise=TRUE}
+summary(mod, digits=3)
+```
+
+### Step 13: think about confounders
+
+* What are some confounders, or "lurking variables"?
+  + Categorical
+  + Quantitative
+
+```{r picker7, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+

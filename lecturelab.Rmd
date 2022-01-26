@@ -36,11 +36,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Simple Linear Regression
 
 * Lecture webpage: [Simple linear regression](https://andrewm.shinyapps.io/spr2022simpleregression/)
-* Recording:
+* Recording: [Class 5](https://duke.zoom.us/rec/share/47sjFFlJubTm5FDii_5RVt_nNiVf0auQjDTTwdeHRgn6qaApDkto-pD3cboQtXNG.xBapqGn3f1mYYf2H?startTime=1643021638000)
 
 ### Regression Wisdom
 
-* Lecture webpage:
+* Lecture webpage: [Regression Wisdom](https://andrewm.shinyapps.io/spr2022regressionwisdom/)
 * Recording:
 
 ### Multiple Regression

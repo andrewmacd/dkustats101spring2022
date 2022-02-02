@@ -40,8 +40,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Regression Wisdom
 
-* Lecture webpage: [Regression Wisdom](https://andrewm.shinyapps.io/spr2022regressionwisdom/)
-* Recording:
+* Lecture webpage: [Regression wisdom](https://andrewm.shinyapps.io/spr2022regressionwisdom/)
+* Recording: [Class 6](https://duke.zoom.us/rec/share/1lrWijzPrrS5BAh_saWi21jlAtw_9oIILSx-4x-uJU9P29r14gRhv36mIMnZNyNm.uyNTvSpHVBcdf58D?startTime=1643194206000)
 
 ### Multiple Regression
 

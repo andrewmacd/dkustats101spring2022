@@ -1,0 +1,401 @@
+---
+title: "Multiple Regression"
+subtitle: "DKU Stats 101 Spring 2022"
+author: "Professor MacDonald"
+date: "2/7/2022"
+output: 
+  learnr::tutorial:
+    toc_depth: 2
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(knitr)
+library(gridExtra)
+library(broom)
+library(visreg)
+library(learnr)
+library(kableExtra)
+
+theme_set(theme_classic())
+set.seed(20200915)
+
+kc.housing <- read.csv("www/kc.house.data.all.csv")
+wages <- read.csv("www/us.dol.wages.csv")
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
+options(scipen=999)
+
+mod <- lm(data=kc.housing, price ~ sqft_living + sqft_lot)
+kc.housing.aug <- augment(mod, kc.housing)
+```
+
+# Multiple regression
+
+* Basic interpretation
+* Assumptions
+* Checks
+* Indicator variables
+* Interaction terms
+
+```{r seattlehouseimg, out.width = "400px", fig.cap="Seattle houses^[Credit to: https://crosscut.com/opinion/2020/11/washington-state-housing-question-and-answer]"}
+knitr::include_graphics("www/seattlehousing.png")
+```
+
+
+
+## Basic multiple regression interpretation
+
+### House prices
+
+```{r livingpricemod, exercise=TRUE}
+summary(lm(data=kc.housing, price ~ sqft_living), digits=3)
+```
+
+### When linear regression is not enough
+
+* $R^2 = 0.49%$ for `sqft_livingspace` and `price`
+
+* 49% of the variation in Price is accounted for
+
+* What about the other 51%?
+
+* Could include other lurking variables such as size of the lot a house is on - more land, higher cost right?
+
+* A regression with two or more predictor variables is called a multiple regression.
+
+### What is multiple regression?
+
+* For a simple regression, with one independent variable, the least squares line makes residuals as small as possible.
+
+* For multiple regression, the regression equation still makes the residuals as small as possible.
+
+* No longer trying to create a line though – instead a multidimensional hyperplane!
+
+* Calculations difficult.  
+
+### Check `sqft_lot` and `price`
+
+```{r lotpricemod, exercise=TRUE}
+summary(lm(data=kc.housing, price ~ sqft_lot), digits=3)
+```
+
+What do you think will happen to the coefficient on `sqft_lot` when we add `sqft_living`?
+
+```{r picker1, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Adding both terms
+
+```{r bothpricemod, exercise=TRUE}
+summary(lm(data=kc.housing, price ~ sqft_living + sqft_lot), digits=3)
+```
+
+### The results
+
+* $R^2=0.49$
+
+* $s_e=261400$ 
+
+* Coefficient:  
+  + $price = −441900 + 283.1sqft\_livingspace - 28.9sqft\_lot$
+
+How would you interpret this model and the diagnostic statistics?
+
+```{r picker2, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+### Further investigation
+
+```{r livingvslot, exercise=TRUE}
+ggplot(kc.housing, aes(x=sqft_lot, y=sqft_living)) +
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Sqft lot size", y="Sqft living space") + 
+  scale_x_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma) 
+```
+
+## What is different in multiple regression?
+
+* Meaning of coefficients has changed in a subtle way.
+
+* Is an extraordinarily versatile calculation, underlying many widely used statistics methods.
+
+* Offers a glimpse into statistical models that use more than two quantitative variables. 
+
+* Models that use several variables can be a big step toward realistic and useful modeling of complex phenomena and relationships
+
+### Multiple regression - coefficients
+
+* Can’t assume coefficients will stay the same
+
+* Coefficients change
+
+* Often in unexpected ways
+
+* Even changing signs
+
+* Be alert for a change in value
+
+* Be alert for a change in meaning
+
+### Multiple regression model
+
+* No simple relationship between $y$ and $x_j$, yet $b_j$ in a multiple regression may be quite different from zero
+
+* Strong two-variable relationship between $y$ and $x_j$, yet $b_j$ in a multiple regression to be almost zero
+
+* Strong two-variable relationship between $y$ and $x_j$, yet $b_j$ an be opposite in sign in a multiple regression
+
+* Easy to extend the model with more predictors
+
+* Residuals $e = y - \hat{y}$
+
+## Assumptions
+
+### Three key assumptions
+
+* Linearity assumption (straight enough condition)
+
+* No pattern in residuals (outliers, straight enough condition)
+
+* Equal variance assumption (does the plot thicken?)
+
+### Linearity assumption
+
+* Straight Enough Condition
+  + We must check the scatterplot for each of the predictor variables vs. the response variable
+
+  + Do not need the scatterplots to show any discernible slope, but should be reasonably straight
+
+  + Cannot have bends, or other nonlinearity
+
+  + Can be easier to look at the plot of residuals
+
+```{r scatterplots, exercise=TRUE}
+livingsp <- ggplot(kc.housing, aes(x=sqft_living, y=price)) + 
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Sqft living space", y="Price") +
+  scale_x_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma) 
+
+lot <- ggplot(kc.housing, aes(x=sqft_lot, y=price)) +
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Sqft lot size", y="Price") + 
+  scale_x_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma) 
+
+grid.arrange(livingsp, lot)
+```
+
+### Check the residual
+
+* Errors have a distribution that is:
+  + Unimodal
+  + Symmetric
+  + Without outliers
+
+* Look at histogram of residuals
+
+* Assumption is less important as sample size increases
+
+```{r residhist, exercise=TRUE}
+mod <- lm(data=kc.housing, price ~ sqft_living + sqft_lot)
+kc.housing.aug <- augment(mod, kc.housing)
+
+ggplot(kc.housing.aug, aes(x=.fitted)) + 
+  geom_histogram(fill="blue4") + 
+  labs(x="Residuals", y="Count") +  
+  scale_x_continuous(labels = scales::comma)
+```
+
+### Equal variance assumption
+
+* Same variability of the errors for all values of each predictor
+
+* Does the Plot Thicken? Condition: the spread around the line must be nearly constant.
+
+* Be alert for “fan” shaped pattern
+
+* Or other tendency for variability to grow or shrink in one part of the scatterplot
+
+```{r residscatter, exercise=TRUE}
+ggplot(kc.housing.aug, aes(x=.fitted, y=.resid)) + 
+  geom_point() + 
+  geom_hline(yintercept=0, color="red") +
+  labs(x="Fitted values", y="Residuals") +  
+  scale_x_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma) 
+```
+
+### Decision loop
+
+* Straight Enough Condition: scatterplots of y-variable against each x-variable
+    + If straight enough, fit multiple regression model
+
+* How were data collected? Random? Represent identifiable population? Time? check independence
+
+* Find the residuals and predicted values.
+
+* Scatterplot of the residuals against predicted values: patternless, no bends, no thickening
+
+* Histogram of residuals: unimodal, symmetric, without outliers
+
+* If conditions check out, interpret regression model, and make predictions.
+
+## Partial residual plots
+
+One of the best ways to check the linearity condition is with a partial residual plot. This plot displays the relationship between the predictor variable and the response variable after removing all of the variance of the other variables in the explanatory variable.
+
+### How to check variables individually
+
+* Checked overall equation for weirdness in residuals
+
+* What about each individual variable’s contribution to the regression?
+
+* Partial residual plot to the Rescue!
+
+* Look at plot to judge whether its form is straight enough.
+
+### Partial residual plots
+
+```{r partialresids, exercise=TRUE}
+eff1 <- visreg(mod, "sqft_living", gg=TRUE) +
+  labs(x="Sqft living space",  y="Price") +
+  scale_x_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma) 
+
+eff2 <- visreg(mod, "sqft_lot", gg=TRUE) + 
+  labs(x="Sqft lot size", y="Price") +
+  scale_x_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::comma) 
+
+grid.arrange(eff1, eff2)
+```
+
+### Meaning of a partial residual plot
+
+* Least squares line fit to plot has slope equal to the coefficient the plot illustrates.
+
+* Residuals are same as final residuals of multiple 
+regression
+  + Judge strength of estimation of the plot’s coefficients
+
+* Outliers seen the same as they would appear in a simple scatterplot
+
+* Direction corresponds to the sign of multiple regression coefficient
+
+## Indicator variables
+
+### Wages
+
+* Indicator variables are for when we want to include categorical variables in our regression
+    + In a union vs. not in a union
+    + Often coded at 1=true 0=false, but that’s just convention, doesn’t really matter (remember, units don’t matter for regression)
+
+* Regression equation
+    + $wages = b_0 + b_1exp + b_2union$
+ 
+### Wages
+
+```{r wagesmod, exercise=TRUE}
+summary(lm(data=wages, wage ~ exp + factor(union)), digits=3)
+```
+
+### Slopes of lines
+
+```{r wagesplot, exercise=TRUE}
+ggplot(wages, aes(x=exp, y=wage)) +
+  geom_point(aes(color=factor(union))) +
+  geom_abline(slope=8.2430, intercept=747.5634, color="#F8766D") +
+  geom_abline(slope=8.2430, intercept=669.85, color="#00BFC4") +
+  labs(x="Years experience", y="Wage in dollars", color="Union member?")
+```
+
+### Predict some values
+
+* Equation: $wages = 747.5634 + 8.2430exp + -77.7134union$
+
+```{r wagestableind}
+exp.table <- c("Experience", "5", "10", "15", "20")
+in.union <- c("In union", " ", " ", " ", " ")
+not.union <- c("Not in union", " ", " ", " ", " ")
+
+df <- NULL
+
+df <- rbind(df, exp.table)
+df <- rbind(df, in.union)
+df <- rbind(df, not.union)
+
+kable(df, row.names=FALSE) %>% 
+  kable_styling()
+```
+
+```{r picker3, exercise=TRUE}
+sample(classroster$name, 1)
+```
+
+## Interaction terms
+
+### Interaction effects
+
+* What if lines are not roughly parallel?
+
+* Indicator variable that is 0 or 1 shifts line up or down.
+    + Can’t change slope
+    + Works only when same slope just different intercepts
+
+### Adjusting for different slopes
+
+* Introduce another constructed variable
+
+* The one is the product of an indicator variable and the predictor variable
+
+* Coefficient of this constructed **interaction** term gives adjustment to slope, $b_1$, to be made for the individuals in the indicated group.
+
+### Adjusting for different slopes
+
+```{r interactionmodel, exercise=TRUE}
+summary(lm(data=wages, wage ~ exp + factor(union) + factor(union) * exp, digits=3))
+```
+
+### Different slopes for wages
+
+```{r interactionplot, exercise=TRUE}
+ggplot(wages, aes(x=exp, y=wage, color=factor(union))) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(x="Years experience", y="Wage in dollars", color="Union member?")
+```
+
+### Predict some values
+
+* Equation: $wages = 710.7896 + 10.1421exp + 28.9884union + -5.2755union*exp$
+
+```{r wagestableint, exercise=TRUE}
+exp.table <- c("Experience", "5", "10", "15", "20")
+in.union <- c("In union", " ", " ", " ", " ")
+not.union <- c("Not in union", " ", " ", " ", " ")
+
+df <- NULL
+
+df <- rbind(df,exp.table)
+df <- rbind(df, in.union)
+df <- rbind(df, not.union)
+
+kable(df, row.names=FALSE) %>% 
+  kable_styling()
+```
+
+```{r picker4, exercise=TRUE}
+sample(classroster$name, 1)
+```

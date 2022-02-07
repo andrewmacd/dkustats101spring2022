@@ -45,7 +45,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Multiple Regression
 
-* Lecture webpage: 
+* Lecture webpage: [Multiple regression](https://andrewm.shinyapps.io/spr2022multipleregression/) 
 * Recording: 
 
 ## Unit 3: Measuring Uncertainty

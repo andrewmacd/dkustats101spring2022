@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Professor MacDonald" />
+
+
+<meta name="progressive" content="false" />
+<meta name="allow-skip" content="false" />
+
+<title>Confidence Intervals - Proportions</title>
+
+
+<!-- highlightjs -->
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+<!-- taken from https://github.com/rstudio/rmarkdown/blob/67b7f5fc779e4cfdfd0f021d3d7745b6b6e17149/inst/rmd/h/default.html#L296-L362 -->
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("section-TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+<!-- end tabsets -->
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="pageContent band">
+<div class="bandContent page">
+
+<div class="topics">
+
+<div id="section-confidence-intervals" class="section level1">
+<h1>Confidence Intervals</h1>
+<ul>
+<li><p>The sampling distribution model for a proportion</p></li>
+<li><p>When does the normal model work?</p></li>
+<li><p>Confidence interval for a proportion</p></li>
+<li><p>Interpreting confidence intervals</p></li>
+<li><p>Margin of error: certainty vs. precision</p></li>
+</ul>
+<div id="section-the-sampling-distribution-model-for-a-proportion" class="section level2">
+<h2>The sampling distribution model for a proportion</h2>
+<div id="section-sampling-model" class="section level3">
+<h3>Sampling model</h3>
+<ul>
+<li><p>Draw samples at random, <span class="math inline">\(n=100\)</span></p></li>
+<li><p>Samples vary</p></li>
+<li><p>Can’t draw all samples of size 100, astronomical</p></li>
+<li><p>Draw a few thousand samples</p></li>
+<li><p>Distribution is called the sampling distribution of the proportion.</p></li>
+</ul>
+<p>What shape do you think the sampling distribution will have if we have sample size <span class="math inline">\(n=100\)</span>?</p>
+<div class="tutorial-exercise" data-label="picker1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>sample(classroster$name, 1)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-graph-of-a-sampling-distribution" class="section level3">
+<h3>Graph of a <strong>sampling</strong> distribution</h3>
+<ul>
+<li>Remember, this is not a graph of the <strong>actual</strong> distribution</li>
+</ul>
+<div class="tutorial-exercise" data-label="samplingplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>ggplot(data.frame(sampling.distribution), aes(x=sampling.distribution)) +
+  geom_density(color=&quot;darkblue&quot;, fill=&quot;lightblue&quot;, adjust=2) + 
+  labs(x=&quot;Sample mean of % of houses with 3 bedrooms&quot;, y=&quot;Count&quot;) +
+  geom_vline(xintercept=mean(sampling.distribution), color=&quot;red&quot;) + 
+  theme(axis.text.x = element_text(face=&quot;bold&quot;, size=10))</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-random-matters" class="section level3">
+<h3>Random matters</h3>
+<ul>
+<li><p>Sampling distribution for a proportion</p>
+<ul>
+<li><p>Symmetric - check</p></li>
+<li><p>Unimodal - check</p></li>
+<li><p>Centered at <span class="math inline">\(p\)</span>: <strong>0.455</strong></p></li>
+<li><p>Standard deviation: <strong>0.05</strong></p></li>
+<li><p>Follows the Normal model - check</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-the-normal-model-for-sampling" class="section level3">
+<h3>The Normal model for sampling</h3>
+<ul>
+<li><p>Samples don’t all have the same proportion.</p></li>
+<li><p>Normal model is the right one for sample proportions.</p></li>
+<li><p>Modeling how sample statistics, proportions or means, vary from sample to sample is powerful.</p></li>
+<li><p>Allows us to quantify that variation.</p></li>
+<li><p>Make statements about corresponding population parameter.</p></li>
+<li><p>Make model for random behavior, then understand and and use that model.</p></li>
+</ul>
+</div>
+<div id="section-whicn-normal-model-to-choose" class="section level3">
+<h3>Whicn Normal model to choose?</h3>
+<ul>
+<li><p>Reminder: normal model is <span class="math inline">\(N(\mu, \sigma^2)\)</span></p></li>
+<li><p><span class="math inline">\(\mu\)</span> or mean is <span class="math inline">\(p\)</span>, or the proportion we want to estimate, <span class="math inline">\(n\)</span> is sample size</p></li>
+<li><p>For proportions, <span class="math inline">\(\sigma(p) = \sqrt{\frac{p(1-p)}{n}}\)</span></p></li>
+<li><p>This is the standard deviation of the <strong>SAMPLING DISTRIBUTION</strong>, that is the distribution of <span class="math inline">\(p\)</span> across infinite samples</p></li>
+</ul>
+</div>
+<div id="section-mean-and-standard-deviation" class="section level3">
+<h3>Mean and standard deviation</h3>
+<div class="tutorial-exercise" data-label="meansdplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>ggplot(data.frame(normal.sampling.distribution), aes(x=normal.sampling.distribution)) + 
+  geom_density(color=&quot;darkblue&quot;, fill=&quot;lightblue&quot;) +
+  scale_x_continuous(breaks=c(-3, -2, -1, 0, 1, 2, 3),
+                     label=c(&quot;-3sqrt(pq/n)&quot;, &quot;-2sqrt(pq/n)&quot;, &quot;-1sqrt(pq/n)&quot;, &quot;0sqrt(pq/n)&quot;, &quot;1sqrt(pq/n)&quot;, &quot;2sqrt(pq/n)&quot;, &quot;3sqrt(pq/n)&quot;), 
+                     limits=c(-3, 3),
+                     guide = guide_axis(n.dodge=2)) +
+  labs(x=&quot;Normal model distances for proportions&quot;, y=&quot;Density&quot;) + 
+  theme(axis.text.x = element_text(face=&quot;bold&quot;, size=10))</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-reminder---normal-model-rule" class="section level3">
+<h3>Reminder - Normal model rule</h3>
+<ul>
+<li><p>Using this normal model rule, we can tell how likely it is to have a certain <span class="math inline">\(\hat{p}\)</span> given the sampling distribution normal model</p></li>
+<li><p>Remember the 68–95–99.7 (1 sd, 2 sd, 3 sd), for other distances use technology</p></li>
+<li><p>Most common: 95% of samples have sample proportion within two standard deviations of the true population proportion.</p></li>
+<li><p>Knowing the sampling distribution tells us how much variation to expect</p></li>
+<li><p>Called the sampling error in some contexts</p></li>
+<li><p>Not really an error, just variability</p></li>
+<li><p>Better to call it sampling variability</p></li>
+</ul>
+</div>
+</div>
+<div id="section-when-does-the-normal-model-work" class="section level2">
+<h2>When does the normal model work?</h2>
+<ul>
+<li><p>Independence Assumption: check data collected in a way that makes this assumption plausible</p></li>
+<li><p>Randomization Condition: subjects randomly assigned treatments, or survey is simple random sample</p></li>
+<li><p>10% Condition: sample size less than 10% of the population size</p></li>
+<li><p>Success Failure Condition: there must be at least 10 expected successes and failures. <span class="math inline">\(n\hat{p}\geq10\)</span> and <span class="math inline">\(\hat{n}p\geq10\)</span></p></li>
+</ul>
+<div id="section-when-does-the-normal-model-fail-for-the-sampling-distribution" class="section level3">
+<h3>When does the normal model fail for the sampling distribution?</h3>
+<ul>
+<li><p><span class="math inline">\(p\)</span> close to 0 or 1</p></li>
+<li><p>People in this class that can dunk a basketball</p></li>
+<li><p>Sample size 100</p>
+<ul>
+<li>If true <span class="math inline">\(p = 0.001\)</span>, then probably none in sample of 100</li>
+</ul></li>
+<li><p>If we simulated samples of size 100 with <span class="math inline">\(p = 0.001\)</span></p>
+<ul>
+<li>Distribution skewed right, can’t rely on normal model percentages anymore</li>
+</ul></li>
+<li><p><span class="math inline">\(n\)</span> is fine, but <span class="math inline">\(p\)</span> is too small</p></li>
+</ul>
+<p>What will the shape of the sampling distribution look like if <span class="math inline">\(p = 0.001\)</span>?</p>
+<div class="tutorial-exercise" data-label="picker2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>sample(classroster$name, 1)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-example-simulation" class="section level3">
+<h3>Example simulation</h3>
+<div class="tutorial-exercise" data-label="skewsamplingplot" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>ggplot(data.frame(skewed.sample), aes(x=skewed.sample)) +
+  geom_density(color=&quot;darkblue&quot;, fill=&quot;lightblue&quot;) + 
+  labs(x=&quot;Sample mean of those who can dunk with sample size = 100&quot;, y=&quot;Count&quot;)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-class-sampling-exercise" class="section level3">
+<h3>Class sampling exercise</h3>
+<ul>
+<li><p>We know that about 50% of students at DKU plan to or have selected a major in the natural sciences</p></li>
+<li><p>? % of students in our class plan to major in the natural sciences in our class</p>
+<ul>
+<li>Is our class unusually small?</li>
+</ul></li>
+<li><p>Check conditions</p>
+<ul>
+<li>Randomization condition</li>
+<li>10% condition</li>
+<li>Success failure condition</li>
+</ul></li>
+</ul>
+</div>
+<div id="section-find-how-far-we-are-from-the-population-mean" class="section level3">
+<h3>Find how far we are from the population mean</h3>
+<ul>
+<li>Population standard deviation formula is:
+<ul>
+<li><span class="math inline">\(\frac{\sqrt{p(1-p)}}{\sqrt{n}}\)</span></li>
+<li><span class="math inline">\(\hat{p}\)</span> is the proportion of yeses</li>
+<li><span class="math inline">\(n\)</span> is the sample size</li>
+</ul></li>
+<li>We are calculating using the population <strong>sampling</strong> <span class="math inline">\(SD\)</span> since we know it
+<ul>
+<li>If we don’t know the population sampling <span class="math inline">\(SD\)</span> we have to use a different strategy, but not the case here</li>
+</ul></li>
+<li>Knowing the <span class="math inline">\(SD\)</span>, we can create a z score for the difference between our class and the population
+<ul>
+<li>z score is how many <span class="math inline">\(SD\)</span>s our class is from the population mean
+<ul>
+<li><span class="math inline">\((class score - dkumean) / SD\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-normal-distribution-percentages" class="section level3">
+<h3>Normal distribution percentages</h3>
+<div class="tutorial-exercise" data-label="normalpercentiles" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>ggplot(data.frame(normal.sampling.distribution), aes(x=normal.sampling.distribution)) + 
+  geom_density(color=&quot;darkblue&quot;, fill=&quot;lightblue&quot;) +
+  scale_x_continuous(breaks=c(-3, -2, -1, 0, 1, 2, 3),
+                     label=c(&quot;~0.005&quot;, &quot;~0.025&quot;, &quot;~0.16&quot;, &quot;0.5&quot;, &quot;~0.84&quot;, &quot;~0.95&quot;, &quot;~0.995&quot;), 
+                     limits=c(-3, 3),
+                     guide = guide_axis(n.dodge=2)) +
+  labs(x=&quot;Cumulative density&quot;, y=&quot;Density&quot;) +
+  theme(axis.text.x = element_text(face=&quot;bold&quot;, size=10))</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-calculation-for-our-class" class="section level3">
+<h3>Calculation for our class</h3>
+<ul>
+<li><p><span class="math inline">\(\frac{\sqrt{p(1-p)}}{\sqrt{n}}\)</span></p></li>
+<li><p><span class="math inline">\(\hat{p}\)</span> is the proportion of yeses</p></li>
+<li><p><span class="math inline">\(n\)</span> is the sample size</p></li>
+<li><p><span class="math inline">\(\frac{\hat{p} - p}{SD(p)}\)</span></p></li>
+<li><p>68-95-99.7 Rule: Values ?<span class="math inline">\(SD\)</span> above the mean occur less than ?% of the time. Our class mean appears to be far/near from the population mean</p></li>
+</ul>
+<p>Calculate the how likely our result would be if our class is a random sample of DKU students.</p>
+<div class="tutorial-exercise" data-label="picker3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>sample(classroster$name, 1)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+</div>
+<div id="section-confidence-intervals-of-proportions" class="section level2">
+<h2>Confidence intervals of proportions</h2>
+<div id="section-standard-errors-for-proportions" class="section level3">
+<h3>Standard errors for proportions</h3>
+<ul>
+<li><p>What is the sampling distribution?</p></li>
+<li><p>Usually we do not know the population proportion <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Therefore, we cannot find the standard deviation of the sampling distribution <span class="math inline">\(\frac{\sqrt{p(1-p)}}{\sqrt{n}}\)</span></p></li>
+<li><p>After taking a sample, we only know the sample proportion, which we use as an approximation (called the standard error)</p>
+<ul>
+<li><span class="math inline">\(\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-example-bedrooms" class="section level3">
+<h3>Example: bedrooms</h3>
+<ul>
+<li>Draw a random sample of 100 houses</li>
+</ul>
+<div class="tutorial-exercise" data-label="randomsample" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#sample.once &lt;- sample(kc.house$is.three.bedrooms, 100, replace=TRUE)
+#p&lt;-round(mean(sample.once), digits=3)
+
+p</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<ul>
+<li><p><span class="math inline">\(\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{100}}\)</span></p></li>
+<li><p>The sampling distribution should be approximately normal</p></li>
+</ul>
+</div>
+<div id="section-what-is-a-confidence-interval" class="section level3">
+<h3>What is a confidence interval?</h3>
+<ul>
+<li><p>Confidence interval: a way to express the range of plausible values for the parameter (in this case, percent of homes with three bedrooms)</p></li>
+<li><p>We never know the true value but we want to say something about how wide the range of possible values are</p></li>
+<li><p>What is a reasonable range?</p>
+<ul>
+<li>Traditionally, 95% (about two standard deviations) of the standard error distribution</li>
+<li>Mean of our sample <span class="math inline">\(\pm\)</span> range of possible values we could get if we took additional samples</li>
+</ul></li>
+</ul>
+</div>
+<div id="section-example-bedrooms-1" class="section level3">
+<h3>Example: bedrooms</h3>
+<ul>
+<li><p>Our mean: 0.47</p></li>
+<li><p>Our <strong>estimated</strong> sampling distribution standard error:</p>
+<ul>
+<li><span class="math inline">\(\sqrt{\frac{\hat{p}(1-\hat{p})}{100}}\)</span></li>
+<li><span class="math inline">\(\sqrt{\frac{\hat{0.47}(1-\hat{0.47})}{100}}\)</span></li>
+<li><span class="math inline">\(\sqrt{\frac{0.2209}{100}}\)</span></li>
+<li><span class="math inline">\(\sqrt{0.002209}\)</span></li>
+<li><span class="math inline">\(0.047\)</span></li>
+</ul></li>
+<li><p>A range of reasonable values if we sampled this again:</p>
+<ul>
+<li><span class="math inline">\(2\times0.047\)</span></li>
+<li><span class="math inline">\(0.47\pm0.094\)</span></li>
+</ul></li>
+</ul>
+<p>Statement: we are ~95% confident that this interval contains the true proportion of houses with three bedrooms in the population</p>
+</div>
+<div id="section-critical-values" class="section level3">
+<h3>Critical values</h3>
+<ul>
+<li><p>Critical values are the cutoff we use to determine what is ‘reasonable’</p></li>
+<li><p>Derived from the Normal model</p></li>
+<li><p>Can use any z-score as a cutoff</p></li>
+<li><p>Corresponding multiplier of the SE is called the critical value.</p></li>
+<li><p>Normal model for this interval, it is denoted <span class="math inline">\(z^*\)</span>.</p></li>
+<li><p>To find, need to use computer, calculator, Normal probability table</p></li>
+</ul>
+<div class="tutorial-exercise" data-label="normpercents" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>qnorm(c(0.025, 0.975))</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-recap" class="section level3">
+<h3>Recap</h3>
+<ul>
+<li><p>Make sure conditions are met, then find level C confidence interval for <span class="math inline">\(\hat{p}\)</span>, our population mean estimate</p></li>
+<li><p>Confidence interval is defined as <span class="math inline">\(\hat{p}\pm z^* \times SE(\hat{p})\)</span></p></li>
+<li><p><span class="math inline">\(SE(\hat{p})\)</span> estimated by <span class="math inline">\(\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}}\)</span></p></li>
+<li><p><span class="math inline">\(z^*\)</span> specifies number of SEs needed for C% of random samples to yield confidence intervals that capture the true parameter</p></li>
+</ul>
+</div>
+<div id="section-what-you-cannot-say-about-p-from-the-sample" class="section level3">
+<h3>What you cannot say about <span class="math inline">\(p\)</span> from the sample</h3>
+<ol style="list-style-type: decimal">
+<li>“0.47 of all houses in King County have three bedrooms.”</li>
+</ol>
+<ul>
+<li>No. Observations vary. Another sample would yield a different sample proportion.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>“It is probably true that 0.47 of all houses in King County have three bedrooms.”</li>
+</ol>
+<ul>
+<li>No again. In fact, even if we didn’t know the true proportion, we’d know that it’s probably not 0.47.</li>
+</ul>
+</div>
+<div id="section-what-you-cannot-say-about-p-from-the-sample-1" class="section level3">
+<h3>What you cannot say about <span class="math inline">\(p\)</span> from the sample</h3>
+<ol start="3" style="list-style-type: decimal">
+<li>“We don’t know exactly what proportion of houses in King County have three bedrooms, but we know that it’s within the interval <span class="math inline">\(0.47\pm2\times0.047\)</span>.”<br />
+</li>
+</ol>
+<ul>
+<li>No but getting closer. We don’t know this for sure.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>“We don’t know exactly what proportion of houses in King County have three bedrooms, but the interval from 0.376 to 0.564 probably contains the true proportion.”</li>
+</ol>
+<ul>
+<li>Right but can be more precise. We should specify how confident we are not just say <em>probably</em></li>
+</ul>
+</div>
+<div id="section-what-you-can-say-about-p-from-the-sample" class="section level3">
+<h3>What you can say about <span class="math inline">\(p\)</span> from the sample</h3>
+<ol start="5" style="list-style-type: decimal">
+<li>“We are 95% confident that between 0.376 and 0.564 of houses in King County have three bedrooms.”</li>
+</ol>
+<ul>
+<li>Statements like these are called confidence intervals. They’re the best we can do.</li>
+</ul>
+</div>
+<div id="section-naming-the-confidence-interval" class="section level3">
+<h3>Naming the confidence interval</h3>
+<ul>
+<li><p>This confidence interval is a one-proportion z-interval.</p>
+<ul>
+<li>“One” since there is a single mean being calculated.</li>
+<li>“Proportion” since we are interested in the proportion of the population.</li>
+<li>“z-interval” since the distance of the interval relies on a normal sampling distribution model.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="section-interpreting-confidence-intervals" class="section level2">
+<h2>Interpreting confidence intervals</h2>
+<div id="section-capturing-a-proportion" class="section level3">
+<h3>Capturing a proportion</h3>
+<ul>
+<li><p>The confidence interval may or may not contain the true population proportion.</p></li>
+<li><p>Consider repeating the study over an over again, each time with the same sample size.</p></li>
+<li><p>Each time we would get a different <span class="math inline">\(\hat{p}\)</span></p></li>
+<li><p>From each <span class="math inline">\(\hat{p}\)</span>, a different confidence interval could be computed.</p></li>
+<li><p>About 95% of these confidence intervals will capture the true proportion.</p></li>
+<li><p>5% will be duds.</p></li>
+</ul>
+</div>
+<div id="section-random-matters---confidence-intervals" class="section level3">
+<h3>Random matters - confidence intervals</h3>
+<ul>
+<li><p>There are a huge number of confidence intervals that could be drawn.</p></li>
+<li><p>In theory, all the confidence intervals could be listed.</p>
+<ul>
+<li>95% will “work” (capture the true proportion).</li>
+<li>5% will be “duds” (not capture the true proportion).</li>
+</ul></li>
+<li><p>What about our confidence interval (0.376, 0.564)?</p>
+<ul>
+<li>In this case, we can find out the true value</li>
+<li>Most of the time we never know</li>
+</ul></li>
+</ul>
+<div class="tutorial-exercise" data-label="truemean" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>mean(kc.house$is.three.bedrooms)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-random-matters---confidence-intervals-1" class="section level3">
+<h3>Random matters - confidence intervals</h3>
+<div class="figure">
+<img src="www/multi.ci.png" alt="" />
+<p class="caption">100 samples CI</p>
+</div>
+</div>
+</div>
+<div id="section-margin-of-error-certainty-vs.-precision" class="section level2">
+<h2>Margin of error: certainty vs. precision</h2>
+<div id="section-margin-of-error" class="section level3">
+<h3>Margin of error</h3>
+<ul>
+<li><p>Confidence interval for a population proportion: <span class="math inline">\(\hat{p} \pm 2\times SE(\hat{p})\)</span></p></li>
+<li><p>The distance, <span class="math inline">\(~2\times SE(\hat{p})\)</span>, from <span class="math inline">\(\hat{p}\)</span> is called the <em>margin of error</em></p></li>
+<li><p>Confidence intervals can be applied to many statistics, not just means. Regression slopes and other quantities can also have confidence intervals.</p>
+<ul>
+<li>In general, a confidence interval has the form <strong>estimate</strong> <span class="math inline">\(\pm\)</span> <strong>margin of error</strong></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-certainty-vs.-precision" class="section level3">
+<h3>Certainty vs. precision</h3>
+<ul>
+<li>Competing goals
+<ul>
+<li>More certainty, need to capture <span class="math inline">\(p\)</span> more often, need to make the interval wider.</li>
+<li>More precise, need to provider tighter bounds on our estimate for <span class="math inline">\(p\)</span>, need to make the interval narrower</li>
+</ul></li>
+<li>Instead of a 95% confidence interval, any percent can be used.
+<ul>
+<li>Increasing the confidence (e.g. 99%) increases the margin of error.
+<ul>
+<li>Need to make our range wider to make sure we don’t ‘miss’</li>
+</ul></li>
+<li>Decreasing the confidence (e.g. 90%) decreases the margin of error.
+<ul>
+<li>Need to make our range smaller so as to be more specific about our guess</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-what-sample-size" class="section level3">
+<h3>What sample size?</h3>
+<ul>
+<li><p>Can increase both certainty and precision by increasing sample size</p></li>
+<li><p>For 95%, <span class="math inline">\(z^*\)</span> = 1.96</p></li>
+<li><p>Values that make ME largest are <span class="math inline">\(\hat{p}=0.5\)</span></p></li>
+<li><p>If we want to ensure, say, a <strong>margin of error</strong> of <span class="math inline">\(&lt;3%\)</span></p>
+<ul>
+<li><span class="math inline">\(ME = z\times \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></li>
+<li><span class="math inline">\(0.03 = 1.96\times \sqrt{\frac{(0.5)(0.5)}{n}}\)</span></li>
+</ul></li>
+<li><p>Solving for <span class="math inline">\(n\)</span>, gives <span class="math inline">\(n\approx1067.1\)</span></p></li>
+<li><p>We need to survey at least 1068 to ensure a ME less than 0.03 for the 95% confidence interval.</p></li>
+</ul>
+</div>
+<div id="section-thoughts-on-sample-size-and-me" class="section level3">
+<h3>Thoughts on sample size and ME</h3>
+<ul>
+<li><p>Obtaining a large sample size can be expensive and/or take a long time.</p></li>
+<li><p>For a pilot study, <span class="math inline">\(ME = 10%\)</span> can be acceptable.</p></li>
+<li><p>For full studies, <span class="math inline">\(ME &lt; 5%\)</span> is better.</p></li>
+<li><p>Public opinion polls typically use <span class="math inline">\(ME = 3%\)</span>, <span class="math inline">\(n = 1000\)</span></p></li>
+<li><p>If <span class="math inline">\(p\)</span> is expected to be very small such as 0.005, then much smaller ME such as 0.1% is required.</p>
+<ul>
+<li>Common in medical studies 
+<script type="application/shiny-prerendered" data-context="server-start">
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(knitr)
+library(broom)
+library(gridExtra)
+library(learnr)
+
+theme_set(theme_classic())
+
+classroster <- read.csv("www/classroster.csv", fileEncoding="UTF-8-BOM")
+
+set.seed(8675309)
+n.example <- 100
+
+mean.multiple.samples <- function(numdraws, numsamples, variable) { 
+     meanvector <- c() 
+     meanonesample <- 0 
+     for (i in 1:numsamples) { 
+	   meanonesample <- mean(sample(variable, numdraws, replace=TRUE)) 
+         meanvector[i] <- meanonesample 
+     } 
+     meanvector 
+}
+
+kc.house <- read.csv("www/kc.house.data.original.csv")
+
+kc.house <- kc.house %>%
+  mutate(is.three.bedrooms = ifelse(bedrooms==3, 1, 0)) 
+
+sampling.distribution <- mean.multiple.samples(100, 100000, kc.house$is.three.bedrooms)
+normal.sampling.distribution <- rnorm(100000)
+skewed.population <- sample(c(1, 0), 100000, replace=TRUE, prob = c(0.001,0.999))
+skewed.sample <- mean.multiple.samples(100, 100000, skewed.population)
+
+sample.once <- sample(kc.house$is.three.bedrooms, 100, replace=TRUE)
+p<-round(mean(sample.once), digits=3)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+session$onSessionEnded(function() {
+        learnr:::session_stop_event(session)
+      })
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-picker1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-picker1-code-editor`)), session)
+output$`tutorial-exercise-picker1-output` <- renderUI({
+  `tutorial-exercise-picker1-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-samplingplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-samplingplot-code-editor`)), session)
+output$`tutorial-exercise-samplingplot-output` <- renderUI({
+  `tutorial-exercise-samplingplot-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-meansdplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-meansdplot-code-editor`)), session)
+output$`tutorial-exercise-meansdplot-output` <- renderUI({
+  `tutorial-exercise-meansdplot-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-picker2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-picker2-code-editor`)), session)
+output$`tutorial-exercise-picker2-output` <- renderUI({
+  `tutorial-exercise-picker2-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-skewsamplingplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-skewsamplingplot-code-editor`)), session)
+output$`tutorial-exercise-skewsamplingplot-output` <- renderUI({
+  `tutorial-exercise-skewsamplingplot-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-normalpercentiles-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-normalpercentiles-code-editor`)), session)
+output$`tutorial-exercise-normalpercentiles-output` <- renderUI({
+  `tutorial-exercise-normalpercentiles-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-picker3-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-picker3-code-editor`)), session)
+output$`tutorial-exercise-picker3-output` <- renderUI({
+  `tutorial-exercise-picker3-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-randomsample-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-randomsample-code-editor`)), session)
+output$`tutorial-exercise-randomsample-output` <- renderUI({
+  `tutorial-exercise-randomsample-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-normpercents-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-normpercents-code-editor`)), session)
+output$`tutorial-exercise-normpercents-output` <- renderUI({
+  `tutorial-exercise-normpercents-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-truemean-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-truemean-code-editor`)), session)
+output$`tutorial-exercise-truemean-output` <- renderUI({
+  `tutorial-exercise-truemean-result`()
+})
+</script>
+ <!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["header-attrs"]},{"type":"character","attributes":{},"value":["2.11"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pandoc"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["header-attrs.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"character","attributes":{},"value":["<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["idb-keyvalue"]},{"type":"character","attributes":{},"value":["3.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/idb-keyval"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["idb-keyval-iife-compat.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82]}},"value":[{"type":"character","attributes":{},"value":["assertthat","backports","base","broom","bslib","cellranger","cli","colorspace","compiler","crayon","datasets","DBI","dbplyr","digest","dplyr","ellipsis","evaluate","fansi","fastmap","forcats","fs","generics","ggplot2","glue","graphics","grDevices","grid","gridExtra","gtable","haven","hms","htmltools","htmlwidgets","httpuv","httr","jquerylib","jsonlite","knitr","later","learnr","lifecycle","lubridate","magrittr","markdown","methods","mime","modelr","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","readr","readxl","reprex","rlang","rmarkdown","rprojroot","rstudioapi","rvest","sass","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","tools","tzdb","utf8","utils","vctrs","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["0.2.1","1.4.1","4.1.1","0.7.11","0.3.1","1.1.0","3.1.0","2.0-2","4.1.1","1.4.2","4.1.1","1.1.2","2.1.1","0.6.29","1.0.7","0.3.2","0.14","0.5.0","1.1.0","0.5.1","1.5.2","0.1.1","3.3.5","1.6.0","4.1.1","4.1.1","4.1.1","2.3","0.3.0","2.4.3","1.1.1","0.5.2","1.5.4","1.6.5","1.4.2","0.1.4","1.7.2","1.37","1.3.0","0.10.1","1.0.1","1.8.0","2.0.1","1.1","4.1.1","0.12","0.1.8","0.5.0","1.6.4","2.0.3","1.2.0.1","0.3.4","2.5.1","1.0.7","2.1.1","1.3.1","2.0.1","0.4.12","2.11","2.0.2","0.13","1.0.2","0.4.0","1.1.1","1.7.1","4.1.1","1.7.6","1.4.0","3.1.6","1.1.4","1.1.1","1.3.1","4.1.1","0.2.0","1.2.2","4.1.1","0.3.8","2.4.3","0.29","1.3.3","1.8-4","2.2.1"]}]}]}
+</script>
+<!--/html_preserve--></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+</div> <!-- topics -->
+
+<div class="topicsContainer">
+<div class="topicsPositioner">
+<div class="band">
+<div class="bandContent topicsListContainer">
+
+<!-- begin doc-metadata -->
+<div id="doc-metadata">
+<h2 class="title toc-ignore" style="display:none;">Confidence Intervals - Proportions</h2>
+<h3 class="subtitle"><em>DKU Stats 101 Spring 2022</em></h3>
+<h4 class="author"><em>Professor MacDonald</em></h4>
+<h4 class="date"><em>2/9/2021</em></h4>
+</div>
+<!-- end doc-metadata -->
+
+</div> <!-- bandContent.topicsListContainer -->
+</div> <!-- band -->
+</div> <!-- topicsPositioner -->
+</div> <!-- topicsContainer -->
+
+
+</div> <!-- bandContent page -->
+</div> <!-- pageContent band -->
+
+
+
+
+<script>
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+</body>
+
+</html>

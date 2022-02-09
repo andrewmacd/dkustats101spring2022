@@ -52,7 +52,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Confidence Intervals - Proportions
 
-* Lecture webpage: 
+* Lecture webpage: [Confidence intervals - proportions](https://andrewm.shinyapps.io/spr2022confintprop/)
 * Recording: 
 
 ### Confidence Intervals - Means

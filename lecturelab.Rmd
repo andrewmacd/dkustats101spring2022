@@ -99,7 +99,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Week 4: Model Building
 
-* Lab files Lab 4 - Model Building
+* Lab files [Lab 4 - Model Building](labs/wk4/lab4.zip)
 
 ## Week 5: Hypothesis Testing
 

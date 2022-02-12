@@ -1,0 +1,498 @@
+---
+title: "Homework 1 Instructions"
+author: "Professor MacDonald"
+date: "1/10/2022"
+output:
+  html_document:
+    toc: true
+subtitle: DKU Stats 101 Spring 2022 Session 1
+---
+
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+# Load any necessary libraries
+library(tidyverse)
+library(knitr)
+library(gridExtra)
+
+# Load the data
+loans <- read.csv("loans.csv")
+
+# Sets the graphical theme
+theme_set(theme_classic())
+```
+
+## Part 1: One variable analysis
+
+### Q1: What kind of dataset do we have? (5 points)
+
+- According to the definitions in the textbook, describe the Five W's for this dataset. 
+
+>- *Who  *: Loan recipients
+>- *What *: Details about the recipient's financial situation and loan details
+>- *When *: 2015
+>- *Where*: Bank records / loan submission documents - U.S. customers
+>- *Why  *: Track loan recipient payback record
+
+- Using the definitions in the textbook, describe the variable type for the following variables (you can review the variable definitions [here](https://www.kaggle.com/ahmedmohameddawoud/lending-club-loan-data-most-accurate)):
+
+>- *Categorical variables *: verification status, loan status, purpose, address?
+>- *Identifiers           *: address?
+>- *Quantitative variables*: loan amount, interest rate, annual income,
+  
+>**Point of emphasis:**
+>
+>- You don't need to know all of the details for where the dataset came from for the Five Ws but you do need to categorize all the variables properly. 
+
+### Q2: Literature review (5 points)
+
+**An example:**
+
+[Falling Behind: Bank Data on the Role of Income and Savings in Mortgage Default](https://www.jpmorganchase.com/institute/research/household-debt/insight-income-shocks-mortgage-default)
+
+1. Income level doesn't appear to be strongly related to defaults
+2. Loan amount doesn't appear to be strongly related to defaults
+3. Those with more savings (`open_acc`) will be less likely to default
+
+>**Points of emphasis:**
+>
+>- The article must deal with loan data
+>- You must have posted it to Slack
+
+### Q3: Describing the data (10 points)
+
+- Make a histogram of `annual_inc`
+
+```{r q3a}
+options(scipen = 999)
+
+ggplot(loans, aes(x=annual_inc)) +
+  geom_histogram(bins = 30, fill="blue", color="black") + 
+  labs(title="Distribution of annual income",x="Income in dollars",y="Count")
+```
+
+  + Describe it using the three features of quantitative data.
+  
+>- *Shape*: appears to be right skewed with several possible outliers, roughly symmetrical. Unimodal. 
+>- *Center*: mean income is `r round(mean(loans$annual_inc, na.rm=TRUE))`, median is `r median(loans$annual_inc)`; as you can see, the mean is being "pulled" to higher values due to the right skew
+>- *Spread*: IQR is `r IQR(loans$annual_inc)`, so 50% of the observations fall within `r IQR(loans$annual_inc)` dollars of the median. The standard deviation is `r round(sd(loans$annual_inc))`, which is about `r round(1-sd(loans$annual_inc)/IQR(loans$annual_inc))*100`% larger than the IQR. In a normal distribution these two measures of spread are farther apart but because of the outliers, they are a close together.   
+
+  + Does the histogram of `annual_inc` surprise you? Why or why not?
+  
+> Not really. Most count data like income is right skewed.
+
+  + Which is a better measure of center of the histogram, mean or median?
+  
+> In this case, because of the right skew, the median is a better measure of center.
+  
+  + Make a nice table displaying the 5 number summary. Calculate the five number summary by using the `min(), quantile(), median(), and max()` functions to do this. Show your code.
+  
+```{r q3b, echo=TRUE}
+kable(
+  loans %>%
+    summarise(min(annual_inc),  quantile(annual_inc, probs=0.25), median(annual_inc), quantile(annual_inc, probs=0.75), max(annual_inc)), 
+  col.names = c("Min", "25%", "Median", "75%", "Max"),  
+  caption="Annual income 5 number summary")
+```
+
+>There are quite a few other ways to generate this result, the above is just one example
+  
+  + Interpret the standard deviation - is it large or small?
+  
+> Standard deviation(sd) is a kind of evaluation for how far each value is from the mean, representing the the spread of the data distribution, so sd is often discussed at the same time as the mean. The result of sd equals to the square root of the variance, with the same unit of the original data, but it can be greatly affected by outliers or skew. In this case, the sd is `r round(sd(loans$annual_inc))` which is quite large given that the range of most of the data is around $30000-$150000 - this is the influence of outliers. 
+
+  + Would this histogram benefit from a transformation, in your opinion? Why or why not? If it would, please transform it appropriately and describe the transformation.
+  
+>Yes. The distribution is right skewed so lower power transformations transformation could maybe solve the problem of outliers without deforming the distribution too much on the other side. The following figure is the histogram of `annual_inc`, which seems more symmertric, though the log form makes it somewhat harder to interpret. Further, more fine tuned transformations might produce better results.
+
+```{r q3c}
+options(scipen = 999)
+
+ggplot(loans, aes(x=log(annual_inc))) +
+  geom_histogram(bins = 30, fill="blue", color="black") + 
+  labs(title="Distribution of annual income",x="Income in dollars",y="Count")
+```
+
+- Make a bar chart comparing the mean of `annual_inc` according to the variable `loan_status`. Interpret this graph.
+  
+```{r q3d}
+ggplot(loans, aes(x=loan_status, y=annual_inc)) +
+  geom_bar(aes(fill=loan_status), stat="summary", fun="mean") + 
+  labs(title="Mean annual income by loan status",
+       x="Loan status",
+       y="Annual income") +
+  theme(legend.position="none")
+```
+  
+> This bar chart is interesting - generally people with lower income are more likely to default on their loans. Substantively, the difference seems large but not huge - a difference in annual income of ~$5000 is meaningful but not a huge gap. So there are likely more factors than just income that predict loan default.
+
+>**Points of emphasis:**
+>
+>- Well labeled graphs, with appropriate (not variable name) names for the x and y axes.
+>- Legend labeled
+>- Bar graphs use color (-1 if not)
+>- Graphs that contain the correct amount of information
+>- Reasonable, thoughtful interpretations of the requested statistics, not just one or two word answers. 
+>- Correct results for the requested statistics
+  
+### Q4: Comparing categorical variables (10 points)
+
+- Create a contingency table comparing `verification_status` and `loan_status`. Interpret this table. 
+
+```{r q4a}
+verify.status.table <- table(factor(loans$verification_status), factor(loans$loan_status))
+
+kable(verify.status.table)
+```
+
+>We can see that overall there are more loans that are fully paid than charged off. The ratio of fully paid off to charged seems about the same by verification category.
+
+- Add margins to your table by using the `addmargins(table())` set of nested functions. What extra information does this provide? Does it change your interpretation?
+
+```{r q4b}
+kable(addmargins(verify.status.table))
+```
+
+>Seeing this table makes it more clear that the amount in each verification category is about the same.
+
+- You can convert your table into a proportions table by calling `prop.table()` instead of `table()`. Does this better help explain what the data show? Which table do you prefer - the percentage table or the frequency table for this particular set of data?
+
+```{r q4c}
+kable(prop.table(verify.status.table))
+```
+
+>In this case, I prefer the proportion table--it is easier to see the relative count of percents according to verification category. The count table makes these calculations more difficult. However, sometimes you should determine which kind of percent you need--column percents, row percents or table percents. It can also be helpful to know how many observations are in each row and column.
+
+>**Points of emphasis:**
+>
+>- Reasonable, thoughtful interpretations of the requested statistics, not just one or two word answers. 
+>- Correct results for the requested statistics
+
+### Q5: Understanding and comparing distributions (10 points)
+
+- Using the five number summaries, calculate if `loan_amnt` or `int_rate` have any outliers according to the rule described in the textbook for outliers in boxplots. Show your calculations.
+
+```{r q5a1, message=FALSE, warning=FALSE}
+kable(
+  loans %>%
+    summarise(min(loan_amnt),  quantile(loan_amnt, probs=0.25), median(loan_amnt), quantile(loan_amnt, probs=0.75), max(loan_amnt)), 
+  col.names = c("Min", "25%", "Median", "75%", "Max"),  
+  caption="Loan amount 5 number summary")
+
+kable(
+  loans %>%
+    summarise(min(int_rate),  quantile(int_rate, probs=0.25), median(int_rate), quantile(int_rate, probs=0.75), max(int_rate)), 
+  col.names = c("Min", "25%", "Median", "75%", "Max"),  
+  caption="Interest rate 5 number summary")
+```
+
+>For loan amount:
+
+```{r q5a2}
+loan_amnt_med <- median(loans$loan_amnt)
+loan_amnt_lq <- quantile(loans$loan_amnt, probs=0.25)
+loan_amnt_uq <- quantile(loans$loan_amnt, probs=0.75)
+loan_amnt_iqr <- IQR(loans$loan_amnt)
+loan_amnt_uf <- loan_amnt_uq + 1.5*loan_amnt_iqr
+loan_amnt_lf <- loan_amnt_lq - 1.5*loan_amnt_iqr
+```
+
+>- $median=`r loan_amnt_med`$
+>- $IQR=`r loan_amnt_uq`-`r loan_amnt_lq`=`r loan_amnt_iqr`$
+>- $Upper\,fence=`r loan_amnt_uq`+1.5\cdot`r loan_amnt_iqr`=`r loan_amnt_uf`$
+>- $Lower\,fence=`r loan_amnt_lq`-1.5\cdot`r loan_amnt_iqr`=`r loan_amnt_lf`$ or $0$
+
+>According to this rule, there are no outliers
+
+```{r q5a3, eval=FALSE, include=FALSE}
+kable(
+  loans %>%
+    filter(loan_amnt > loan_amnt_uf) %>%
+    select(c("X", "loan_amnt")) %>%
+    arrange(loan_amnt),
+    caption="loan_amnt outliers",
+    col.names=c("X", "loan_amnt"))
+```
+
+>For int_rate: 
+
+```{r q5a4}
+int_rate_med <- median(loans$int_rate)
+int_rate_lq <- quantile(loans$int_rate, probs=0.25)
+int_rate_uq <- quantile(loans$int_rate, probs=0.75)
+int_rate_iqr <- IQR(loans$int_rate)
+int_rate_uf <- int_rate_uq + 1.5*int_rate_iqr
+int_rate_lf <- int_rate_lq - 1.5*int_rate_iqr
+```
+
+>- $median=`r int_rate_med`$
+>- $IQR=`r int_rate_uq`-`r int_rate_lq`=`r int_rate_iqr`$
+>- $Upper\,fence=`r int_rate_uq`+1.5\cdot`r int_rate_iqr`=`r int_rate_uf`$
+>- $Lower\,fence=`r int_rate_lq`-1.5\cdot`r int_rate_iqr`=`r int_rate_lf`$
+
+>The outliers are:
+
+```{r q5a5, echo=FALSE}
+kable(
+  loans %>%
+    filter(int_rate > int_rate_uf) %>%
+    select(c("X", "int_rate")) %>%
+    arrange(int_rate),
+    caption="int_rate upper fence outliers",
+    col.names=c("Observation", "int_rate"))
+```
+
+> There are no lower fence outliers
+
+```{r q5a6, eval=FALSE, include=FALSE}
+kable(
+  loans %>%
+    filter(int_rate < int_rate_lf) %>%
+    select(c("X", "int_rate")) %>%
+    arrange(int_rate),
+    caption="int_rate lower fence outliers",
+    col.names=c("Observation", "int_rate"))
+```
+
+- Create a graph of boxplot of `loan_amnt` by `verification_status`. What can you conclude from this display? Would any of these subgroups benefit from having `loan_amnt` re-expressed? Why or why not?
+
+```{r q5b, echo=FALSE}
+ggplot(loans, aes(x=factor(verification_status),y=loan_amnt, fill=verification_status)) +
+  geom_boxplot() +
+  labs(title=" Boxplots of loan amount by verification status",x="Verification status",y="Loan amount", fill="verification_status") +
+  theme(plot.title=element_text(hjust=0.5),
+        legend.position = "none")
+```
+
+>All of these distribtions look slightly right skewed (given that the median appears to be lower than the mean), particularly the verified loans. These do not look skewed enough to bother with reexpression though. 
+
+>**Points of emphasis:**
+>
+>- Boxplots well labeled, with no legend (-1 if legend)
+>- Proper calculation of 5 number summaries 
+>- Shows work for calcuation of outliers
+>- Discusses shape, center, and spread for analysis of boxplot
+>- Shows understanding of appropriate conditions for reexpression
+
+### Q6: The Normal distribution (10 points)
+
+*Note: for the following exercises we are going to assume that the variable `annual_inc` is normally distributed*
+
+- Create a table using R Markdown code where you calculate by hand (show work) the `z` scores of `annual_inc` for the first ten observations in the dataset. 
+
+```{r q6a, echo=FALSE}
+annual_inc_mean <- mean(loans$annual_inc)
+annual_inc_sd <- sd(loans$annual_inc)
+```
+
+annual_inc | Z Score
+-----------|------------
+117000     |`r round((117000-annual_inc_mean)/annual_inc_sd, digits=2)`
+65000      |`r round((65000-annual_inc_mean)/annual_inc_sd, digits=2)`
+43057      |`r round((43057-annual_inc_mean)/annual_inc_sd, digits=2)`
+54000      |`r round((54000-annual_inc_mean)/annual_inc_sd, digits=2)`
+55000      |`r round((55000-annual_inc_mean)/annual_inc_sd, digits=2)`
+86788      |`r round((86788-annual_inc_mean)/annual_inc_sd, digits=2)`
+125000     |`r round((125000-annual_inc_mean)/annual_inc_sd, digits=2)`
+46000      |`r round((46000-annual_inc_mean)/annual_inc_sd, digits=2)`
+103000     |`r round((103000-annual_inc_mean)/annual_inc_sd, digits=2)`
+115000     |`r round((115000-annual_inc_mean)/annual_inc_sd, digits=2)`
+
+>The formula is $(observed - mean) / sd$, must show some of that work here.
+
+- What features of a quantitative variable would change if we re-expressed `annual_inc` as being in monthly instead of yearly?
+
+>The specific values for measures of center and spread would change, but their relationship to each other would remain the same
+
+- Using proper statistical notation, describe the Normal model for `age`
+
+>$N(`r round(annual_inc_mean, digits=2)`, `r round(annual_inc_sd, digits=2)`)$
+
+- How many standard deviations (using the conditional distribution) above or below the conditional mean of `annual_inc` for the `verification_status` of `Not Verified` is the 500th observation (`X=500`)? How many standard deviations above or below the dataset mean for `annual_inc` is the 250th (`X=250`)? Show all work.
+
+```{r q6b, echo=FALSE}
+not.verified.respondents <- loans %>% 
+  filter(verification_status=="Not Verified")
+```
+
+>For `annual_inc` of loan recipients (conditional on not verified), the Normal model is $N(`r round(mean(not.verified.respondents$annual_inc), digits=2)`, `r round(sd(not.verified.respondents$annual_inc), digits=2)`)$, the annual income of respondent 500 is `r not.verified.respondents$annual_inc[not.verified.respondents$X==500]`. z=(`r not.verified.respondents$annual_inc[not.verified.respondents$X==500]`-`r round(mean(not.verified.respondents$annual_inc), digits=2)`)/`r round(sd(not.verified.respondents$annual_inc), digits=2)`=`r round((not.verified.respondents$annual_inc[not.verified.respondents$X==500]-mean(not.verified.respondents$annual_inc))/sd(not.verified.respondents$annual_inc), digits=2)`. 
+
+>For `annual_inc` of all respondents, the Normal model is $N(`r round(mean(loans$annual_inc), digits=2)`, `r round(sd(loans$annual_inc), digits=2)`)$, the annual income of the respondent 250 is `r loans$annual_inc[loans$X==250]`. z=(`r loans$annual_inc[loans$X==250]`-`r round(mean(loans$annual_inc), digits=2)`)/`r round(sd(loans$annual_inc), digits=2)`=`r round((loans$annual_inc[loans$X==250]-mean(loans$annual_inc))/sd(loans$annual_inc), digits=2)`. 
+
+- Using the Normal model for `annual_inc`, between what range should 2.5% and 97.5% of people's income be? How about between 16% and 84%? 
+
+>We have an assumption that `annual_inc` is normally distributed, so we can use the "68-95-99.7 Rule" to calculate. The range from 2.5%-97.5% are within 2 sd of the mean, that is `r round(mean(loans$annual_inc)-2*sd(loans$annual_inc), digits=2)` to `r round(mean(loans$annual_inc)+2*sd(loans$annual_inc), digits=2)` years. The range from 16% to 84% are within 1 sd of the mean, which is `r round(mean(loans$annual_inc)-sd(loans$annual_inc), digits=2)` to `r round(mean(loans$annual_inc)+sd(loans$annual_inc), digits=2)` years. 
+
+- Using the `quantile()` function, find the actual range `annual_inc` that is between 2.5% and 97.5% percentiles and between 16% and 84%. Why are the results different than the those obtained in the previous question? 
+
+```{r q6c, echo=FALSE}
+two.five <- quantile(loans$annual_inc, 0.025)
+nine.seven.five <- quantile(loans$annual_inc, 0.975)
+sixteen <- quantile(loans$annual_inc, 0.16)
+eight.four <- quantile(loans$annual_inc, 0.84)
+```
+
+2.5%        | 97.5%
+------------|------------
+`r two.five`|`r nine.seven.five`
+
+16%         | 84.%
+------------|------------
+`r sixteen` | `r eight.four`
+
+> The difference arises because the actual distribution is not normally distributed - it is right skewed. So therefore the quantiles on the right will, in reality, be more spread out or further from the mean than would be the case in the normal model, where we know exactly how far, for example, the upper 97.5 quartile is located (2 sd)
+
+>**Points of emphasis:**
+>
+>- Must show work on calculating z scores
+>- Must show understanding of percentiles of the normal distribution
+>- Must correctly discover and calculate the conditional distribution for verification
+>- Must clearly articulate why theoretical quantiles are different than data quantiles
+
+### Q7: Relationship between variables (15 points)
+
+- Make two scatterplots (side by side) of `loan_amnt` as a function of `annual_inc` and a second plot of the same relationship colored by `loan_status`. Add a linear smoother to both plots (in the second plot there should be two smoothers, one for each loan status) and label any points you consider to be an outlier using `geom_text()` - the label for the outlier should print the observation's income.
+
+```{r q7a}
+options(scipen = 999)
+
+p1 <- ggplot(loans, aes(annual_inc, loan_amnt)) +
+  geom_point(alpha = 0.5, position = "jitter")+
+  geom_smooth(method = "lm", se = FALSE) + 
+  geom_text(data=loans[loans$annual_inc > 400000,], 
+            aes(label=annual_inc), size=3, vjust=2) +
+  labs(title="Relationship between annual income and loan amount", 
+       x="Annual income", 
+       y="Loan amount",
+       caption="Outliers labeled with annual income")
+
+p2 <- ggplot(loans, aes(annual_inc, loan_amnt)) +
+  geom_point(aes(color=loan_status), alpha = 0.5, position = "jitter")+
+  geom_smooth(aes(color=loan_status), method = "lm", se = FALSE) + 
+  geom_text(data=loans[loans$annual_inc > 400000,], 
+            aes(label=annual_inc), size=3, vjust=2) +
+  labs(title="Relationship between annual income and loan amount", 
+       x="Annual income", 
+       y="Loan amount",
+       caption="Outliers labeled with annual income") +
+  scale_color_discrete(name = "Has children")
+
+p1 <- p1 + theme(plot.title=element_text(size=11))
+p2 <- p2 + theme(plot.title=element_text(size=11))
+
+grid.arrange(p1, p2, nrow=1, widths=unit(c(5, 5), c("in", "in")))
+```
+    
+1. For the first graph, do you think there is a clear pattern? Describe the association between `loan_amnt` and `annual_inc`.
+
+>There appears to be a somewhat clear pattern.
+    
+>+ Direction - positive
+>+ Form - Somewhat linear
+>+ Strength - Medium; there is quite a bit of variation in the relationship
+>+ Outliers - there is one serious outlier but probably not enough to strong influence the relationship
+
+2. Does the relationship meaningfully change when colored by `loan_status`?
+
+>There does appear to be a somewhat steeper relationship between annual income and loan amount for those that have defaulted
+    
+3. What do you estimate the correlation for the first graph to be, without using technology?
+    
+>I would estimate a relatively weak correlation, maybe 0.5. Any reasonable guess is ok here.
+    
+4. Check the conditions for correlation
+    
+>+ Quantitative variables condition: both are quantitative
+>+ Straight enough condition: the relationship is not that straight
+>+ No outliers condition: there is an outliers that might affect the correlation
+    
+5. Find and interpret the correlation coefficient for this relationship
+    
+>The correlation is `r round(cor(loans$loan_amnt, loans$annual_inc, , use="complete.obs"), digits=2)`. That indicates a weaker relationship than expected, perhaps due to the outliers.
+
+6. When interpreting these two graphs and the previous two graphs, what can we learn about the company's customers?
+
+>Answers may vary
+
+- Make two scatterplots (side by side) of `int_rate` as a function of `annual_inc` and a second plot of the same relationship colored by `loan_status`. Add a linear smoother to both plots (in the second plot there should be two smoothers, one for each loan status) and label any points you consider to be an outlier using `geom_text()` - the label for the outlier should print the observation's income.
+
+1. For the first graph, do you think there is a clear pattern? Describe the association between `int_rate` and `annual_inc`.
+
+```{r q7b}
+options(scipen = 999)
+
+p1 <- ggplot(loans, aes(annual_inc, int_rate)) +
+  geom_point(alpha = 0.5, position = "jitter")+
+  geom_smooth(method = "lm", se = FALSE) + 
+  geom_text(data=loans[loans$annual_inc > 400000,], 
+            aes(label=annual_inc), size=3, vjust=2) +
+  labs(title="Relationship between annual income and interest rate", 
+       x="Annual income", 
+       y="Interest rate",
+       caption="Outliers labeled with annual income")
+
+p2 <- ggplot(loans, aes(annual_inc, int_rate)) +
+  geom_point(aes(color=loan_status), alpha = 0.5, position = "jitter")+
+  geom_smooth(aes(color=loan_status), method = "lm", se = FALSE) + 
+  geom_text(data=loans[loans$annual_inc > 400000,], 
+            aes(label=annual_inc), size=3, vjust=2) +
+  labs(title="Relationship between annual income and interest rate", 
+       x="Annual income", 
+       y="Interest rate",
+       caption="Outliers labeled with annual income") +
+  scale_color_discrete(name = "Has children")
+
+p1 <- p1 + theme(plot.title=element_text(size=11))
+p2 <- p2 + theme(plot.title=element_text(size=11))
+
+grid.arrange(p1, p2, nrow=1, widths=unit(c(5, 5), c("in", "in")))
+```
+    
+> There appears to be a no pattern.
+    
+>+ Direction - flat
+>+ Form - not very linear
+>+ Strength - not straight
+>+ Outliers - only one obvious outlier
+    
+2. Does the relationship meaningfully change when colored by `loan_status`?
+
+>Not really. Neither variable appears to be related to the interest rate. 
+    
+3. What do you estimate the correlation for the first graph to be, without using technology?
+    
+>I would estimate a weak correlation, maybe 0.1. Any reasonable guess is ok here.
+    
+4. Check the conditions for correlation
+    
+>+ Quantitative variables condition: both are quantitative
+>+ Straight enough condition: the relationship is not straight
+>+ No outliers condition: there is only one outliers that might affect the correlation
+    
+5. Find and interpret the correlation coefficient for this relationship
+    
+>The correlation is `r round(cor(loans$int_rate, loans$annual_inc, use="complete.obs"), digits=2)`. That indicates a weaker relationship than expected and shows that there is not really any relationship between the variables.
+
+6. When interpreting these two graphs and the previous two graphs, what can we learn about the company's customers?
+
+>Answers may vary
+
+>**Points of emphasis:**
+>
+>- Must have `annual_inc` on the $x$ axis
+>- Must have a well-made plot with appropriate labels for the legend (including titles and value labels)
+>- Must correctly interpret the characteristics of the relationships
+>- Correlation should be properly understood and interpreted
+
+### Q8: Putting it all together (10 points)
+
+Through the analysis conducted in the previous section **and through at least one additional investigation of your own (an additional graph, table, or calculation)**, write two to three paragraphs outlining what you think are the main findings of questions 1-7 and your additional graph, table, or calculation. What would you recommend to your boss as to customers you should target and customers to avoid? What information are we missing in this dataset that we would need to better target future customers?
+
+>- Analysis here can vary but must be at least two paragraphs
+>- Should accurately summarize the information discovered by answering the previous questions
+>- B-level answer will conduct a shallow additional analysis, A-level answer will show interesting additional analysis that builds on previous answers
+>- Shows a good understanding of the limits of this dataset
+>- Should be as precise as possible, don't use general statements when you can be more specific

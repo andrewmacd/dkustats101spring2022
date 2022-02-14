@@ -1,0 +1,112 @@
+---
+title: "Work Session 5 worksheet - sampling distributions"
+author: "Student"
+date: "2/15/2022"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(gridExtra)
+library(knitr)
+
+theme_set(theme_classic())
+
+titanic <- read.csv("titanic_survival.csv")
+```
+
+# What is a sampling distribution?
+
+Understanding the behavior of a sampling distribution can help gain insight into what exactly is happening when we think about abstract ideas like confidence intervals. The goal of this exercise is to more thoroughly understand when we can rely on normality for sampling distributions and how sampling distributions are formed.
+
+* Learning objectives:
+  + Understand how quickly means and proportions converge to theoretical expectations
+  + Practice recoding variables
+  + Interpret theoretical results compared to actual results
+  + Develop a deeper understanding of confidence intervals for proportions
+
+# Setup
+
+Let’s examine some information about survivors of the Titanic. 
+
+* Create new variable called `survivedindicator`; assign it a value of 0 if the passenger did not survive and 1 if the passenger did survive.
+  + Hint: you can use the ` %>%` and `mutate(survivedindicator = ifelse(<condition>, <value if condition is true>, <value if condition is false>))`
+
+* Calculating by hand, find the **sampling distribution** standard error and mean using the formula we learned in lecture and the full population data. Assume an $n$ of 100
+
+# Random matters
+
+Now let’s sample some of the cases in the dataset. We can sample whether or not they survived by typing:
+
+`titanic_n_50 <- sample(titanic$survivedindicator, 50, replace=TRUE)`
+
+Let’s now add the following command (copy and paste the below (excluding the ` marks) into the RStudio console exactly as it appears here and press enter):
+
+```
+mean.multiple.samples <- function(numsamples, n, variable) { 
+     meanvector <- c() 
+     meanonesample <- 0 
+     for (i in 1:numsamples) { 
+	   meanonesample <- mean(sample(variable, n, replace=TRUE)) 
+         meanvector[i] <- meanonesample 
+     } 
+     meanvector 
+}
+```
+
+If you have successfully entered it, in the Environment tab in the top right, you should see a new row under the header `Functions` with the name `mean.multiple.samples`.
+
+This code manually defines a new function in R and the function defined by the above code works similarly to `mean`, `median`, and other built-in functions.
+
+Make sure there are no extra spaces and you can type commands like:
+
+`titanic_50_100 <- mean.multiple.samples(50, 100, titanic$survivedindicator)`
+
+The syntax of the command is that the first entry (or, in RStudio terms, argument) is the number of samples and the second argument is the sample size.
+
+In the above command, for example, we specify that each sample will be of size 100 (100 observations). We then draw 100 people at random from the dataset 50 times and then calculate the mean percentage of people surviving. 
+
+# Interpreting the sampling distribution shape
+
+* Make a histogram using `ggplot` of your mean calculations for many different draws and sample combinations. Start small with both (maybe 20, 20) and increase one first and then the other.  Make sure to save each of these new sampling distributions to a variable, such as:
+
+`titanic_20_20 <- mean.multiple.samples(20, 20, titanic$survivedindicator)`
+
+* Make some notes about how the histogram of proportions changes when you change draws and samples. 
+  + How does the shape of the calculated proportions change as you increase the number of samples? 
+  + How does the shape of the calculated proportions change by increasing the number of draws?
+  + How large does number of draws have to be (holding fixed number of samples) for the distribution of proportions to converge to normal?
+  + How large does the number of samples (holding fixed the number of draws) have to be for the distribution of propoortions to converge to normal?
+
+# Interpreting the sampling distribution statistics
+
+* Now calculate the mean of these sample distributions
+  + How quickly do the means of the sampling distributions converge to the true population proportion as $n$ increases (holding constant the number of samples)
+  + How quickly do the means of the sampling distributions converge to the true population proportiono as the number of samples increases? 
+  
+* For your first sampling distribution that you calculated, `titanic_50_100`, what is the standard deviation of this sampling distribution? Why does it vary? 
+  + If you hold the number of draws fixed ($n=100$), how does the standard deviation of your sampling distribution change?
+
+# Interpreting your sample
+
+Now let’s return to the `titanic_n_50` combination. 
+
+* Calculate the proportion of your `titanic_n_50` distribution sample – is it close to the true population proportion?
+  + Check the conditions to see if you can rely on a sampling distribution
+* Create a 99%, 95%, and a 90% confidence interval for your sample proportion
+  + Interpret the confidence intervals
+  + What are the tradeoffs you are making between using the 99% confidence interval? How about the 90% confidence interval?
+* If you took another sample, what would you expect the mean of the new sample to be? Why?
+  + Try taking another sample and see for yourself
+  
+# Extra
+
+If you have time, recode `age` into three categories (young, old, adult) and see if you can detect a relationship between `survivedindicator` and `age`.
+
+* What types of graphics or tables would you need to assess if there is a relationship?

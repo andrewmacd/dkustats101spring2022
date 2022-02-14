@@ -92,24 +92,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Week 2: Exploratory Data Analysis
 
-* Lab files: [Lab 2 - Exploratory Data Analysis](labs/wk2/lab2.zip)
+* Lab files: [Lab 2 - Exploratory data analysis](labs/wk2/lab2.zip)
 
 ## Week 3: Regression Interpretation
 
-* Lab files: [Lab 3 - Association and Correlation](labs/wk3/lab3.zip)
+* Lab files: [Lab 3 - Association and correlation](labs/wk3/lab3.zip)
 
 ## Week 4: Model Building
 
-* Lab files [Lab 4 - Model Building](labs/wk4/lab4.zip)
+* Lab files [Lab 4 - Model building](labs/wk4/lab4.zip)
 
-## Week 5: Hypothesis Testing
+## Week 5: Sampling Distribution
 
-* Lab files Lab 5 - Hypothesis Testing
+* Lab files [Lab 5 - Sampling distribution](labs/wk5/lab5.zip)
 
-## Week 6: Sampling Distribution
+## Week 6: Hypothesis Testing
 
-* Lab files Lab 6 - Sampling Distribution
+* Lab files Lab 6 - Hypothesis testing
 
-## Week 7: Model Building
+## Week 7: Model Building Part 2
 
-* Lab files: Lab 7 - Model Building
+* Lab files: Lab 7 - Model building part 2

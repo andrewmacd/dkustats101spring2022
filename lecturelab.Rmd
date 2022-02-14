@@ -53,12 +53,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Confidence Intervals - Proportions
 
 * Lecture webpage: [Confidence intervals - proportions](https://andrewm.shinyapps.io/spr2022confintprop/)
-* Recording: 
+* Recording: [Class 8](https://duke.zoom.us/rec/share/pxtjQoSHpgYlKKGgu1sOylGSuhHSXNipa5D7JFgtMUifI10iPB3ENPpOTTzHzvGt.BcHQIFgqS1lHV096
+)
 
 ### Confidence Intervals - Means
 
-* Lecture webpage: 
-* Recording: 
+* Lecture webpage: [Confidence intervals - means](https://andrewm.shinyapps.io/spr2022confintmean/)
+* Recording: [Class 9](https://duke.zoom.us/rec/share/_gXqcr66EtMFASBqcEBJQTr63NGdeHMmpVle1SMKsuhajvQaACwhDV1KiaWJ9k5t.SO_rJ2rPSBMbHu9V?startTime=1644835735000)
 
 ### Hypothesis Testing
 

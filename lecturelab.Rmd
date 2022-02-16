@@ -63,7 +63,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Hypothesis Testing
 
-* Lecture webpage: 
+* Lecture webpage: [Hypothesis testing](https://andrewm.shinyapps.io/spr2022hyptesting/)
 * Recording: 
 
 ### Hypothesis Testing Wisdom

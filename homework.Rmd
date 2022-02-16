@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Homework 2
 
-* Homework 2 instructions
+* [Homework 2 instructions](homeworks/hw2/hw2.zip)
 * Sample solutions
 
 # Paper analysis

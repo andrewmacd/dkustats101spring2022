@@ -64,11 +64,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Hypothesis Testing
 
 * Lecture webpage: [Hypothesis testing](https://andrewm.shinyapps.io/spr2022hyptesting/)
-* Recording: 
+* Recording: [Class 10](https://duke.zoom.us/rec/share/UcXAhHqfDH1B8o8xmt4RQiCgRtkgNkqJn8bk170PedAGJE3ygMW1K_3zUXiN_pCQ.MEMWO803xmzmDvN7?startTime=1645008914000)
 
 ### Hypothesis Testing Wisdom
 
-* Lecture webpage: 
+* Lecture webpage: [Hypothesis testing wisdom](https://andrewm.shinyapps.io/spr2022hyptestwisdom/)
 * Recording: 
 
 ## Unit 4: Statistical Inference

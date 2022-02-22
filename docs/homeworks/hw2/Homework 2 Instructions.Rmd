@@ -14,6 +14,9 @@ library(tidyverse)
 library(knitr)
 
 amazon <- read.csv("amazon.csv")
+
+# Some people may need to use the .Rds dataset if the .csv doesn't load properly
+# amazon <- readRDS("amazon.Rds")
 ```
 
 ```{r, echo=FALSE, out.width="100%", fig.cap="Amazon Toys^[Image credit: https://www.business2community.com/ecommerce/the-most-profitable-product-categories-on-amazon-02244096]"}
@@ -31,7 +34,7 @@ Amazon is one of the largest and most profitable companies in the world and is e
 - If I say "Interpret..." that means I want at least 1-2 good quality sentences that show that you really understand the output of what R has produced. Short, incomplete sentences that fail to demonstrate you understand your output will have points deducted.
 - Remember to appropriately label all of your graphs, construct easy to read tables, and nicely format your document. While the homework isn't a published document, it is the final product of exploratory data analysis so should be written as if you are presenting it to someone not familiar with the dataset.
 
-# Part 1: Must submit for checking by Sunday, February 20 at 11:59 pm
+# Part 1: Must submit for checking by Tuesday, February 22nd at 11:59 pm
 
 ## Setup
 
@@ -64,14 +67,14 @@ knitr::include_graphics("disney.jpg")
 
 ### Q2c: Price
 
-* Make a histogram of the price of the toys from Disney - what does this histogram indicate about the suitability of the data for making a confidence interval of number of wins?
+* Make a histogram of the price of the toys from Disney - what does this histogram indicate about the suitability of the data for making a confidence interval of price of toys from Disney?
 * Find the 95% confidence interval of price of the toys - calculate this by hand
 * Check the conditions of the confidence interval
 * Interpret your confidence interval
 * How much larger would $n$ have to be to decrease by a factor of two the size of your confidence interval?
 * Practically speaking, what does this confidence interval and the preceding two confidence intervals tell us about the likely quality of products from Disney?
 
-### Q2d: Bootstrapping wins at Diamond rank
+### Q2d: Bootstrapping a confidence interval
 
 * Using the existing data, create a 95% bootstrapped confidence interval for the price of products from Disney and show the code you used to create the bootstrapped confidence interval
 * Compare the results of the bootstrapped confidence interval (with 100000 samples) to you calculated by hand in Q2c - what can you conclude from the difference?
@@ -89,7 +92,7 @@ knitr::include_graphics("lego.png")
 
 ### Q3a Proportion of reviews above 4.8
 
-* Write a specific hypothesis, fully specified, as to whether the proportion of reviews for `LEGO` products that are above 4.8 are different from the population at a point .95 level.
+* Write a specific hypothesis, fully specified, as to whether the proportion of reviews for `LEGO` products that are above 4.8 are different from the population at an alpha of 0.05.
 * What do you think is a reasonable critical value to select in this case? Choose your own critical value for your hypotheses tests.
 * In this case should you use a one-sided test or two-sided test? 
 * Do these test pass the conditions for a hypothesis test?
@@ -98,7 +101,7 @@ knitr::include_graphics("lego.png")
 
 ### Q3b Average price
 
-* Write out a specific hypothesis, fully specified with correct notation, as to whether the average price for `LEGO` products are higher than the population at a .90 level.
+* Write out a specific hypothesis, fully specified with correct notation, as to whether the average price for `LEGO` products are higher than the population at an alpha of 0.10.
 * If we observed that the average price is different from the population mean at $p$=0.06, should we reject the null hypothesis? Why or why not?
 * Does this test pass the conditions for hypothesis testing? 
 * Find the $p$ value for whether the price of `LEGO` products is higher than population mean. 

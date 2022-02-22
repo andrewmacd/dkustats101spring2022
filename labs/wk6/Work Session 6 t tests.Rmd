@@ -1,0 +1,101 @@
+---
+title: "Work Session 6 $t$ tests"
+author: "Student"
+date: "2/22/2022"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+wages <- read.csv("us.dol.wages.csv")
+```
+
+# Learning objectives
+
+* Learn to articulate hypotheses
+* Practice calculating $t$ scores and interpreting results
+* Develop interpretation skills for $t$ test results
+
+# To start
+
+The data columns in this dataset are:
+
+* `exp`: Years experience
+* `wks`: Weeks worked per year
+* `bluecol`: Is the job a blue collar job
+* `ind`: Works in the manufacturing industry
+* `south`: Is the person working in the American South
+* `married`: Is the person married
+* `sex`: What is the sex of the person
+* `union`: Is the person in a union
+* `ed`: Number of years of education
+* `black`: Is the person Black
+* `lwage`: Log of wages per week
+* `wage`: Wage of the person per week
+
+Remember, to return only data from one part of a categorical variable, you can use the following RStudio command:
+
+```{r}
+subset.males <- wages %>% 
+  filter(sex=="male")
+```
+
+# Plan
+
+First, form some hypotheses about the data based on categorical variable subgroups. You might think that union member earn more than non-union members, for example, or that males earn more than females.
+
+You can hypothesize two subgroups are the same on some characteristic or different, but the hypothesis must be meaningful and informative. 
+
+>For example, you can test whether black workers earn a different wage than non-black workers. 
+
+* Write out three hypotheses about the data, stating the null hypothesis and alternative hypothesis and write a justification for your hypothesis.
+  + Then, make a general statement about whether you expect the differences to be substantively large or small. Do you expect men to earn a little more than women or a lot more, for example?
+
+* Note how large you expect the difference between the categories to be. 
+
+* Based on the size of the dataset and the nature of the hypotheses, select an appropriate critical value.
+
+# Explore
+
+* Provide summary data for each side of your categorical variables with respect to the response variable (means). 
+
+* Check the conditions for a $t$ test – does the data support using a $t$ test?
+
+# Analyze
+
+Calculate the p value of the difference to test your hypotheses by hand, do not use R’s `t.test` function (we will examine that later). To choose the appropriate degree of freedom, you can use the textbook shortcut of number of degrees of freedom of the smaller of the $n$. 
+
+Remember, the formula is: 
+
+* $SE(\bar{y}_1-\bar{y}_2) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$
+* $t = \frac{(\bar{y}_1-\bar{y}_2) - \Delta_0}{SE(\bar{y}_1-\bar{y}_2)}$
+
+Now, make a table with five columns, the first two columns being the mean salary of the two groups (for example, black/white), the third column is the size of the difference, the fourth column being the confidence interval for the difference, and the fifth column is the p-value associated with whether the difference is statistically significantly different from zero.
+
+Now let’s use R to conduct t tests on the data. The general form of a t test in RStudio is: `t.test(groupa, groupb)` for a two group comparison or `t.test(group, mu=<your hypothesis>)` for a one group comparison where `mu` is your null hypothesis. R output from the command will look like the following:
+
+```{r echo=FALSE}
+subset.females <- wages %>% 
+  filter(sex=="female")
+```
+
+
+```{r}
+t.test(subset.males$wage, subset.females$wage)
+```
+
+
+The $t$ score is provided in the first line, in this case it is 26.9. $p$ value is the probability that the sample is not statistically different from the null hypothesis. The 95% confidence interval is our uncertainty range. Our null hypothesis in this case is that the difference between these two samples is zero, and we can see that the confidence interval does not contain 0, therefore we should reject the null hypothesis of no difference 
+
+# Interpret
+
+* Make some comments regarding whether the results surprised you or confirmed what you thought about the world.
+
+* Also make some notes regarding whether the differences in means that you found were substantively significant
+
+* Write up a profile of an ‘average’ person in this dataset and describe what features this person has that cause them to earn more or less than someone in the opposite demographic categories that they are in.
+
+* Finally, note what omitted variables we should consider when evaluating your hypotheses - what are other factors correlated with your subset variable that may lead to incorrect inference.

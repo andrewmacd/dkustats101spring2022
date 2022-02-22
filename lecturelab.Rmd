@@ -100,15 +100,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Week 4: Model Building
 
-* Lab files [Lab 4 - Model building](labs/wk4/lab4.zip)
+* Lab files: [Lab 4 - Model building](labs/wk4/lab4.zip)
 
 ## Week 5: Sampling Distribution
 
-* Lab files [Lab 5 - Sampling distribution](labs/wk5/lab5.zip)
+* Lab files: [Lab 5 - Sampling distribution](labs/wk5/lab5.zip)
 
 ## Week 6: Hypothesis Testing
 
-* Lab files Lab 6 - Hypothesis testing
+* Lab files: [Lab 6 - Hypothesis testing](labs/wk6/lab6.zip)
 
 ## Week 7: Model Building Part 2
 

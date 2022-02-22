@@ -1,6 +1,6 @@
 ---
 title: "Hypothesis Testing"
-subtitle: "DKU Stats 101 Fall 2021"
+subtitle: "DKU Stats 101 Spring 2022"
 author: "Professor MacDonald"
 date: "2/16/2022"
 output: 

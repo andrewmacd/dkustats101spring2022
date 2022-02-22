@@ -5,9 +5,9 @@ account: andrewm
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5665691
-bundleId: 5584823
+bundleId: 5601763
 url: https://andrewm.shinyapps.io/spr2022hyptesting/
-when: 1645006494.25873
-lastSyncTime: 1645006494.25874
+when: 1645445357.19234
+lastSyncTime: 1645445357.19234
 asMultiple: FALSE
 asStatic: FALSE

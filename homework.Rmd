@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Paper analysis
 
-* Paper analysis instructions
+* [Paper analysis instructions](homeworks/paperanalysis/paperanalysis.zip)
 
 # Final project
 

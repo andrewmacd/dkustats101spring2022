@@ -1,0 +1,71 @@
+---
+title: "Paper Analysis Project"
+author: "Anonymous"
+date: "2/25/2022"
+output:
+  html_document:
+    toc: true
+subtitle: DKU Stats 101 Spring 2022
+---
+
+# Instructions
+
+1. Locate a news article or other piece of popular media that references a recently published scholarly study. The topic can be on any subject. 
+2. Locate the original study referenced in the news article. When locating the original study, you can find most scholarly articles on [Google Scholar](https://scholar.google.com). 
+3. Your report should be about 750 words. You can simply answer each item below directly, you do not need to write your summaries in essay format.
+
+**Due: Sunday, March 6th at 11:59 pm.** 
+
+# Analysis
+
+## Source of news article
+
+Was the new article a short news item, in-depth article, feature story, etc.?
+
+## Kind of academic report 
+
+Was the academic report cited in the article from a medical/technical journal, press release, book, etc.?
+
+## Summary of article
+
+Provide a one-sentence summary of the news article
+
+## Background
+
+Provide the motivation and background of the academic study as taken from the original report
+
+## Objective of the academic study
+
+What is the goal of the academic study?
+
+## Type of academic study
+
+1. Randomized experiment: treatments under the control of the experimenter and assigned randomly
+2. Observational study: researcher collected data on the population but did not control the design of the data collection (for example, collecting records on auto fatalites by state)
+3. Survey study: the authors surveyed their sample population to assess their outcome measures (for example, a survey of public opinion)
+4. Meta-analysis: an examination of several earlier studies.
+
+## Study protocol 
+
+This should include: 
+
+* The setting of the study (who, where, when)
+* A description of the experimental subjects or survey participants
+* The population to which the results are generalized
+* The response variable(s)
+* The predictor variables
+* How much missing data or nonresponse to the survey was observed (if a survey was used)
+* If it was an experiment, a description of the treatment used
+
+## Statistical methods
+
+These should include graphs and tables (which you should interpret) and well as more formal methods such as $t$ tests and regressions (if it is an advance statistical technique, do your best to understand their results, if it is a $t$ test or regular regression, directly interpret their results). 
+
+## Conclusions
+
+Generalization: Difficulties of generalizing to the real world and other problems and potential problems of the academic study. How do the results relate to the rest of the scientific literature? These questions are generally addressed in the report itself but use your own thinking to examine other ways the conclusion might not be meaningful. 
+
+News article discussion: Sum up the relationship between the news article and the report. Did the news article accurately summarize the report? Did the news article overstate the conclusions of the academic report? Did the newspaper article point out potential flaws in the study not noted in the academic report?
+
+Additional questions: What are some areas that you felt the author(s) of the study were unclear on? What part of their statistical analysis confused you? What connections between the results and the argument were unclear? What part of the news article writeup of the report was confusing? Write around 5 additional questions you still have after doing a careful analysis of the news article and the academic study. 
+

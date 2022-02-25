@@ -1,0 +1,85 @@
+---
+title: "Stats 101 Spring 2022 Final"
+subtitle: "Shanghai Property Report"
+author: "Anonymous"
+date: "2/25/2022"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+lane.houses <- read.csv("shanghaiapts.csv")
+```
+
+```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Images of Shanghai Lanehouses^[image credit to https://www.driveontheleft.com/living-in-a-shanghai-lane-house/ and http://www.thepankou.com/old-shanghai-style-lane-house-apartment-former-french-concession/]",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("lanehouse1.jpg","lanehouse2.jpg"))
+``` 
+
+
+# Assignment instructions
+
+## Task
+
+One of the most important tasks of any junior intern at a property management company is to develop reports on future investment possibilities. Rental prices can vary a lot depending on the various features of apartments and on the quality of the building it is in.
+
+Your task is to imagine yourself as an intern at a property rental firm in Shanghai. You are tasked with writing a report to your boss that attempts to determine what are the factors that best predict rental prices. Your company will use this information to help plan future rental property investments. In addition to a high quality general regression model, you should also concern yourself with which specific amenities would be best for your firm to invest in when upgrading rental properties - which help increase value and which are not worth the investment.
+
+For the general regression model of price, you need to find specific factors that are associated rental price and create a high quality regression model with multiple variables that explains this relationship. 
+
+You will need to use all the material we learned in class to:
+
+1. Interpret summary data
+2. Examine important bi-variate relationships
+3. Construct a high-quality regression model of rental price
+4. Interpret this model, including ALL relevant diagnostics and $p$ values.
+5. Conduct a supplemental analysis into which amenities add the most value to rental prices (this analysis can be a regression model or another form of analysis - space to be creative here).
+
+## Specific requirements
+
+* Save this document as a new document (Save As...) and rename it `Shanghai property report - confidential`.
+* Rename the title of your report to `Shanghai property report  - confidential`
+* Delete the `Assignment instructions` section
+* Final report should be between 2000 and 3000 words
+  + Maximum 12 graphs
+  + Maximum 6 tables
+  
+* Suggested structure:
+  + Introduction
+  + Literature review and hypotheses
+  + Summary statistics
+  + Regression interpretation
+  + Regression diagnostics 
+  + Interpret coefficients
+  + Supplemental amenity analysis
+  + Conclusion
+  
+You can find out more about the definition of variables from the dataset source [here](https://www.kaggle.com/lescardone/shanghai-lane-house-rentals-2021?select=for_tableau_2.csv)
+
+## Points of emphasis
+
+* Your job as an analyst is to write a report primarily analyzing what are the factors you think best predict the rental price. You should limit your focus to one response variable and 2-4 predictor variables that you think are most important. You secondarily want to consider which amenities add the most value for getting a higher rental price.
+
+* Whether a variable should be included or not should be based on whether the variable is important in evaluating the question posed above. You will need to cite a few sources relevant to answering the question to better help you select variables that you include in your analysis. 
+
+* Do not exclude a variable just because it initially does not meet the regression requirements. However, consider carefully whether some variables are actually highly related to another predictor variable – do not include collinear variables.
+
+* You should focus your graphs and tables on that illustrating the most important information for drawing your conclusion. Choose your tables carefully such that they convey the key information needed to arrive at your conclusion. Do not make tables and graphs of irrelevant information or points that do not need discussing.
+
+* Make sure to also interpret the coefficients. You need to interpret the impact of a one unit change in the coefficients on the response variable. You additionally need to examine whether changes in the predictor variables lead to a substantively large or small change in the predictor variable. One way to do this is examining whether changing the predictor variable from its Q1 to Q3 value leads to a large or small change in the response variable. You may want to make a table with this information.  
+
+* Your report should be a polished, quality product that you would be proud to show your boss/employer. No unnecessary printed code, poorly labeled graphs, or strange looking formatting. Use everything you have learned in this class to make a quality final product!
+
+# Introduction and literature review
+
+# Summary data
+
+# Regression interpretation
+
+# Regression diagnostics
+
+# Interpreting coefficients
+
+# Supplemental amenity analysis
+
+# Conclusion

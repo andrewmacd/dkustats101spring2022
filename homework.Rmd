@@ -27,4 +27,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Final project
 
-* Final project instructions
+* [Final project instructions](homeworks/final/final.zip)

@@ -76,11 +76,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Comparing Groups
 
 * Lecture webpage: [Comparing groups](https://andrewm.shinyapps.io/spr2022comparinggroups/)
-* Recording: 
+* Recording: [Class 12](https://duke.zoom.us/rec/share/qJqPoAzCVPsINkOQ5EuRMp3gUOYaZvOQuO49k6-9AhCK7cQKkSULwoyIfi2nnuUG.zcQKqTB-wz4mJKSz?startTime=1645612358000)
 
 ### Returning to Regression
 
-* Lecture webpage: 
+* Lecture webpage: [Returning to regression](https://andrewm.shinyapps.io/spr2022return2regression/)
 * Recording: 
 
 # Labs

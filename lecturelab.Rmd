@@ -81,7 +81,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Returning to Regression
 
 * Lecture webpage: [Returning to regression](https://andrewm.shinyapps.io/spr2022return2regression/)
-* Recording: 
+* Recording: [Class 13](https://duke.zoom.us/rec/share/9mpawY4e2I3KSz6NCuNYJqe21DqhpxP71THgTyiBb8FF6G9Jjtjdl2IFVnl4O7tW.v3kCUgAjvenpA8vg?startTime=1646045527000)
 
 # Labs
 

@@ -1,0 +1,64 @@
+---
+title: "Lecture 14 Activity - Article analysis"
+author: "Professor MacDonald"
+date: "3/2/2022"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, out.width="100%", fig.cap="MTG Arena^[Image credit: https://www.affordablecollegesonline.org/college-resource-center/guide-to-sleeping-for-college-students-and-teens/]"}
+knitr::include_graphics("student.sleep.jpg")
+```
+
+# Instructions
+
+Please answer the following questions regarding the study.
+
+## Kind of report
+
+Was this a medical/technical journal, press release, book, etc.?
+
+## Background
+
+Summarize the issue that the article is trying to understand.
+
+## Objective of the study
+
+Summarize what the article is trying to find evidence for or against – list the specific hypotheses.
+
+## Type of study
+
+Was this a
+
+1. Randomized experiment: treatments under the control of the experimentor and assigned randomly
+2. Nonrandomized experiment: treatments under the control of the experiment and assigned non-randomly (for example, the healthy looking patients get treatment A and the sick-looking patients get treatment B) 
+3. Observational study: treatments not under the control of the experiment (for example, the patients choose whether to smoke or whether a state allows the death penalty)
+4. Sample survey
+5. Meta-analysis: an examination of several earlier studies
+
+## Study protocol
+
+Please describe the setting of the study, a description of the experimental subjects or survey participants, the population to which the results are generalized, the outcome measurements or responses, control variables, summary of the nonresponse. 
+
+Also, as appropriate, include: treatments used and the method of treatment assignment (if experiment), blindness (a study is blind if the subject do not know which treatment they are receiving and double-blind if the experimenters do not know which subjects receive which treatments), how the survey was conducted (if a sample survey).
+
+## Statistical methods
+
+These should include graphs and tables (which you should interpret) and well as more formal methods such as t-tests and regressions (if it is an advance statistical technique, do your best to understand their results, if it is a t-test or regular regression, directly interpret their results). 
+
+## Stated conclusions
+
+What is the conclusion the author(s) draws?
+
+## Generalization
+
+Difficulties of generalizing to the real world. How do the results relate to the rest of the scientific literature? These questions are generally addressed in the report itself but use your own thinking to examine other ways the conclusion might not be meaningful.
+
+## Additional questions
+
+What are some areas that you felt the author(s) of the study were unclear on? What part of their statistical analysis confused you? What connections between the results and the argument were unclear? Write around 5 additional questions you still have after doing a careful analysis of the article. 

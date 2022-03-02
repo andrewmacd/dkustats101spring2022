@@ -116,4 +116,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Week 7: Model Building Part 2
 
-* Lab files: Lab 7 - Model building part 2
+* Lab files: [Lab 7 - Model building part 2](labs/wk7/lab7.zip)

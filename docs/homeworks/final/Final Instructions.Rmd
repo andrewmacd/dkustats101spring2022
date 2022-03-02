@@ -10,6 +10,9 @@ output:
 
 ```{r setup, include=FALSE}
 lane.houses <- read.csv("shanghaiapts.csv")
+
+# If you are having trouble reading the data file, you can try this one instead
+#lane.houses <- readRDS("shanghaiapts.Rds")
 ```
 
 ```{r, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Images of Shanghai Lanehouses^[image credit to https://www.driveontheleft.com/living-in-a-shanghai-lane-house/ and http://www.thepankou.com/old-shanghai-style-lane-house-apartment-former-french-concession/]",fig.show='hold',fig.align='center'}

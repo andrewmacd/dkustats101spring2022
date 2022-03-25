@@ -1,0 +1,617 @@
+---
+title: "Homework 2 Sample Solutions"
+author: "Anonymous"
+date: "2/13/2022"
+output:
+  html_document:
+    toc: true
+subtitle: DKU Stats 101 Spring 2022
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+# You should put here any libraries that you will use in your data analysis.
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(gridExtra)
+
+# Change this number to something meaningful to you. This makes sure that you get the same random sample every time
+set.seed(88888888)
+
+# Makes it so significant digits are shown
+options(scipen=999)
+
+amazon <- read.csv("amazon.csv")
+
+amazon <- amazon %>% 
+  mutate(rating = parse_number(average_review_rating),
+         num.reviews = parse_number(number_of_reviews),
+         price.pounds = parse_number(price))
+```
+
+## Q1: Literature review (5 points)
+
+Find a news article online that discusses which toys are popular and which items are generally popular on Amazon (both in terms of sales and customer reviews). Read and comment on a few other articles that other students have posted. Based on these articles, what should we expect to find in this dataset and why? Make a bulleted list below with specific expectations according to the data we have in our dataset.
+
+> Any reasonable article will work here
+
+## Q2: Confidence intervals (30 points)
+
+### Q2a: Proportion of Disney products with an average review higher than 4.8
+
+-   Find the 95% confidence interval of the proportion of toys from the manufacturer `Disney` that have a review higher than 4.8 - calculate this by hand and show your work
+
+```{r q2a}
+d.high.reviews.data <- amazon %>%
+  filter(manufacturer=="Disney") %>% 
+  summarize(pos.review = sum(rating > 4.8),
+            size = n())
+
+p <- d.high.reviews.data$pos.review / d.high.reviews.data$size
+q <- 1-p
+n <- d.high.reviews.data$size
+se <- round(sqrt(p*q / n), digits=4)
+moe <- round(qnorm(0.975) * se, digits=4)
+p <- round(p, digits=4)
+q <- round(q, digits=4)
+```
+
+> Formula: $p\pm z^*\times SE$ or $`r p`\pm 1.96\times \sqrt{\frac{`r p`\times`r q`}{`r n`}}$
+
+> $`r p` - 1.96 \times `r se`, `r p` + 1.96 \times `r se`$
+
+> $`r round(p - moe, digits=4)`, `r round(p + moe, digits=4)`$
+
+-   Check the conditions of the confidence interval
+
+> Conditions: Independence, Randomization, 10% Condition, Success/Failure Condition
+
+> -   Independence: yes, seems so\
+> -   Randomization: yes\
+> -   10% condition: yes, we are sampling less than 10% of all possible Disney products\
+> -   Success/failure: both proportions are over 10
+
+-   Interpret your confidence interval
+
+> We are 95% confident that the true proportion of Disney products with a review above 4.8 is between `r (p-moe)*100`% and `r (p+moe)*100`%
+
+-   What sample size would you need to say with 95% confidence that true proportion lies within a plus/minus 0.05 range?
+
+> $0.05 = 1.96 \times \sqrt{\frac{`r p` \times `r q`}{n}}$
+
+> $0.05 \times \sqrt{n} = 1.96 \times \sqrt{`r p` \times `r q`}$
+
+> $\sqrt{n} = \frac{1.96 \times \sqrt{`r p` \times `r q`}}{0.05}$
+
+> \~385
+
+### Q2b: At least 10 reviews
+
+-   Find the 90% confidence interval of proportion of toys from the manufacturer `Disney` that have at least 10 reviews - calculate this by hand and show your work
+
+```{r q2b}
+d.reviews.data <- amazon %>% 
+  filter(manufacturer=="Disney") %>% 
+  summarize(count.r = sum(num.reviews >= 10),
+            size = n())
+
+p <- d.reviews.data$count.r / d.reviews.data$size
+q <- 1-p
+n <- d.reviews.data$size
+se <- round(sqrt(p*q / n), digits=4)
+moe <- round(qnorm(0.95) * se, digits=4)
+p <- round(p, digits=4)
+q <- round(q, digits=4)
+```
+
+> Formula: $p\pm z^*\times SE$ or $`r p`\pm 1.64\times \sqrt{\frac{`r p`\times`r q`}{`r n`}}$
+
+> $`r p` - 1.64 \times `r se`, `r p` + 1.64 \times `r se`$
+
+> $`r round(p - moe, digits=4)`, `r round(p + moe, digits=4)`$
+
+-   Check the conditions of the confidence interval
+
+> -   Independence: yes, seems so
+> -   Randomization: yes\
+> -   10% condition: yes, we are sampling less than 10% of all possible Disney products\
+> -   Success/failure: both $p$ and $q$ are over 10
+
+-   Interpret your confidence interval
+
+> We are 90% confident that the true proportion of Disney products that have at least ten reviews is between `r (p-moe)*100`% and `r (p+moe)*100`%
+
+### Q2c: Price
+
+-   Make a histogram of the price of the toys from Disney - what does this histogram indicate about the suitability of the data for making a confidence interval of price of toys from Disney?
+
+```{r q2c1}
+disney.products <- amazon %>% 
+  filter(manufacturer=="Disney")
+
+ggplot(disney.products, aes(x=price.pounds)) +
+  geom_histogram(fill="blue4", color="black") +
+  labs(x="Price (£)", y="Count", title="Distribution of the Price of Disney Products")
+```
+
+> The distribution of price is right skewed and possibily bimodal. However, since the sample size is over 100, according to the Central Limit Theorem, the shape of the distribution will not affect our calculation of the confidence interval.
+
+-   Find the 95% confidence interval of price of the toys - calculate this by hand
+
+```{r q2c2}
+d.price.data <- disney.products %>% 
+   summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+             size = n(),
+             sd.sample = sd(price.pounds, na.rm=TRUE))
+
+mean.est <- round(d.price.data$mean.price, digits=2)
+sd.sample <- round(d.price.data$sd.sample, digits=2)
+n <- d.price.data$size
+se <- round(d.price.data$sd.sample / sqrt(n), digits=2)
+crit.value <- round(qt(0.975, df=n-1), digits=2)
+moe <- round(qt(0.975, df=n-1) * se, digits=2)
+```
+
+> Formula: $\hat{price}_{mean}\pm t_{n-1}^*\times SE$ or $`r mean.est`\pm `r crit.value`\times \frac{`r sd.sample`}{\sqrt{`r n`}}$
+
+> $`r mean.est` - `r crit.value` \times `r se`, `r mean.est` + `r crit.value` \times `r se`$
+
+> $`r mean.est - moe`, `r mean.est + moe`$
+
+-   Check the conditions of the confidence interval
+
+> Conditions: Randomization/Independence, Nearly normal
+
+> -   Randomization, yes
+> -   Nearly normal, not really but due to CLT, is ok
+
+-   Interpret your confidence interval
+
+> We are 95% confident that the true mean price of Disney products is between `r mean.est - moe` and `r mean.est + moe`
+
+-   How much larger would $n$ have to be to decrease by a factor of two the size of your confidence interval?
+
+> It would have to be 4 times larger. The size of the confidence interval decreases according to the square of the sample size.
+
+-   Practically speaking, what does this confidence interval and the preceding two confidence intervals tell us about the likely quality of products from Disney?
+
+> Answers may vary, but must make some statement beyond simply restating the confidence interval - something like this indicates Disney products are popular or high quality or similar
+
+### Q2d: Bootstrapping wins at Diamond rank
+
+-   Using the existing data, create a 95% bootstrapped confidence interval for the price of products from Disney and show the code you used to create the bootstrapped confidence interval
+
+```{r q2d, echo=TRUE}
+library(infer)
+
+disney.price.ci <- disney.products %>% 
+  specify(response=price.pounds) %>% 
+  generate(reps=100000, type="bootstrap") %>% 
+  calculate(stat="mean") %>% 
+  get_confidence_interval(level = 0.95, type = "percentile")
+
+kbl(disney.price.ci, col.names = c("Lower Bound", "Upper Bound")) %>% 
+  kable_styling()
+```
+
+-   Compare the results of the bootstrapped confidence interval (with 100000 samples) to you calculated by hand in Q2c - what can you conclude from the difference?
+
+> The values are fairly similar (only off by a small amount); likely because the original sample met the conditions for confidence intervals. It also indicates that bootstrapping also works well to create confidence intervals.
+
+-   When would using the bootstrap method be helpful? When would the regular confidence interval be more useful?
+
+> The bootstrap method may be more helpful if our data does not meet some of the conditions of confidence intervals. If the data meet the conditions for using a mathematical method for calculating confidence intervals, using it may be faster and more theoretically accurate than bootstrapping.
+
+## Q3: Hypothesis testing (25 points)
+
+### Q3a Proportion of reviews above 4.8
+
+-   Write a specific hypothesis, fully specified, as to whether the proportion of reviews for `LEGO` products that are above 4.8 are different from the population at an alpha of 0.05.
+
+> $H_0 = Pr(LEGO\:reviews > 4.8) = Pr(Pop\:reviews > 4.8), H_a = Pr(LEGO\:reviews > 4.8) \neq Pr(Pop\:reviews > 4.8)$
+
+-   What do you think is a reasonable critical value to select in this case? Choose your own critical value for your hypotheses tests.
+
+> Answers may vary, remember that a critical value is the $z^*$ value, not $\alpha$
+
+-   In this case should you use a one-sided test or two-sided test?
+
+> Two sided since we don't have any reason to be only interested in errors in one direction
+
+-   Does this test pass the conditions for a hypothesis test?
+
+> -   Randomization, Independence: yes, somewhat. The independence condition may be violated in a group comparison
+> -   10% Condition: yes
+> -   Success/failure: yes
+
+-   Find the $p$ value for the difference and interpret it with respect to your hypothesis test.
+
+```{r q3a1}
+header <- c("Pop Prop", "LEGO Prop", "$p$ value", "Decision")
+
+pop.high.reviews.data <- amazon %>% 
+  summarize(pos.review = sum(rating > 4.8, na.rm=TRUE),
+            size = sum(!is.na(rating)))
+
+l.high.reviews.data <- amazon %>% 
+  filter(manufacturer=="LEGO") %>% 
+  summarize(pos.review = sum(rating > 4.8, na.rm=TRUE),
+            size = n())
+
+pop.p <- pop.high.reviews.data$pos.review / pop.high.reviews.data$size
+pop.q <- 1-pop.p
+
+l.p <- l.high.reviews.data$pos.review / l.high.reviews.data$size
+
+# formula is sqrt(P * 1-P / n)
+est.sigma <- sqrt((pop.p * pop.q)/ l.high.reviews.data$size)
+
+# formula is z = p-P / sigma
+abs.z <- abs((l.p - pop.p) / est.sigma)
+
+p.value <- round((1-pnorm(abs.z))*2, 3)
+
+decision <- ifelse(p.value > 0.05, "Fail to reject", "Reject")
+
+hyp.results <- data.frame(t(unlist(c(round(pop.p, 3), round(l.p, 3), p.value, decision))))
+
+kable(hyp.results, col.names = header) %>% 
+  kable_styling()
+```
+
+-   What are some possible lurking variables that might make our conclusion unreliable?
+
+> Answers may vary here - anything reasonable is ok
+
+### Q3b Average price
+
+-   Write out a specific hypothesis, fully specified with correct notation, as to whether the average price for `LEGO` products are higher than the population at an alpha of 0.10.
+
+> $H_0 = Mean(LEGO\:price) <= Mean(Pop\:price), H_a = Mean(LEGO\:price) > Mean(Pop\:price)$
+
+-   If we observed that the average price is different from the population mean at $p$=0.06, should we reject the null hypothesis? Why or why not?
+
+> The obvious answer is that we could reject the null hypothesis since the alpha is set at $p=0.10$. However, note the question above specifies a one sided hypothesis, this question only specifies difference.
+
+-   Does this test pass the conditions for hypothesis testing?
+
+> -   Independence: yes, seems so
+> -   Randomization: yes, seems so
+> -   10% condition: yes, we are sampling less than 10% of all possible LEGO products\
+> -   Nearly normal: not really, but we can appeal to CLT
+
+```{r q3b1}
+lego <- amazon %>% 
+  filter(manufacturer=="LEGO")
+
+ggplot(lego, aes(x=price.pounds)) +
+  geom_histogram(fill="blue4", color="black") +
+  labs(x="Price (£)", y="Count", title="Distribution of the Price of LEGO Products")
+```
+
+-   Find the $p$ value for whether the price of `LEGO` products is higher than population mean.
+
+```{r q3b2}
+header <- c("Pop Mean", "LEGO Mean", "$p$ value", "Decision")
+
+pop.price.data <- amazon %>% 
+  summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+            size = sum(!is.na(price.pounds)))
+
+l.price.data <- amazon %>% 
+  filter(manufacturer=="LEGO") %>% 
+  summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+            sd = sd(price.pounds, na.rm=TRUE),
+            size = sum(!is.na(price.pounds)))
+
+# formula is s / sqrt(n)
+est.sigma <- l.price.data$sd / sqrt(l.price.data$size)
+
+# formula is t =  / s
+t.score <- (l.price.data$mean.price - pop.price.data$mean.price) / est.sigma
+
+p.value <- pt(t.score, df=(l.price.data$size-1), lower.tail=FALSE)
+
+decision <- ifelse(p.value < 0.10, "Reject", "Fail to reject")
+p.value.present <- round(p.value, 3)
+
+hyp.results <- data.frame(t(unlist(c(round(pop.price.data$mean.price, 3), 
+                                     round(l.price.data$mean.price, 3), 
+                                     round(p.value.present, 3), 
+                                     decision))))
+
+kable(hyp.results, col.names = header) %>% 
+  kable_styling()
+```
+
+-   What are some possible lurking variables that might make our conclusion unreliable?
+
+> Answers may vary here - anything reasonable is ok
+
+-   What can you conclude about `LEGO` products from these two tests?
+
+> LEGO products appear to get similar reviews to other toy products but cost, on average, significantly more.
+
+## Q4: Hypothesis testing wisdom (25 points)
+
+```{r q4}
+ravensburger.products <- amazon %>% 
+  filter(manufacturer=="Ravensburger")
+```
+
+### Q4a Ravensburger average review
+
+-   Write out the hypothesis for whether the average review is different than the population mean for average reviews
+
+> $H_0 = Mean(R\:rating) = Mean(Pop\:rating), H_a = Mean(R\:rating) \neq Mean(Pop\:rating)$
+
+-   If we fail to reject the null hypothesis in this case, does that mean that the null hypothesis is true? Why?
+
+> No, failing to reject the null hypothesis just means we don't have enough evidence to say that the null hypothesis is not true.
+
+-   In your opinion, what $p$ value would you need to see to reject the null hypothesis
+
+> Answers may vary but 0.05 or 0.10 is a reasonable starting point
+
+-   Based on the previous question, what would you set the alpha level to?
+
+> Answers may vary but 0.05 or 0.10 is a reasonable starting point
+
+-   Let's say the data suggests that you should reject the null hypothesis. What size of difference in average review would you need to see to feel there is a *practically* significant difference?
+
+> Answers may vary here.
+
+-   By hand (show work), calculate your hypothesis test and interpret the results.
+
+```{r q4a1}
+pop.rating.data <- amazon %>% 
+  summarize(mean.rating = mean(rating, na.rm=TRUE),
+            size = sum(!is.na(rating)))
+
+r.rating.data <- ravensburger.products %>% 
+  summarize(mean.rating = mean(rating, na.rm=TRUE),
+            sd = sd(rating, na.rm=TRUE),
+            size = sum(!is.na(rating)))
+
+# formula is s / sqrt(n)
+est.sigma <- r.rating.data$sd / sqrt(r.rating.data$size)
+sd.present <- round(r.rating.data$sd, 3)
+
+# formula is t = x-bar - mu / se
+t.score <- (r.rating.data$mean.rating - pop.rating.data$mean.rating) / est.sigma
+
+se <- round(est.sigma, digits=3)
+t.distance <- round(t.score, digits=3)
+p.value <- 1-round(abs(pt(t.distance, df=r.rating.data$size-1)), digits=3)
+```
+
+> $\frac{(`r r.rating.data$mean.rating`-`r pop.rating.data$mean.rating`)}{\frac{`r sd.present`}{\sqrt{`r r.rating.data$size`}}}\Rightarrow t_{difference}=`r t.distance`$
+
+> $pt(`r t.distance`, df=`r r.rating.data$size-1`) =`r p.value`$
+
+> Since this is two sided, $`r p.value`*2 = p = `r p.value*2`$
+
+> We cannot reject the null hypothesis of no difference at a 0.05 level
+
+### Q4b Ravensburger product price
+
+-   Write out the hypothesis for whether the price of Ravensburger products is higher than the average price of toy products
+
+> $H_0 = Mean(R\:price) = Mean(Pop\:price), H_a = Mean(R\:price) > Mean(Pop\:price)$
+
+-   Explain what the difference between a Type I and a Type II error is here
+
+> -   A type I: null is true but we mistakenly reject it. We conclude that the price of Ravensburger products are higher when they are actually not.
+> -   A type II: the alternative is true but we mistakenly fail to reject the null hypothesis. We conclude the price is not higher when we actually should have.
+
+-   Which error type do you think would be more serious for a coach trying to help this player? Why?
+
+> Answers may vary. It isn't obvious which is worse so any answer with a reasonable justification is ok.
+
+-   What are two ways we could reduce the possibility of a Type I error? What are the reasons we may not take those actions to reduce the error?
+
+> We could increase the sample size or increase the power of the test by increasing alpha. Increasing the power of the test results in a greater chance of a Type II error. Increasing the sample size may increase the cost of the study.
+
+-   What is the power of this test?
+
+> The power is $1-\beta$, where $\beta$ is the probability of committing a Type II error
+
+-   How large would a difference have to be to 'matter' in the context of being a coach?
+
+> Answers may vary but I would consider something around \$5 to start to be meaningful.
+
+-   By hand (show work), calculate your hypothesis test and interpret the results.
+
+```{r q4b1}
+pop.price.data <- amazon %>% 
+  summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+            size = sum(!is.na(price.pounds)))
+
+r.price.data <- ravensburger.products %>% 
+  summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+            sd = sd(price.pounds, na.rm=TRUE),
+            size = sum(!is.na(price.pounds)))
+
+# formula is s / sqrt(n)
+est.sigma <- r.price.data$sd / sqrt(r.price.data$size)
+sd.present <- round(r.price.data$sd, 3)
+
+# formula is t =  / s
+t.score <- (r.price.data$mean.price - pop.price.data$mean.price) / est.sigma
+
+se <- round(est.sigma, digits=3)
+t.distance <- round(t.score, digits=3)
+p.value <- pt(t.distance, df=r.price.data$size-1, lower.tail=FALSE)
+p.value.present <- round(p.value, 3)
+```
+
+> $\frac{(`r r.price.data$mean.price`-`r pop.price.data$mean.price`)}{\frac{`r sd.present`}{\sqrt{`r r.price.data$size`}}}\Rightarrow t_{difference}=`r t.distance`$
+
+> $pt(`r t.distance`, df=`r r.price.data$size-1`) =`r p.value.present`$
+
+> We cannot reject the null hypothesis of no difference at a 0.05 level
+
+## Q5 Two sample $t$ and $z$ test (25 points)
+
+### Proportion of high quality products of LEGO vs. Disney (4.8+ stars)
+
+-   Write appropriate hypotheses.
+
+> $H_0 = Pr(L\:rating > 4.8) - Pr(D\:rating > 4.8) = 0, H_0 = Pr(L\:rating > 4.8) - Pr(D\:rating > 4.8) \neq 0$
+
+-   Are the assumptions and conditions necessary for inference satisfied?
+
+> -   Independence: yes, seems so
+> -   Randomization: yes, seems so
+> -   Independent Groups: no, in particular, it could be that LEGO products cost more than Disney products
+> -   Success/failure: both $p$ and $q$ are over 10
+
+-   Test the hypothesis and state your conclusion.
+
+```{r q5a1}
+d.rating.data <- amazon %>% 
+  filter(manufacturer=="Disney") %>% 
+  summarize(pos.review = sum(rating > 4.8, na.rm=TRUE),
+            size = sum(!is.na(rating)))
+
+l.rating.data <- amazon %>%
+  filter(manufacturer=="LEGO") %>% 
+  summarize(pos.review = sum(rating > 4.8, na.rm=TRUE),
+            size = sum(!is.na(rating)))
+
+d.p <- d.rating.data$pos.review / d.rating.data$size
+l.p <- l.rating.data$pos.review / l.rating.data$size
+d.n <- d.rating.data$size
+l.n <- l.rating.data$size
+
+# formula is sqrt(p1(1-p1)/n1 + p2(1-p2)/n2)
+est.sigma <- sqrt((d.p*(1-d.p) / d.n) + (l.p*(1-l.p)/ l.n))
+
+# formula is z = p1 - p2 / se
+z.score <- (d.p - l.p) / est.sigma
+
+se <- round(est.sigma, digits=3)
+z.distance <- round(z.score, digits=3)
+p.value <- 1-pnorm(abs(z.score))
+                   
+p.value.present <- round(p.value*2, 3) 
+```
+
+> $\frac{(`r d.p`-`r l.p`)}{`r se`}\Rightarrow p_{difference}=`r z.distance`$
+
+> $pnorm(`r z.distance`) = `r p.value.present`$
+
+> We cannot reject the null hypothesis of no difference at a 0.05 level
+
+-   Explain in this context what your $p$ value means.
+
+> Assuming the null hypothesis is true, about `r p.value.present*100`% of samples would have a difference this large or larger between the two groups just by chance.
+
+-   What type of error might your hypothesis conclusion be making? How could you correct for it?
+
+> This conclusion has the risk of being a Type II error, in which we fail to reject the null hypothesis even though we should reject it. We could reduce this risk by increasing the sample size or increasing $\alpha$.
+
+-   Create a 95% confidence interval for the difference.
+
+```{r q5a2}
+rating.diff <- d.p - l.p
+
+conf.int <- c(rating.diff - qnorm(0.975)*se, rating.diff + qnorm(0.975)*se)
+```
+
+> $`r d.p` - `r l.p`\pm z^*\times`r se`$
+
+> $`r conf.int`$
+
+-   Interpret your interval from a statistical perspective and explain its practical meaning.
+
+> We can be 95% confident that the difference of proportions of highly rated LEGO products and Disney products is `r conf.int`
+
+### Price of Ravensburger products vs. LEGO products
+
+-   Write out the hypothesis for whether there is a difference in the price of LEGO vs. Ravensburger products.
+
+> $H_0 = Pr(R\:price) - Pr(L\:price) = 0, H_0 = Pr(R\:price) - Pr(L\:price) \neq 0$
+
+-   Are the assumptions and conditions necessary for inference satisfied? Explain.
+
+> -   Independence: yes, seems so
+> -   Randomization: yes, seems so
+> -   Independent groups: seems unlikely that the two groups are truly independent
+> -   Nearly normal: no, but CLT should hold here
+
+```{r q5b1}
+ravensburger <- amazon %>% 
+  filter(manufacturer=="Ravensburger")
+
+lego <- amazon %>% 
+  filter(manufacturer=="LEGO")
+  
+p1 <- ggplot(ravensburger, aes(x=price.pounds)) +
+  geom_histogram(fill="blue4", color="black") +
+  labs(x="Price (£)", y="Count", title="Distribution of the Price of Ravensburger Products")
+
+p2 <- ggplot(lego, aes(x=price.pounds)) +
+  geom_histogram(fill="blue4", color="black") +
+  labs(x="Price (£)", y="Count", title="Distribution of the Price of LEGO Products")
+
+grid.arrange(p1, p2)
+```
+
+-   In this case, should you be using pooled variance?
+
+> Since this is a hypothesis of a difference in means (not proportions) and it is not an experiment, you should not be using pooled variance here.
+
+-   Create a 95% confidence interval for the difference.
+
+```{r q5b2}
+r.price.data <- amazon %>% 
+  filter(manufacturer=="Ravensburger") %>% 
+  summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+            size = sum(!is.na(price.pounds)),
+            se.price = sd(price.pounds, na.rm=TRUE))
+
+l.price.data <- amazon %>% 
+  filter(manufacturer=="LEGO") %>% 
+  summarize(mean.price = mean(price.pounds, na.rm=TRUE),
+            size = sum(!is.na(price.pounds)),
+            se.price = sd(price.pounds, na.rm=TRUE))
+
+r.p <- r.price.data$mean.price
+l.p <- l.price.data$mean.price
+r.n <- r.price.data$size
+l.n <- l.price.data$size
+
+# Use the df of the smaller of the two sample sizes
+df <- ifelse(r.n > l.n, l.n, r.n)
+
+# formula is sqrt(se1^2/n1 + se2^2/n2)
+est.sigma <- sqrt((r.price.data$se.price^2 / r.n) + (l.price.data$se.price^2 / l.n))
+
+se <- round(est.sigma, digits=3)
+
+price.diff <- r.p - l.p
+conf.int <- c(price.diff - qt(0.975, df=df)*est.sigma, price.diff + qt(0.975, df=df)*est.sigma)
+```
+
+> $`r r.p` - `r l.p` \pm t_{`r df`}\times`r se`$
+
+> $`r conf.int`$
+
+-   Interpret your interval in this context.
+
+> We are 95% confident that the true difference in price between Ravensburger products and LEGO products is between `r conf.int`
+
+-   What are some reasons that the conclusions you draw from this test might not be valid?.
+
+> We can reject the null hypothesis of no difference
+
+## Q6: Putting it all together (25 points)
+
+Through the analysis conducted in the previous section **and through at least one additional investigation of your own (an additional graph, table, or calculation)**, write at least two to three paragraphs outlining what you think are the main findings from Q1-Q5 and your own additional analysis. Based on these results, what would you recommend to a large, well known toy manufacturer considering listing their products on Amazon? What information are we missing in this dataset that we would need to better understand whether this manufacturer should try to compete on this platform?
+
+> Answers will vary

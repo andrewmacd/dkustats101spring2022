@@ -95,7 +95,7 @@ knitr::include_graphics("lego.png")
 * Write a specific hypothesis, fully specified, as to whether the proportion of reviews for `LEGO` products that are above 4.8 are different from the population at an alpha of 0.05.
 * What do you think is a reasonable critical value to select in this case? Choose your own critical value for your hypotheses tests.
 * In this case should you use a one-sided test or two-sided test? 
-* Do these test pass the conditions for a hypothesis test?
+* Does this test pass the conditions for a hypothesis test?
 * Find the $p$ value for the difference and interpret it with respect to your hypothesis test.
 * What are some possible lurking variables that might make our conclusion unreliable?
 
@@ -141,7 +141,7 @@ Now let's compare the different company's products we explored earlier.
 
 ### Proportion of high quality products of LEGO vs. Disney (4.8+ stars)
 
-* Write appropriate hypotheses.  
+* Write appropriate hypotheses that the difference in ratings between the two companies is not zero.  
 * Are the assumptions and conditions necessary for inference satisfied?  
 * Test the hypothesis and state your conclusion.  
 * Explain in this context what your $p$ value means.  
